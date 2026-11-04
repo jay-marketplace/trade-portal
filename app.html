@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prime Cargo People — Trade Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/antd@5.21.6/dist/reset.css">
+<script src="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.13/dayjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/antd@5.21.6/dist/antd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.26.2/babel.min.js"></script>
+<style>
+body{margin:0;background:#F4F3EE;font-family:"IBM Plex Sans",system-ui,sans-serif}
+.serif{font-family:"Source Serif 4",Georgia,serif;font-weight:700;letter-spacing:-0.01em}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.ph{background:#E9E4D6;color:#8A8470;display:flex;align-items:center;justify-content:center;font-size:12px;letter-spacing:.08em}
+.pcard .ant-card-body{padding:14px}
+.optcard{cursor:pointer}
+.optcard.sel{border-color:#0B3D2E!important;box-shadow:0 0 0 2px rgba(11,61,46,.12)}
+#root{min-height:100vh}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" data-presets="react">
+const { ConfigProvider, Layout, Menu, Input, Tag, Card, Row, Col, Button, InputNumber, Typography, Divider, Space, Steps, Table, Descriptions, Collapse, Badge, Statistic, Radio, Result, Alert, Tooltip } = antd;
+const { Header, Content, Footer } = Layout;
+const { Title, Text, Paragraph } = Typography;
+
+const theme = {
+  token: { colorPrimary: '#0B3D2E', colorInfo: '#0B3D2E', colorLink: '#145C45', colorWarning: '#D9731A', borderRadius: 6, fontFamily: '"IBM Plex Sans", system-ui, sans-serif', fontSize: 14, colorBgLayout: '#F4F3EE', colorBorder: '#DCD8CC', colorTextSecondary: '#5B6961' },
+  components: { Button: { controlHeightLG: 48, fontWeightStrong: 600 }, Card: { borderRadiusLG: 8 }, Menu: { horizontalItemSelectedColor: '#0B3D2E', itemSelectedColor: '#0B3D2E' }, Steps: { colorPrimary: '#0B3D2E' } }
+};
+
+// ---------- pricing model (illustrative) ----------
+const SKU = { kg: 11.8, cbm: 0.0216, perPallet: 48 };
+const TIERS = [[5000, 56.20], [1000, 57.40], [0, 58.90]];
+const R = { pickupPerCbm: 14, pickupMin: 60, cfs: 140, docs: 120, lclPerCbm: 92, lclMin: 220, fcl20: 2650, fcl40: 3650, airKg: 3.9, airMin: 420, ins: 0.003, duty: 0.06, mpf: 0.003464, hmf: 0.00125, customs: 275, dray: 620, lastMilePallet: 62, lastMileMin: 320, airTerminal: 260, airDelivery: 310, fee: 0.025 };
+const money = n => '$' + Math.round(n).toLocaleString('en-US');
+const eta = d => { const x = new Date(); x.setDate(x.getDate() + d + 7); return x.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }); };
+function calc(q) {
+  const tier = TIERS.find(t => q >= t[0])[1];
+  const goods = q * tier, kg = q * SKU.kg, cbm = q * SKU.cbm, pallets = Math.ceil(q / SKU.perPallet);
+  const origin = Math.max(R.pickupMin, cbm * R.pickupPerCbm) + R.cfs + R.docs;
+  let seaLabel, seaFreight, seaDays;
+  if (cbm <= 15) { seaLabel = 'LCL · shared container'; seaFreight = Math.max(R.lclMin, cbm * R.lclPerCbm); seaDays = 38; }
+  else if (cbm <= 28) { seaLabel = '20′ container'; seaFreight = R.fcl20; seaDays = 32; }
+  else { const n = Math.ceil(cbm / 58); seaLabel = n > 1 ? n + ' × 40′ containers' : '40′ container'; seaFreight = R.fcl40 * n; seaDays = 32; }
+  const chg = Math.max(kg, cbm * 167), airFreight = Math.max(R.airMin, chg * R.airKg);
+  const duty = goods * R.duty, mpf = Math.min(Math.max(goods * R.mpf, 31.67), 614.35);
+  const lastMile = Math.max(R.lastMileMin, pallets * R.lastMilePallet);
+  const sea = { label: seaLabel, days: seaDays, parts: [['Goods (supplier price)', goods], ['India pickup, port handling, export docs', origin], ['Ocean freight (' + seaLabel + ')', seaFreight], ['Insurance', R.ins * (goods + seaFreight)], ['US duty', duty], ['MPF + HMF', mpf + goods * R.hmf], ['Customs entry + FDA prior notice', R.customs], ['Port drayage', R.dray], ['Delivery to your door (' + pallets + ' pallets)', lastMile]] };
+  const air = { label: 'Air · AMD → EWR', days: 6, parts: [['Goods (supplier price)', goods], ['India pickup, airport handling, export docs', origin], ['Air freight (' + Math.round(chg).toLocaleString() + ' kg chargeable)', airFreight], ['Insurance', R.ins * (goods + airFreight)], ['US duty', duty], ['MPF', mpf], ['Customs entry + FDA prior notice', R.customs], ['Airport terminal handling', R.airTerminal], ['Delivery to your door (' + pallets + ' pallets)', Math.max(R.airDelivery, lastMile)]] };
+  [sea, air].forEach(o => { const s = o.parts.reduce((a, p) => a + p[1], 0); o.parts.push(['Platform fee', s * R.fee]); o.total = s * (1 + R.fee); o.pc = o.total / q; });
+  return { q, tier, kg, cbm, pallets, sea, air };
+}
+
+const PRODUCTS = [
+  { id: 1, name: 'Amul Pure Ghee 1 L tin', sup: 'Shree Krishna Exports', city: 'Ahmedabad', pack: '12/carton', price: 58.90, tier: 'from $57.40 at 1,000+', rating: '4.8', verified: true },
+  { id: 2, name: 'Amul Pure Ghee 1 L tin', sup: 'Gujarat Agro Traders', city: 'Mumbai', pack: '12/carton', price: 59.40, rating: '4.6', verified: true },
+  { id: 3, name: 'Amul Pure Ghee 500 ml tin', sup: 'Kailash Sagar Enterprise', city: 'Ahmedabad', pack: '24/carton', price: 60.10, rating: '4.7', verified: true },
+  { id: 4, name: 'Amul Pure Ghee 1 L tin', sup: 'Raj Dairy Distributors', city: 'Surat', pack: '12/carton', price: 57.60, verified: false },
+  { id: 5, name: 'Amul Cow Ghee 1 L pouch', sup: 'Saurashtra Foods', city: 'Rajkot', pack: '12/carton', price: 54.20, rating: '4.9', verified: true },
+  { id: 6, name: 'Amul Butter 500 g', sup: 'Shree Krishna Exports', city: 'Ahmedabad', pack: '20/carton', price: 52.10, rating: '4.8', verified: true },
+  { id: 7, name: 'India Gate Basmati 10 lb', sup: 'Shree Krishna Exports', city: 'Ahmedabad', pack: '4/carton', price: 33.80, rating: '4.8', verified: true },
+  { id: 8, name: 'MDH Masala assortment', sup: 'Shree Krishna Exports', city: 'Ahmedabad', pack: '48/carton', price: 29.60, rating: '4.8', verified: true },
+];
+
+function useHash() {
+  const [h, setH] = React.useState(location.hash.slice(1) || 'home');
+  React.useEffect(() => { const f = () => { setH(location.hash.slice(1) || 'home'); window.scrollTo(0, 0); }; window.addEventListener('hashchange', f); return () => window.removeEventListener('hashchange', f); }, []);
+  return h;
+}
+const go = h => { location.hash = h; };
+
+function Home() {
+  return (
+    <div className="wrap">
+      <div style={{ padding: '52px 0 24px', maxWidth: 760 }}>
+        <Title className="serif" style={{ fontSize: 42, lineHeight: 1.1, margin: '0 0 10px' }}>Buy from India. Pay one price. It arrives at your door.</Title>
+        <Paragraph type="secondary" style={{ fontSize: 16, maxWidth: 620 }}>Verified suppliers, any quantity, and a single delivered price by sea or by air — freight, customs, duties and trucking handled by Prime Cargo People, a licensed US forwarder and customs broker.</Paragraph>
+        <Input.Search size="large" defaultValue="Amul ghee" enterButton="Search" style={{ maxWidth: 680 }} />
+        <Space wrap style={{ marginTop: 14 }}>{['Ghee & dairy', 'Rice & grains', 'Spices', 'Snacks', 'Flour & pulses', 'Pickles & pastes', 'Beverages'].map(c => <Tag key={c} style={{ padding: '4px 12px', fontSize: 13 }}>{c}</Tag>)}</Space>
+        <Space size={24} wrap style={{ marginTop: 22, color: '#5B6961', fontSize: 13 }}>
+          <span><b>Any quantity</b> · 5 cartons or 5 containers</span><span><b>Door price at checkout</b> · sea or air, nothing added later</span><span><b>One accountable partner</b> · FMC-licensed, own customs desk</span>
+        </Space>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 12 }}>
+        <Title level={4} className="serif" style={{ margin: 0 }}>“Amul ghee” · 14 suppliers</Title>
+        <Text type="secondary" style={{ fontSize: 13 }}>Prices shown are the supplier’s price · delivery calculated at checkout</Text>
+      </div>
+      <Row gutter={[16, 16]}>
+        {PRODUCTS.slice(0, 5).map(p => (
+          <Col key={p.id} xs={24} sm={12} md={8} lg={6}>
+            <Card className="pcard" hoverable onClick={() => go('product')} cover={<div className="ph" style={{ height: 140 }}>PHOTO</div>}>
+              {p.verified ? <Tag color="green">Verified · {p.rating} ★</Tag> : <Tag color="orange">New supplier</Tag>}
+              <div style={{ fontWeight: 600, marginTop: 6 }}>{p.name}</div>
+              <Text type="secondary" style={{ fontSize: 13 }}>{p.sup} · {p.city} · {p.pack}</Text>
+              <div style={{ marginTop: 6 }}><Text strong style={{ fontSize: 18 }}>${p.price.toFixed(2)}</Text> <Text type="secondary" style={{ fontSize: 12 }}>/ carton{p.tier ? ' · ' + p.tier : ''}</Text></div>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', margin: '36px 0 12px' }}>
+        <Title level={4} className="serif" style={{ margin: 0 }}>Often shipped together</Title>
+        <Text type="secondary" style={{ fontSize: 13 }}>Same supplier, same container — freight gets cheaper per carton</Text>
+      </div>
+      <Row gutter={[16, 16]} style={{ paddingBottom: 48 }}>
+        {PRODUCTS.slice(5).map(p => (
+          <Col key={p.id} xs={24} sm={12} md={8} lg={6}>
+            <Card className="pcard" hoverable onClick={() => go('product')} cover={<div className="ph" style={{ height: 120 }}>PHOTO</div>}>
+              <div style={{ fontWeight: 600 }}>{p.name}</div>
+              <Text type="secondary" style={{ fontSize: 13 }}>{p.sup} · {p.pack}</Text>
+              <div style={{ marginTop: 6 }}><Text strong style={{ fontSize: 17 }}>${p.price.toFixed(2)}</Text> <Text type="secondary" style={{ fontSize: 12 }}>/ carton</Text></div>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </div>
+  );
+}
+
+function Product({ qty, setQty, mode, setMode }) {
+  const c = calc(qty);
+  const o = c[mode];
+  const Opt = ({ k, label, tag, tagColor, data }) => (
+    <Card size="small" className={'optcard' + (mode === k ? ' sel' : '')} onClick={() => setMode(k)} style={{ marginBottom: 10 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div><Space><Text strong style={{ fontSize: 15 }}>{label}</Text><Tag color={tagColor}>{tag}</Tag></Space><div><Text type="secondary" style={{ fontSize: 12.5 }}>{data.label} · {data.days} days · arrives {eta(data.days)}</Text></div></div>
+        <div style={{ textAlign: 'right' }}><div className="serif" style={{ fontSize: 24 }}>{money(data.total)}</div><Text type="secondary" style={{ fontSize: 12 }}>${data.pc.toFixed(2)} per carton delivered</Text></div>
+      </div>
+    </Card>
+  );
+  return (
+    <div className="wrap" style={{ padding: '32px 0 56px' }}>
+      <Row gutter={[36, 24]}>
+        <Col xs={24} md={13}>
+          <div className="ph" style={{ height: 360, borderRadius: 8 }}>PHOTO</div>
+          <Title className="serif" style={{ fontSize: 32, margin: '20px 0 4px' }}>Amul Pure Ghee 1 L tin</Title>
+          <Text type="secondary">Shree Krishna Exports · Ahmedabad, Gujarat · <Text strong style={{ color: '#1D5F3F' }}>Verified supplier</Text> · 4.8 ★ · 62 orders delivered</Text>
+          <Descriptions column={2} size="small" style={{ marginTop: 18 }} items={[
+            { label: 'Carton', children: '12 × 1 L · 11.8 kg · 40 × 30 × 18 cm' }, { label: 'Pallet', children: '48 cartons per pallet' },
+            { label: 'Shelf life', children: '12 months · ambient, no reefer' }, { label: 'Ready to ship', children: '7 days after order' },
+            { label: 'Compliance', children: 'FDA facility registered · FSSAI · HS code confirmed' }, { label: 'Price tiers', children: '$58.90 · 1,000+ → $57.40 · 5,000+ → $56.20' },
+          ]} />
+        </Col>
+        <Col xs={24} md={11}>
+          <Card style={{ position: 'sticky', top: 20 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}><Text type="secondary">Supplier price</Text><Text strong>${c.tier.toFixed(2)} / carton</Text></div>
+            <Space style={{ margin: '10px 0 4px' }}><InputNumber size="large" min={1} max={50000} value={qty} onChange={v => setQty(v || 1)} style={{ width: 150 }} formatter={v => `${v}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')} parser={v => v.replace(/,/g, '')} /><Text type="secondary">cartons</Text></Space>
+            <div><Text type="secondary" style={{ fontSize: 12.5 }}>{qty.toLocaleString()} cartons · {Math.round(c.kg).toLocaleString()} kg · {c.cbm.toFixed(1)} m³ · {c.pallets} pallets</Text></div>
+            <Steps size="small" style={{ margin: '14px 0 16px' }} items={[{ title: 'Ahmedabad' }, { title: 'Mundra' }, { title: 'NY/NJ' }, { title: 'Jersey City' }]} current={3} progressDot />
+            <Opt k="sea" label="By sea" tag={c.cbm <= 15 ? 'Small order' : 'Best value'} tagColor="green" data={c.sea} />
+            <Opt k="air" label="By air" tag="Fastest" tagColor="orange" data={c.air} />
+            <Collapse ghost size="small" items={[{ key: '1', label: <Text type="secondary" style={{ fontSize: 12.5 }}>Includes freight, customs, duties &amp; delivery to your door — what’s included</Text>, children: <Table size="small" pagination={false} showHeader={false} columns={[{ dataIndex: 0 }, { dataIndex: 1, align: 'right', render: v => money(v) }]} dataSource={o.parts.map((p, i) => ({ key: i, 0: p[0], 1: p[1] }))} summary={() => <Table.Summary.Row><Table.Summary.Cell index={0}><b>Total delivered</b></Table.Summary.Cell><Table.Summary.Cell index={1} align="right"><b>{money(o.total)}</b></Table.Summary.Cell></Table.Summary.Row>} /> }]} />
+            <Button type="primary" size="large" block style={{ marginTop: 12 }} onClick={() => go('checkout')}>Continue · pay 30% today</Button>
+            <div style={{ textAlign: 'center', marginTop: 8 }}><Text type="secondary" style={{ fontSize: 12 }}>Price locked for 7 days · pay by ACH, wire or card</Text></div>
+          </Card>
+        </Col>
+      </Row>
+    </div>
+  );
+}
+
+function Checkout({ qty, mode }) {
+  const c = calc(qty); const o = c[mode];
+  return (
+    <div className="wrap" style={{ padding: '32px 0 60px' }}>
+      <Title className="serif" style={{ fontSize: 30, margin: '0 0 18px' }}>Checkout</Title>
+      <Row gutter={[32, 16]}>
+        <Col xs={24} md={14}>
+          <Card title="Your order" style={{ marginBottom: 16 }}>
+            <Descriptions column={1} items={[
+              { label: 'Item', children: <span><b>Amul Pure Ghee 1 L tin</b> · Shree Krishna Exports · {qty.toLocaleString()} cartons</span> },
+              { label: 'Shipping', children: <span><b>{mode === 'sea' ? 'By sea' : 'By air'}</b> · {o.days} days · arrives {eta(o.days)}</span> },
+              { label: 'Deliver to', children: <span><b>Patel Cash &amp; Carry</b> · 500 Route 440, Jersey City NJ 07302 · liftgate · Mon–Fri 7–3</span> },
+              { label: 'Importer of record', children: <span><b>Patel Cash &amp; Carry</b> · EIN on file · continuous bond ✓ · FDA registration ✓</span> },
+            ]} />
+          </Card>
+          <Card title="What happens next" style={{ marginBottom: 16 }}>
+            <Steps direction="vertical" size="small" current={0} items={[
+              { title: 'Supplier confirms within 24 hours', description: 'You’re notified on WhatsApp and email.' },
+              { title: 'We pick up in Ahmedabad and handle Indian export', description: 'Shipping bill, FSSAI, certificate of origin — nothing for you to chase.' },
+              { title: 'On the water — live tracking, ETA updates', description: 'Balance of goods due when the bill of lading is issued.' },
+              { title: 'US customs cleared by our own desk', description: 'ISF, entry, FDA prior notice, duties — included in your price.' },
+              { title: 'Delivered to your dock', description: 'Our truck, liftgate, appointment booked with your warehouse.' },
+            ]} />
+          </Card>
+          <Card title="Payment">
+            <Radio.Group defaultValue="deposit" style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              <Radio value="deposit"><b>30% today, 70% on bill of lading</b> <Text type="secondary">· funds held in escrow until your goods ship</Text></Radio>
+              <Radio value="net30"><b>Net 30</b> <Text type="secondary">· available for approved repeat buyers</Text></Radio>
+            </Radio.Group>
+          </Card>
+        </Col>
+        <Col xs={24} md={10}>
+          <Card>
+            <Text type="secondary">Total delivered to your door</Text>
+            <div className="serif" style={{ fontSize: 34 }}>{money(o.total)}</div>
+            <Text type="secondary" style={{ fontSize: 13 }}>${o.pc.toFixed(2)} per carton · includes everything · no surprises</Text>
+            <Divider style={{ margin: '14px 0' }} />
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>Due today (30%)</span><b>{money(o.total * 0.3)}</b></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 6 }}><span>Due on bill of lading</span><b>{money(o.total * 0.7)}</b></div>
+            <Button type="primary" size="large" block style={{ marginTop: 16, background: '#D9731A' }} onClick={() => go('done')}>Place order · pay {money(o.total * 0.3)}</Button>
+            <div style={{ textAlign: 'center', marginTop: 8 }}><Text type="secondary" style={{ fontSize: 12 }}>Duty variance over $500 is on us. Price locked 7 days.</Text></div>
+          </Card>
+        </Col>
+      </Row>
+    </div>
+  );
+}
+
+function Done() {
+  return <div className="wrap" style={{ padding: '60px 0' }}><Result status="success" title={<span className="serif" style={{ fontSize: 30 }}>Your ghee is on its way.</span>} subTitle="Order #1204 placed. Supplier will confirm within 24 hours. You’ll get a WhatsApp update at every milestone — pickup, export, on water, customs, delivery." extra={<Button type="primary" size="large" onClick={() => go('orders')}>Track order</Button>} /></div>;
+}
+
+function Orders() {
+  const data = [
+    { key: 1, id: '#1204', item: 'Amul Pure Ghee 1 L · 2,000 cartons', sup: 'Shree Krishna Exports', mode: 'Sea', total: '$161,989', status: <Tag color="orange">Awaiting supplier confirmation</Tag>, eta: 'Dec 8' },
+    { key: 2, id: '#1182', item: 'Amul Pure Ghee 1 L · 2,000 cartons', sup: 'Shree Krishna Exports', mode: 'Sea', total: '$133,375', status: <Tag color="green">On the water · Suez</Tag>, eta: 'Nov 24' },
+    { key: 3, id: '#1150', item: 'MDH Masala · 300 cartons', sup: 'Gujarat Agro Traders', mode: 'Air', total: '$14,920', status: <Tag>Delivered Oct 29</Tag>, eta: '—' },
+  ];
+  return <div className="wrap" style={{ padding: '32px 0 60px' }}><Title className="serif" style={{ fontSize: 30, margin: '0 0 18px' }}>Orders</Title><Card><Table pagination={false} dataSource={data} columns={[{ title: 'Order', dataIndex: 'id' }, { title: 'Item', dataIndex: 'item' }, { title: 'Supplier', dataIndex: 'sup' }, { title: 'Mode', dataIndex: 'mode' }, { title: 'Total delivered', dataIndex: 'total' }, { title: 'Status', dataIndex: 'status' }, { title: 'Arrives', dataIndex: 'eta' }]} /></Card></div>;
+}
+
+function App() {
+  const h = useHash();
+  const [qty, setQty] = React.useState(2000);
+  const [mode, setMode] = React.useState('sea');
+  const page = h === 'product' ? <Product qty={qty} setQty={setQty} mode={mode} setMode={setMode} /> : h === 'checkout' ? <Checkout qty={qty} mode={mode} /> : h === 'done' ? <Done /> : h === 'orders' ? <Orders /> : <Home />;
+  return (
+    <ConfigProvider theme={theme}>
+      <Layout style={{ minHeight: '100vh' }}>
+        <Header style={{ background: '#fff', borderBottom: '1px solid #DCD8CC', padding: 0, height: 64 }}>
+          <div className="wrap" style={{ display: 'flex', alignItems: 'center', height: 64, gap: 24 }}>
+            <a href="#home" className="serif" style={{ fontSize: 20, color: '#0B3D2E', lineHeight: 1.1 }}>Prime Cargo People<div style={{ fontFamily: '"IBM Plex Sans"', fontSize: 10, fontWeight: 500, letterSpacing: '.14em', color: '#5B6961' }}>MARKETPLACE · INDIA → USA</div></a>
+            <Menu mode="horizontal" selectedKeys={[h === 'product' ? 'home' : h]} style={{ marginLeft: 'auto', borderBottom: 0, minWidth: 320, justifyContent: 'flex-end' }} items={[{ key: 'home', label: <a href="#home">Shop</a> }, { key: 'orders', label: <a href="#orders">Orders</a> }, { key: 'checkout', label: <a href="#checkout"><Badge count={1} size="small" offset={[8, 0]} color="#D9731A">Cart</Badge></a> }]} />
+          </div>
+        </Header>
+        <Content>{page}</Content>
+        <Footer style={{ background: 'transparent', borderTop: '1px solid #DCD8CC', color: '#5B6961', fontSize: 12.5 }}><div className="wrap" style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8 }}><span>Prime Cargo People Logistics · FMC OTI licensed · TSA-certified IAC · WCA #136867 · Jersey City, NJ</span><span>Prototype · prices illustrative</span></div></Footer>
+      </Layout>
+    </ConfigProvider>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
