@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prime Cargo People – Import Marketplace</title>
+<style>
+:root{--ink:#1F2328;--mute:#5F6B76;--line:#C9CDD2;--line2:#E3E6E9;--th:#F0F2F4;--navy:#0A3D62;--navy2:#0C4A77;--sig:#D3540B;--sigh:#B5470A;--ok:#1C7C3A}
+*{box-sizing:border-box}
+html,body{margin:0;background:#fff;color:var(--ink);font:13px/1.4 Arial,Helvetica,sans-serif}
+a{color:var(--navy2)}
+table{border-collapse:collapse}
+input,select,button{font:inherit}
+.n{font-variant-numeric:tabular-nums}
+.wrap{max-width:1240px;margin:0 auto;padding:0 16px}
+/* header */
+.util{background:var(--navy);color:#fff;font-size:12px}
+.util .wrap{display:flex;gap:18px;height:28px;align-items:center}
+.util a{color:#fff;text-decoration:none}
+.util .r{margin-left:auto;display:flex;gap:18px}
+.hdr{border-bottom:2px solid var(--navy)}
+.hdr .wrap{display:flex;align-items:center;gap:20px;height:64px}
+.logo{text-decoration:none;color:var(--navy);font-weight:bold;font-size:19px;letter-spacing:-.2px;white-space:nowrap}
+.logo small{display:block;font-weight:normal;font-size:11px;color:var(--mute);letter-spacing:0}
+.search{flex:1;display:flex;max-width:640px}
+.search input{flex:1;height:36px;border:1px solid var(--line);border-right:0;padding:0 10px;font-size:14px}
+.search button{height:36px;padding:0 16px;border:1px solid var(--navy);background:var(--navy);color:#fff;font-weight:bold;cursor:pointer}
+.shipto{font-size:12px;line-height:1.25}
+.shipto b{display:block;font-size:13px}
+.cats{border-bottom:1px solid var(--line)}
+.cats .wrap{display:flex;gap:0;height:34px;align-items:stretch}
+.cats a{display:flex;align-items:center;padding:0 12px;text-decoration:none;color:var(--ink);font-weight:bold;font-size:12.5px;border-right:1px solid var(--line2)}
+.cats a:first-child{padding-left:0}
+.cats a.on{color:var(--navy);box-shadow:inset 0 -3px 0 var(--sig)}
+.crumb{font-size:12px;color:var(--mute);padding:10px 0 6px}
+.crumb a{text-decoration:none}
+/* layout */
+.page{display:grid;grid-template-columns:210px 1fr;gap:24px;padding:4px 0 40px}
+.rail h4{margin:14px 0 6px;font-size:12px;border-bottom:1px solid var(--line);padding-bottom:4px}
+.rail label{display:block;font-size:12.5px;padding:2px 0}
+.rail label span{color:var(--mute)}
+.rail input[type=checkbox]{margin:0 6px 0 0;vertical-align:-1px}
+h1{font-size:20px;margin:6px 0 2px}
+.sub{color:var(--mute);font-size:12px;margin-bottom:10px}
+.bar{display:flex;align-items:center;gap:14px;background:var(--th);border:1px solid var(--line);padding:8px 10px;margin-bottom:10px;font-size:12.5px}
+.bar input{width:84px;height:28px;border:1px solid var(--line);padding:0 8px;text-align:right}
+.bar .sp{margin-left:auto;color:var(--mute)}
+/* results table */
+.res{width:100%;font-size:12.5px}
+.res th{background:var(--th);text-align:left;border:1px solid var(--line);padding:6px 8px;font-size:11.5px;color:var(--ink);vertical-align:bottom}
+.res th.r,.res td.r{text-align:right}
+.res td{border:1px solid var(--line2);padding:8px;vertical-align:top}
+.res tr:hover td{background:#FAFBFC}
+.thumb{width:64px;height:64px;border:1px solid var(--line2);background:#F7F7F7;display:block}
+.pname{font-weight:bold;color:var(--navy2);text-decoration:none;font-size:13px}
+.spec{color:var(--mute);font-size:12px;margin-top:2px}
+.sup{font-size:12px;margin-top:3px}
+.ver{color:var(--ok);font-weight:bold}
+.brk{font-size:12px;width:100%}
+.brk td{border:0;padding:1px 0;white-space:nowrap}
+.brk td.r{text-align:right;padding-left:10px}
+.brk .cur{font-weight:bold}
+.dl{font-size:12px;white-space:nowrap}
+.dl b{font-size:13px}
+.dl .s{color:var(--mute)}
+.qty{width:62px;height:28px;border:1px solid var(--line);text-align:right;padding:0 6px}
+.btn{height:28px;padding:0 12px;border:1px solid var(--sig);background:var(--sig);color:#fff;font-weight:bold;cursor:pointer;border-radius:2px}
+.btn:hover{background:var(--sigh)}
+.btn.lg{height:38px;padding:0 20px;font-size:14px}
+.btn.q{background:#fff;color:var(--navy);border-color:var(--navy)}
+.note{font-size:11.5px;color:var(--mute);margin-top:8px}
+/* product */
+.prod{display:grid;grid-template-columns:1fr 360px;gap:28px;padding:6px 0 40px}
+.gal{display:grid;grid-template-columns:1fr 70px;gap:8px}
+.gal .big{height:300px;border:1px solid var(--line2);background:#F7F7F7}
+.gal .tn{height:70px;border:1px solid var(--line2);background:#F7F7F7;margin-bottom:8px}
+.kv{width:100%;font-size:12.5px;margin-top:14px}
+.kv th{width:170px;text-align:left;background:var(--th);border:1px solid var(--line2);padding:5px 8px;font-weight:normal;color:var(--mute)}
+.kv td{border:1px solid var(--line2);padding:5px 8px}
+h2{font-size:15px;margin:18px 0 6px}
+.box{border:1px solid var(--line);padding:14px}
+.box .ttl{font-weight:bold;font-size:13px;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:10px}
+.row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-size:12.5px}
+.opt{width:100%;font-size:12.5px;margin:8px 0}
+.opt th{text-align:left;background:var(--th);border:1px solid var(--line2);padding:5px 8px;font-size:11.5px}
+.opt td{border:1px solid var(--line2);padding:7px 8px;vertical-align:middle}
+.opt td.r,.opt th.r{text-align:right}
+.opt tr.sel td{background:#FFF6EF}
+.opt input[type=radio]{margin:0 6px 0 0;vertical-align:-1px}
+.tot{display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid var(--ink);margin-top:8px;padding-top:8px}
+.tot b{font-size:20px}
+.inc{font-size:11.5px;color:var(--mute);margin:6px 0 10px}
+.inc a{cursor:pointer}
+.brkdn{display:none;font-size:12px;border:1px solid var(--line2);margin:0 0 10px}
+.brkdn.on{display:block}
+.brkdn div{display:flex;justify-content:space-between;padding:3px 8px;border-bottom:1px solid var(--line2)}
+.brkdn div:last-child{border-bottom:0;background:var(--th);font-weight:bold}
+/* checkout */
+.co{display:grid;grid-template-columns:1fr 340px;gap:28px;padding:6px 0 40px}
+.sec{border:1px solid var(--line);margin-bottom:14px}
+.sec .h{background:var(--th);border-bottom:1px solid var(--line);padding:7px 10px;font-weight:bold}
+.sec .b{padding:10px}
+.ck{width:100%;font-size:12.5px}
+.ck th{text-align:left;background:var(--th);border:1px solid var(--line2);padding:5px 8px;font-size:11.5px}
+.ck td{border:1px solid var(--line2);padding:6px 8px}
+.ck td.r,.ck th.r{text-align:right}
+ol.steps{margin:0;padding-left:18px;font-size:12.5px}
+ol.steps li{margin:4px 0}
+ol.steps span{color:var(--mute)}
+.view{display:none}.view.on{display:block}
+.foot{border-top:1px solid var(--line);padding:14px 0;font-size:11.5px;color:var(--mute)}
+.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+@media (max-width:900px){.page,.prod,.co{grid-template-columns:1fr}.rail{display:none}.res th:nth-child(4),.res td:nth-child(4){display:none}}
+</style>
+</head>
+<body>
+
+<div class="util"><div class="wrap"><span>Prime Cargo People Logistics · FMC OTI 029584 · Licensed customs broker</span><div class="r"><a href="#orders">Orders</a><a href="#">Quotes</a><a href="#">Account: Patel Cash &amp; Carry</a><a href="#">Help 201-905-0075</a></div></div></div>
+<div class="hdr"><div class="wrap">
+  <a class="logo" href="#catalog">Prime Cargo People<small>Import marketplace · India to USA</small></a>
+  <form class="search" onsubmit="return false"><input value="Amul ghee" aria-label="Search products, brands, suppliers"><button type="submit">Search</button></form>
+  <div class="shipto">Ship to<b>Jersey City, NJ 07302</b><a href="#">change</a></div>
+  <div class="shipto">Cart<b id="cartB">1 line</b><a href="#checkout">view cart</a></div>
+</div></div>
+<div class="cats"><div class="wrap"><a class="on" href="#catalog">Dairy &amp; ghee</a><a href="#">Rice &amp; grains</a><a href="#">Flour &amp; pulses</a><a href="#">Spices</a><a href="#">Snacks</a><a href="#">Pickles &amp; pastes</a><a href="#">Beverages</a><a href="#">Frozen</a><a href="#">All suppliers</a></div></div>
+
+<!-- CATALOG -->
+<section id="catalog" class="view on"><div class="wrap">
+  <div class="crumb"><a href="#catalog">Home</a> › <a href="#catalog">Dairy &amp; ghee</a> › Search: “Amul ghee”</div>
+  <div class="page">
+    <aside class="rail">
+      <h4>Pack size</h4>
+      <label><input type="checkbox" checked>1 L tin <span>(9)</span></label><label><input type="checkbox" checked>500 ml tin <span>(3)</span></label><label><input type="checkbox" checked>1 L pouch <span>(2)</span></label>
+      <h4>Supplier</h4>
+      <label><input type="checkbox" checked>Verified only <span>(12)</span></label><label><input type="checkbox">Include new suppliers <span>(2)</span></label>
+      <h4>Ships from</h4>
+      <label><input type="checkbox" checked>Gujarat – Mundra <span>(10)</span></label><label><input type="checkbox" checked>Maharashtra – Nhava Sheva <span>(4)</span></label>
+      <h4>Ready to ship</h4>
+      <label><input type="checkbox" checked>Within 7 days <span>(11)</span></label><label><input type="checkbox">8–14 days <span>(3)</span></label>
+      <h4>Compliance</h4>
+      <label><input type="checkbox" checked>FDA facility registered</label><label><input type="checkbox" checked>HS code confirmed</label>
+    </aside>
+    <main>
+      <h1>Amul ghee</h1>
+      <div class="sub">14 products from 12 suppliers. Prices in USD per carton, ex-works India. Delivered columns include freight, customs, duty and trucking to 07302.</div>
+      <div class="bar">Show delivered price for <input id="qtyAll" class="n" value="500" inputmode="numeric" oninput="renderRows()"> cartons <span class="sp">Sort: Delivered by sea, low to high</span></div>
+      <table class="res" id="resT">
+        <thead><tr><th style="width:72px"></th><th>Product</th><th>Supplier</th><th style="width:170px">Price breaks / ctn</th><th class="r" style="width:120px">Delivered by sea</th><th class="r" style="width:120px">Delivered by air</th><th style="width:140px">Qty</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <div class="note">Delivered prices are firm for 7 days once added to cart. Sea = FCL or LCL depending on volume; air = AMD/BOM to EWR. Duty variance over $500 absorbed by Prime Cargo People.</div>
+    </main>
+  </div>
+</div></section>
+
+<!-- PRODUCT -->
+<section id="product" class="view"><div class="wrap">
+  <div class="crumb"><a href="#catalog">Home</a> › <a href="#catalog">Dairy &amp; ghee</a> › <a href="#catalog">Amul ghee</a> › Amul Pure Ghee 1 L tin, 12/ctn</div>
+  <div class="prod">
+    <div>
+      <h1 style="margin-top:0">Amul Pure Ghee 1 L tin, 12 per carton</h1>
+      <div class="sub">Item SKE-AMG-1L · Supplier: Shree Krishna Exports, Ahmedabad (Gujarat) · <span class="ver">Verified</span> · 62 orders delivered · HS 0405.90.10</div>
+      <div class="gal"><div class="big"></div><div><div class="tn"></div><div class="tn"></div><div class="tn"></div></div></div>
+      <h2>Specifications</h2>
+      <table class="kv">
+        <tr><th>Pack</th><td>12 × 1 L tins, printed shipper carton</td></tr>
+        <tr><th>Carton weight / size</th><td>11.8 kg gross · 40 × 30 × 18 cm · 0.0216 m³</td></tr>
+        <tr><th>Pallet</th><td>48 cartons (4 layers × 12) · 120 × 100 cm · 580 kg</td></tr>
+        <tr><th>Shelf life</th><td>12 months from manufacture · ambient storage</td></tr>
+        <tr><th>Ready to ship</th><td>7 days after supplier confirmation</td></tr>
+        <tr><th>Ships from</th><td>Ahmedabad, Gujarat → Port of Mundra (INMUN) · Air: Ahmedabad (AMD)</td></tr>
+        <tr><th>Compliance</th><td>FDA food facility reg. 1xxxxxxxxx · FSSAI 10xxxxxxxxxx · HS 0405.90.10 confirmed by PCP customs desk · US duty 6%</td></tr>
+        <tr><th>Price breaks (ex-works)</th><td class="n">1–999 ctn $58.90 · 1,000–4,999 ctn $57.40 · 5,000+ ctn $56.20</td></tr>
+      </table>
+      <h2>Also from Shree Krishna Exports</h2>
+      <div class="sub">Add to the same shipment to lower freight per carton.</div>
+      <table class="res"><tbody>
+        <tr><td style="width:72px"><span class="thumb" style="width:48px;height:48px"></span></td><td><a class="pname" href="#product">Amul Butter 500 g, 20/ctn</a><div class="spec">9.8 kg · 0.019 m³</div></td><td class="n">$52.10 / ctn</td><td class="r"><button class="btn q">Add</button></td></tr>
+        <tr><td><span class="thumb" style="width:48px;height:48px"></span></td><td><a class="pname" href="#product">India Gate Basmati 10 lb, 4/ctn</a><div class="spec">18.4 kg · 0.030 m³</div></td><td class="n">$33.80 / ctn</td><td class="r"><button class="btn q">Add</button></td></tr>
+        <tr><td><span class="thumb" style="width:48px;height:48px"></span></td><td><a class="pname" href="#product">MDH Masala assortment, 48/ctn</a><div class="spec">7.2 kg · 0.024 m³</div></td><td class="n">$29.60 / ctn</td><td class="r"><button class="btn q">Add</button></td></tr>
+      </tbody></table>
+    </div>
+    <aside>
+      <div class="box">
+        <div class="ttl">Order</div>
+        <div class="row"><span>Quantity (cartons)</span><input id="qtyP" class="qty n" style="width:90px;height:32px" value="2000" inputmode="numeric" oninput="renderProduct()"></div>
+        <div class="row"><span>Ex-works price</span><b id="pTier" class="n"></b></div>
+        <div class="row"><span>Shipment</span><span id="pCargo" class="n"></span></div>
+        <div class="row"><span>Route</span><span class="n">INMUN → USNYC → 07302</span></div>
+        <table class="opt">
+          <thead><tr><th>Delivery</th><th>Transit</th><th class="r">Total</th><th class="r">Per ctn</th></tr></thead>
+          <tbody>
+            <tr id="rSea" class="sel" onclick="pick('sea')"><td><input type="radio" name="m" id="mSea" checked>Sea<div class="spec" id="seaL"></div></td><td class="n" id="seaD"></td><td class="r n" id="seaT"></td><td class="r n" id="seaP"></td></tr>
+            <tr id="rAir" onclick="pick('air')"><td><input type="radio" name="m" id="mAir">Air<div class="spec" id="airL"></div></td><td class="n" id="airD"></td><td class="r n" id="airT"></td><td class="r n" id="airP"></td></tr>
+          </tbody>
+        </table>
+        <div class="tot"><span>Delivered to 07302</span><b id="pTot" class="n"></b></div>
+        <div class="inc">Includes ex-works price, India pickup, freight, insurance, US duty, customs entry, FDA prior notice, drayage and delivery. <a onclick="document.getElementById('bd').classList.toggle('on')">Show breakdown</a></div>
+        <div class="brkdn n" id="bd"></div>
+        <button class="btn lg" style="width:100%" onclick="location.hash='checkout'">Add to cart</button>
+        <div class="note">Firm for 7 days. Pay 30% at checkout, 70% when the bill of lading is issued. <a href="#">Request formal quote (PDF)</a></div>
+      </div>
+    </aside>
+  </div>
+</div></section>
+
+<!-- CHECKOUT -->
+<section id="checkout" class="view"><div class="wrap">
+  <div class="crumb"><a href="#catalog">Home</a> › Cart &amp; checkout</div>
+  <div class="co">
+    <div>
+      <h1 style="margin-top:0">Checkout</h1>
+      <div class="sec"><div class="h">1. Items</div><div class="b">
+        <table class="ck"><thead><tr><th>Item</th><th>Supplier</th><th class="r">Qty</th><th class="r">Ex-works / ctn</th><th class="r">Delivered / ctn</th><th class="r">Line total</th></tr></thead>
+        <tbody><tr><td>Amul Pure Ghee 1 L tin, 12/ctn<div class="spec">SKE-AMG-1L</div></td><td>Shree Krishna Exports</td><td class="r n" id="cQty"></td><td class="r n" id="cTier"></td><td class="r n" id="cPc"></td><td class="r n" id="cLine"></td></tr></tbody></table>
+      </div></div>
+      <div class="sec"><div class="h">2. Delivery</div><div class="b">
+        <table class="ck"><tr><th style="width:160px;text-align:left;background:var(--th)">Mode</th><td id="cMode"></td></tr><tr><th style="text-align:left;background:var(--th)">Deliver to</th><td>Patel Cash &amp; Carry, 500 Route 440, Jersey City NJ 07302 · dock, liftgate not required · Mon–Fri 7:00–15:00 · <a href="#">change</a></td></tr><tr><th style="text-align:left;background:var(--th)">Importer of record</th><td>Patel Cash &amp; Carry · EIN on file · continuous bond on file · FDA facility registration on file</td></tr></table>
+      </div></div>
+      <div class="sec"><div class="h">3. What happens after you order</div><div class="b">
+        <ol class="steps">
+          <li>Supplier confirms stock and ready date within 24 h. <span>You get an email and WhatsApp.</span></li>
+          <li>Prime Cargo People picks up in Ahmedabad and clears Indian export. <span>Shipping bill, FSSAI, certificate of origin.</span></li>
+          <li>Bill of lading issued. <span>Balance of goods due; tracking link sent.</span></li>
+          <li>US customs entry, FDA prior notice and duty handled by our customs desk. <span>Included in your price.</span></li>
+          <li>Delivered to your dock by our truck. <span>Appointment booked with your warehouse.</span></li>
+        </ol>
+      </div></div>
+      <div class="sec"><div class="h">4. Payment</div><div class="b">
+        <label style="display:block;padding:3px 0"><input type="radio" name="p" checked> 30% now by ACH or wire, 70% when the bill of lading is issued. Funds held in escrow until goods ship.</label>
+        <label style="display:block;padding:3px 0"><input type="radio" name="p"> Net 30 (approved repeat buyers). <a href="#">Apply</a></label>
+      </div></div>
+    </div>
+    <aside>
+      <div class="box">
+        <div class="ttl">Order summary</div>
+        <div class="row"><span>Goods (ex-works)</span><span class="n" id="sGoods"></span></div>
+        <div class="row"><span>Freight, customs, duty, delivery</span><span class="n" id="sLog"></span></div>
+        <div class="tot"><span>Total delivered</span><b id="sTot" class="n"></b></div>
+        <div class="row" style="margin-top:8px"><span>Due today (30%)</span><b class="n" id="sDep"></b></div>
+        <div class="row"><span>Due on bill of lading (70%)</span><span class="n" id="sBal"></span></div>
+        <button class="btn lg" style="width:100%;margin-top:10px" onclick="location.hash='orders'">Place order and pay deposit</button>
+        <div class="note">Price firm until <span id="firmTo"></span>. Duty variance over $500 absorbed by Prime Cargo People. <a href="#">Terms of sale</a></div>
+      </div>
+    </aside>
+  </div>
+</div></section>
+
+<!-- ORDERS -->
+<section id="orders" class="view"><div class="wrap">
+  <div class="crumb"><a href="#catalog">Home</a> › Orders</div>
+  <h1>Orders</h1>
+  <table class="ck" style="margin-bottom:40px"><thead><tr><th>Order</th><th>Date</th><th>Items</th><th>Supplier</th><th>Mode</th><th class="r">Total delivered</th><th>Status</th><th>ETA</th></tr></thead>
+  <tbody>
+    <tr><td><a href="#">PCP-1204</a></td><td class="n">Nov 4, 2026</td><td>Amul Pure Ghee 1 L · <span id="oQty" class="n"></span> ctn</td><td>Shree Krishna Exports</td><td id="oMode"></td><td class="r n" id="oTot"></td><td>Awaiting supplier confirmation</td><td class="n" id="oEta"></td></tr>
+    <tr><td><a href="#">PCP-1182</a></td><td class="n">Oct 14, 2026</td><td>Amul Pure Ghee 1 L · 2,000 ctn</td><td>Shree Krishna Exports</td><td>Sea FCL 40′ · MSKU 884 2210</td><td class="r n">$133,375</td><td>On water · Suez · ISF filed</td><td class="n">Nov 24</td></tr>
+    <tr><td><a href="#">PCP-1150</a></td><td class="n">Oct 2, 2026</td><td>MDH Masala assortment · 300 ctn</td><td>Gujarat Agro Traders</td><td>Air · AMD–EWR</td><td class="r n">$14,920</td><td>Delivered Oct 29 · POD on file</td><td class="n">—</td></tr>
+  </tbody></table>
+</div></section>
+
+<div class="foot"><div class="wrap"><span>Prime Cargo People Logistics · 500 Route 440, Jersey City NJ 07302 · FMC OTI · TSA IAC · WCA 136867</span><span>Prototype – prices illustrative</span></div></div>
+
+<script>
+var R={pickupPerCbm:14,pickupMin:60,cfs:140,docs:120,lclPerCbm:92,lclMin:220,fcl20:2650,fcl40:3650,airKg:3.9,airMin:420,ins:0.003,duty:0.06,mpf:0.003464,hmf:0.00125,customs:275,dray:620,lastMilePallet:62,lastMileMin:320,airTerminal:260,airDelivery:310,fee:0.025};
+var PRODUCTS=[
+ {id:'SKE-AMG-1L',name:'Amul Pure Ghee 1 L tin, 12/ctn',sup:'Shree Krishna Exports',city:'Ahmedabad, GJ',port:'Mundra',ver:true,orders:62,kg:11.8,cbm:0.0216,pp:48,tiers:[[5000,56.20],[1000,57.40],[0,58.90]],hs:'0405.90.10'},
+ {id:'GAT-AMG-1L',name:'Amul Pure Ghee 1 L tin, 12/ctn',sup:'Gujarat Agro Traders',city:'Mumbai, MH',port:'Nhava Sheva',ver:true,orders:31,kg:11.8,cbm:0.0216,pp:48,tiers:[[1000,58.10],[0,59.40]],hs:'0405.90.10'},
+ {id:'KSE-AMG-500',name:'Amul Pure Ghee 500 ml tin, 24/ctn',sup:'Kailash Sagar Enterprise',city:'Ahmedabad, GJ',port:'Mundra',ver:true,orders:18,kg:12.6,cbm:0.0228,pp:44,tiers:[[1000,58.90],[0,60.10]],hs:'0405.90.10'},
+ {id:'SAF-ACG-1L',name:'Amul Cow Ghee 1 L pouch, 12/ctn',sup:'Saurashtra Foods',city:'Rajkot, GJ',port:'Mundra',ver:true,orders:44,kg:11.2,cbm:0.0198,pp:52,tiers:[[1000,53.00],[0,54.20]],hs:'0405.90.10'},
+ {id:'RDD-AMG-1L',name:'Amul Pure Ghee 1 L tin, 12/ctn',sup:'Raj Dairy Distributors',city:'Surat, GJ',port:'Mundra',ver:false,orders:0,kg:11.8,cbm:0.0216,pp:48,tiers:[[0,57.60]],hs:'0405.90.10'},
+ {id:'GAT-AMG-500',name:'Amul Pure Ghee 500 ml tin, 24/ctn',sup:'Gujarat Agro Traders',city:'Mumbai, MH',port:'Nhava Sheva',ver:true,orders:31,kg:12.6,cbm:0.0228,pp:44,tiers:[[0,60.90]],hs:'0405.90.10'}
+];
+function money(n){return '$'+Math.round(n).toLocaleString('en-US')}
+function m2(n){return '$'+n.toFixed(2)}
+function eta(d){var x=new Date();x.setDate(x.getDate()+d+7);return x.toLocaleDateString('en-US',{month:'short',day:'numeric'})}
+function calc(p,q){
+ var tier=p.tiers.filter(function(t){return q>=t[0]})[0][1];
+ var goods=q*tier,kg=q*p.kg,cbm=q*p.cbm,pallets=Math.ceil(q/p.pp);
+ var origin=Math.max(R.pickupMin,cbm*R.pickupPerCbm)+R.cfs+R.docs;
+ var sl,sf,sd;
+ if(cbm<=15){sl='LCL, shared container';sf=Math.max(R.lclMin,cbm*R.lclPerCbm);sd=38}
+ else if(cbm<=28){sl='FCL 20′';sf=R.fcl20;sd=32}
+ else{var n=Math.ceil(cbm/58);sl=n>1?'FCL '+n+' × 40′':'FCL 40′';sf=R.fcl40*n;sd=32}
+ var chg=Math.max(kg,cbm*167),af=Math.max(R.airMin,chg*R.airKg);
+ var duty=goods*R.duty,mpf=Math.min(Math.max(goods*R.mpf,31.67),614.35);
+ var lm=Math.max(R.lastMileMin,pallets*R.lastMilePallet);
+ var sea={label:sl,days:sd,parts:[['Goods, ex-works',goods],['India pickup, port handling, export documents',origin],['Ocean freight, '+sl+', '+p.port+' to New York/NJ',sf],['Marine insurance',R.ins*(goods+sf)],['US duty, HS '+p.hs+' at 6%',duty],['Merchandise processing + harbor maintenance fees',mpf+goods*R.hmf],['Customs entry + FDA prior notice',R.customs],['Port drayage',R.dray],['Delivery to 07302, '+pallets+' pallets',lm]]};
+ var air={label:'AMD to EWR',days:6,parts:[['Goods, ex-works',goods],['India pickup, airport handling, export documents',origin],['Air freight, '+Math.round(chg).toLocaleString()+' kg chargeable',af],['Cargo insurance',R.ins*(goods+af)],['US duty, HS '+p.hs+' at 6%',duty],['Merchandise processing fee',mpf],['Customs entry + FDA prior notice',R.customs],['Airport terminal handling',R.airTerminal],['Delivery to 07302, '+pallets+' pallets',Math.max(R.airDelivery,lm)]]};
+ [sea,air].forEach(function(o){var s=o.parts.reduce(function(a,x){return a+x[1]},0);o.parts.push(['Platform fee 2.5%',s*R.fee]);o.total=s*(1+R.fee);o.pc=o.total/q});
+ return{tier:tier,goods:goods,kg:kg,cbm:cbm,pallets:pallets,sea:sea,air:air};
+}
+function qv(id){return parseInt((document.getElementById(id).value||'').replace(/,/g,''))||1}
+function renderRows(){
+ var q=qv('qtyAll'),tb=document.getElementById('rows'),h='';
+ var list=PRODUCTS.map(function(p){return{p:p,c:calc(p,q)}}).sort(function(a,b){return a.c.sea.pc-b.c.sea.pc});
+ list.forEach(function(x){var p=x.p,c=x.c;
+  var brk=p.tiers.slice().reverse().map(function(t,i,arr){var hi=arr[i+1]?arr[i+1][0]-1:null;var lbl=hi?t[0].toLocaleString()+'–'+hi.toLocaleString():t[0].toLocaleString()+'+';if(t[0]===0)lbl=hi?'1–'+hi.toLocaleString():'1+';return '<tr><td>'+lbl+' ctn</td><td class="r n'+(t[1]===c.tier?' cur':'')+'">'+m2(t[1])+'</td></tr>'}).join('');
+  h+='<tr><td><a href="#product"><span class="thumb"></span></a></td>'+
+   '<td><a class="pname" href="#product">'+p.name+'</a><div class="spec">'+p.id+' · '+p.kg+' kg · '+p.cbm+' m³/ctn · HS '+p.hs+'</div></td>'+
+   '<td><div class="sup">'+p.sup+'</div><div class="spec">'+p.city+' · '+p.port+'</div><div class="spec">'+(p.ver?'<span class="ver">Verified</span> · '+p.orders+' orders':'New supplier, not yet verified')+'</div></td>'+
+   '<td><table class="brk">'+brk+'</table></td>'+
+   '<td class="r dl"><b>'+m2(c.sea.pc)+'</b><br><span class="s">'+c.sea.label+' · '+c.sea.days+' d</span></td>'+
+   '<td class="r dl"><b>'+m2(c.air.pc)+'</b><br><span class="s">'+c.air.days+' d</span></td>'+
+   '<td><input class="qty n" value="'+q.toLocaleString()+'"> <button class="btn" onclick="location.hash=\'product\'">Add</button></td></tr>';
+ });
+ tb.innerHTML=h;
+}
+var mode='sea';
+function pick(m){mode=m;document.getElementById('mSea').checked=m==='sea';document.getElementById('mAir').checked=m==='air';renderProduct()}
+function renderProduct(){
+ var p=PRODUCTS[0],q=qv('qtyP'),c=calc(p,q),o=c[mode];
+ document.getElementById('rSea').className=mode==='sea'?'sel':'';document.getElementById('rAir').className=mode==='air'?'sel':'';
+ document.getElementById('pTier').textContent=m2(c.tier)+' / ctn';
+ document.getElementById('pCargo').textContent=q.toLocaleString()+' ctn · '+Math.round(c.kg).toLocaleString()+' kg · '+c.cbm.toFixed(1)+' m³ · '+c.pallets+' pallets';
+ document.getElementById('seaL').textContent=c.sea.label;document.getElementById('seaD').textContent=c.sea.days+' days, arrives '+eta(c.sea.days);document.getElementById('seaT').textContent=money(c.sea.total);document.getElementById('seaP').textContent=m2(c.sea.pc);
+ document.getElementById('airL').textContent=c.air.label;document.getElementById('airD').textContent=c.air.days+' days, arrives '+eta(c.air.days);document.getElementById('airT').textContent=money(c.air.total);document.getElementById('airP').textContent=m2(c.air.pc);
+ document.getElementById('pTot').textContent=money(o.total);
+ document.getElementById('bd').innerHTML=o.parts.map(function(x){return '<div><span>'+x[0]+'</span><span>'+money(x[1])+'</span></div>'}).join('')+'<div><span>Total delivered</span><span>'+money(o.total)+'</span></div>';
+ // checkout + orders
+ document.getElementById('cQty').textContent=q.toLocaleString();document.getElementById('cTier').textContent=m2(c.tier);document.getElementById('cPc').textContent=m2(o.pc);document.getElementById('cLine').textContent=money(o.total);
+ document.getElementById('cMode').textContent=(mode==='sea'?'Sea, '+c.sea.label+', Mundra (INMUN) to New York/NJ (USNYC)':'Air, Ahmedabad (AMD) to Newark (EWR)')+' · '+o.days+' days · arrives '+eta(o.days);
+ document.getElementById('sGoods').textContent=money(c.goods);document.getElementById('sLog').textContent=money(o.total-c.goods);document.getElementById('sTot').textContent=money(o.total);document.getElementById('sDep').textContent=money(o.total*0.3);document.getElementById('sBal').textContent=money(o.total*0.7);
+ var f=new Date();f.setDate(f.getDate()+7);document.getElementById('firmTo').textContent=f.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+ document.getElementById('oQty').textContent=q.toLocaleString();document.getElementById('oMode').textContent=mode==='sea'?'Sea '+c.sea.label:'Air · AMD–EWR';document.getElementById('oTot').textContent=money(o.total);document.getElementById('oEta').textContent=eta(o.days);
+}
+(function(){var views=document.querySelectorAll('.view');function show(){var h=(location.hash||'#catalog').slice(1),hit=false;views.forEach(function(v){var on=v.id===h;v.classList.toggle('on',on);if(on)hit=true});if(!hit)views[0].classList.add('on');window.scrollTo(0,0)}window.addEventListener('hashchange',show);show()})();
+renderRows();renderProduct();
+</script>
+</body>
+</html>
