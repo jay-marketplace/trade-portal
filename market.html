@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prime Cargo People — Industrial products from India, delivered</title>
+<style>
+:root{
+ --t1:#1F1F1F;--t2:#5C5C5C;--t3:#8A8A8A;
+ --bg:#FFFFFF;--bg2:#F4F5F6;--b1:#DADDE0;--b2:#ECEEF0;
+ --brand:#0B3D2E;--brand-h:#0E4D3A;--acc:#D9731A;--acc-h:#C0640F;--ok:#2E6B3A;
+ --r:3px;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font:14px/1.45 -apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--t1);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.n{font-variant-numeric:tabular-nums}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--brand);outline-offset:1px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.view{display:none}.view.on{display:block}
+/* header */
+.hd{border-bottom:1px solid var(--b1)}
+.hd .wrap{height:56px;display:flex;align-items:center;gap:24px}
+.logo{font-size:16px;font-weight:600;color:var(--t1);white-space:nowrap;letter-spacing:-.1px}
+.logo:hover{text-decoration:none}
+.logo span{color:var(--brand)}
+.srch{flex:1;max-width:620px;display:flex}
+.srch input{flex:1;height:36px;border:1px solid var(--b1);border-right:0;border-radius:var(--r) 0 0 var(--r);padding:0 10px;font-size:14px}
+.srch button{height:36px;padding:0 16px;border:1px solid var(--brand);background:var(--brand);color:#fff;border-radius:0 var(--r) var(--r) 0;font-weight:600;cursor:pointer}
+.hd .r{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:13px}
+.dl{line-height:1.2;color:var(--t2);font-size:12px}
+.dl b{display:block;color:var(--t1);font-size:13px;font-weight:600}
+.hd .r a{color:var(--t1)}
+.cats{border-bottom:1px solid var(--b1)}
+.cats .wrap{display:flex;gap:22px;height:36px;align-items:center;font-size:13px}
+.cats a{color:var(--t1)}
+.cats a.on{font-weight:600;color:var(--brand)}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;height:36px;padding:0 14px;border:1px solid var(--brand);background:var(--brand);color:#fff;border-radius:var(--r);font-weight:600;font-size:14px;cursor:pointer}
+.btn:hover{background:var(--brand-h);text-decoration:none}
+.btn.acc{background:var(--acc);border-color:var(--acc)}
+.btn.acc:hover{background:var(--acc-h)}
+.btn.sec{background:#fff;color:var(--brand)}
+.btn.sec:hover{background:var(--bg2)}
+.btn.lg{height:42px;width:100%;font-size:15px}
+/* home */
+.hero{padding:44px 0 36px;border-bottom:1px solid var(--b2)}
+.hero h1{font-size:34px;line-height:1.15;font-weight:600;margin:0 0 10px;letter-spacing:-.4px;max-width:760px}
+.hero p{font-size:15px;color:var(--t2);margin:0 0 20px;max-width:640px}
+.hero .srch{max-width:680px}
+.hero .srch input{height:44px;font-size:15px}
+.hero .srch button{height:44px;padding:0 22px}
+.facts{display:flex;gap:28px;margin-top:16px;font-size:13px;color:var(--t2);flex-wrap:wrap}
+.facts b{color:var(--t1);font-weight:600}
+.blk{padding:32px 0;border-bottom:1px solid var(--b2)}
+.blk h2{font-size:20px;font-weight:600;margin:0 0 4px}
+.blk .lead{color:var(--t2);font-size:13px;margin:0 0 16px}
+.catlist{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--b1);border-radius:var(--r)}
+.catlist a{padding:14px;border-right:1px solid var(--b1);color:var(--t1);display:block}
+.catlist a:last-child{border-right:0}
+.catlist a:hover{background:var(--bg2);text-decoration:none}
+.catlist .ph{height:92px;background:var(--bg2);border:1px solid var(--b2);border-radius:var(--r);margin-bottom:10px;display:flex;align-items:flex-end;padding:6px;font-size:11px;color:var(--t3)}
+.catlist b{display:block;font-size:14px;font-weight:600}
+.catlist small{font-size:12px;color:var(--t2)}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.how .k{font-size:12px;color:var(--t3)}
+.how h3{font-size:16px;font-weight:600;margin:4px 0 4px}
+.how p{margin:0;color:var(--t2);font-size:13px}
+/* list table */
+.crumb{font-size:12px;color:var(--t2);padding:14px 0 6px}
+.crumb a{color:var(--t2)}
+.lay{display:grid;grid-template-columns:220px 1fr;gap:28px;padding-bottom:48px}
+.fil h4{font-size:13px;font-weight:600;margin:16px 0 6px;padding-bottom:4px;border-bottom:1px solid var(--b2)}
+.fil h4:first-child{margin-top:0}
+.fil label{display:flex;justify-content:space-between;font-size:13px;padding:2px 0;cursor:pointer}
+.fil label span{display:flex;gap:6px;align-items:center}
+.fil label i{font-style:normal;color:var(--t3);font-size:12px}
+.fil input{margin:0;accent-color:var(--brand)}
+.ttl{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.ttl h1{font-size:20px;font-weight:600;margin:0}
+.ttl .c{font-size:13px;color:var(--t2)}
+.sub{font-size:13px;color:var(--t2);margin:4px 0 12px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.chips a{border:1px solid var(--b1);border-radius:var(--r);padding:4px 10px;font-size:13px;color:var(--t1)}
+.chips a.on{border-color:var(--brand);color:var(--brand);font-weight:600}
+.chips a:hover{text-decoration:none;background:var(--bg2)}
+.spec{background:var(--bg2);border:1px solid var(--b2);border-radius:var(--r);padding:8px 12px;font-size:13px;color:var(--t2);margin-bottom:12px}
+.spec b{color:var(--t1);font-weight:600}
+.bar{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--t2);padding:6px 0;border-bottom:1px solid var(--b1)}
+.bar select{height:28px;border:1px solid var(--b1);border-radius:var(--r);padding:0 6px;font-size:13px;background:#fff}
+.row{display:grid;grid-template-columns:88px minmax(0,1fr) 180px 150px;gap:18px;padding:16px 0;border-bottom:1px solid var(--b2)}
+.row:hover{background:linear-gradient(var(--bg2),var(--bg2)) no-repeat;background-size:100% 100%}
+.th{width:88px;height:88px;border:1px solid var(--b2);border-radius:var(--r);background:var(--bg2)}
+.row h3{font-size:16px;font-weight:600;margin:0 0 3px;line-height:1.3}
+.row h3 a{color:var(--t1)}
+.row .sp{font-size:13px;color:var(--t2)}
+.row .sup{font-size:13px;margin-top:8px}
+.row .sup .v{color:var(--ok);font-weight:600}
+.row .sup .m{color:var(--t3)}
+.tiers{font-size:13px;width:100%;border-collapse:collapse}
+.tiers td{padding:1px 0;color:var(--t2)}
+.tiers td:last-child{text-align:right}
+.tiers tr.cur td{color:var(--t1);font-weight:600}
+.pr{text-align:right}
+.pr .p{font-size:20px;font-weight:700;line-height:1.1}
+.pr .u{font-size:12px;color:var(--t2);margin:2px 0 8px}
+.pr .d{font-size:12px;color:var(--t3);margin-top:6px}
+/* product */
+.pg{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:36px;padding:4px 0 48px}
+.gal{display:grid;grid-template-columns:64px 1fr;gap:10px}
+.gal .t{height:64px;border:1px solid var(--b2);border-radius:var(--r);background:var(--bg2);margin-bottom:8px}
+.gal .t.on{border-color:var(--brand)}
+.gal .big{height:380px;border:1px solid var(--b2);border-radius:var(--r);background:var(--bg2);display:flex;align-items:flex-end;padding:10px;font-size:12px;color:var(--t3)}
+.pg h1{font-size:22px;font-weight:600;line-height:1.25;margin:18px 0 4px;letter-spacing:-.2px}
+.pg .meta{font-size:13px;color:var(--t2);margin-bottom:16px}
+.pg h2{font-size:16px;font-weight:600;margin:24px 0 8px}
+.kv{width:100%;border-collapse:collapse;font-size:14px}
+.kv td{padding:7px 0;border-bottom:1px solid var(--b2);vertical-align:top}
+.kv td:first-child{width:36%;color:var(--t2);font-size:13px}
+.docs{display:flex;flex-wrap:wrap;gap:6px}
+.docs a{border:1px solid var(--b1);border-radius:var(--r);padding:5px 10px;font-size:13px;color:var(--t1)}
+.docs a:hover{background:var(--bg2);text-decoration:none}
+.buy{border:1px solid var(--b1);border-radius:var(--r);padding:16px;position:sticky;top:12px}
+.buy .lab{font-size:12px;color:var(--t2)}
+.buy .ex{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:12px;border-bottom:1px solid var(--b2);margin-bottom:12px}
+.buy .ex b{font-size:20px;font-weight:700}
+.qty{display:inline-flex;border:1px solid var(--b1);border-radius:var(--r);height:36px;margin:4px 0 8px}
+.qty button{width:34px;border:0;background:#fff;cursor:pointer;font-size:16px;color:var(--t1)}
+.qty button:hover{background:var(--bg2)}
+.qty input{width:56px;border:0;border-left:1px solid var(--b1);border-right:1px solid var(--b1);text-align:center;font-size:14px;font-weight:600}
+.fit{font-size:13px;color:var(--t2);margin-bottom:6px}
+.route{font-size:13px;color:var(--t2);margin-bottom:12px}
+.route b{color:var(--t1);font-weight:600}
+.opts{border:1px solid var(--b1);border-radius:var(--r)}
+.opt{display:grid;grid-template-columns:18px 1fr auto;gap:2px 8px;padding:10px 12px;cursor:pointer;align-items:center}
+.opt+.opt{border-top:1px solid var(--b2)}
+.opt.on{background:var(--bg2)}
+.opt input{margin:0;accent-color:var(--brand)}
+.opt .m{font-weight:600}
+.opt .t{grid-column:2;font-size:12px;color:var(--t2)}
+.opt .v{grid-column:3;grid-row:1/3;text-align:right;font-size:18px;font-weight:700}
+.opt .v small{display:block;font-size:12px;font-weight:400;color:var(--t2)}
+.incl{font-size:12px;color:var(--t2);margin:10px 0}
+.incl a{cursor:pointer}
+.bd{display:none;font-size:13px;margin:0 0 12px;border-top:1px solid var(--b2)}
+.bd.on{display:block}
+.bd div{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--b2);color:var(--t2)}
+.bd div:last-child{color:var(--t1);font-weight:600}
+.fine{font-size:12px;color:var(--t2);margin-top:8px;text-align:center}
+.supcard{border:1px solid var(--b1);border-radius:var(--r);padding:14px 16px;margin-top:12px}
+.supcard .nm{font-weight:600}
+.supcard .lc{font-size:12px;color:var(--t2)}
+.badges{display:flex;flex-wrap:wrap;gap:4px;margin:8px 0}
+.badges span{font-size:12px;border:1px solid var(--b1);border-radius:var(--r);padding:1px 6px;color:var(--t2)}
+.badges span.v{color:var(--ok);border-color:#BCD6C2}
+.st{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--b2);padding-top:8px;margin-top:4px}
+.st div{font-size:12px;color:var(--t2)}
+.st b{display:block;font-size:14px;color:var(--t1)}
+.ft{border-top:1px solid var(--b1);padding:18px 0;font-size:12px;color:var(--t2)}
+.ft .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+@media (max-width:960px){.lay,.pg{grid-template-columns:1fr}.fil{display:none}.row{grid-template-columns:72px 1fr}.row .tw,.row .pr{grid-column:2}.pr{text-align:left}.catlist{grid-template-columns:1fr 1fr}.how{grid-template-columns:1fr}.hd .r .dl{display:none}.hero h1{font-size:26px}}
+</style>
+</head>
+<body>
+
+<div class="hd"><div class="wrap">
+  <a class="logo" href="#home">Prime Cargo <span>People</span></a>
+  <form class="srch" onsubmit="location.hash='list';return false"><input aria-label="Search products and suppliers" placeholder="Search products, suppliers, HS code"><button>Search</button></form>
+  <div class="r"><div class="dl">Deliver to<b>Jersey City, NJ 07302</b></div><a href="#home">Sign in</a><a href="#home">Cart (0)</a></div>
+</div></div>
+<div class="cats"><div class="wrap"><a class="on" href="#list">Industrial equipment</a><a href="#list">Steel &amp; metals</a><a href="#list">Fertilizers &amp; chemicals</a><a href="#list">Agri commodities</a><a href="#list">Kitchenware &amp; hardware</a><a href="#home">All suppliers</a></div></div>
+
+<!-- HOME -->
+<section id="home" class="view on">
+  <div class="wrap hero">
+    <h1>Industrial products from Indian manufacturers, priced to your door.</h1>
+    <p>Browse verified suppliers at factory prices. At checkout you get one delivered price by sea or air — freight, US customs, duty and trucking handled by our licensed team.</p>
+    <form class="srch" onsubmit="location.hash='list';return false"><input aria-label="Search" value="Lube oil filtration system"><button>Search</button></form>
+    <div class="facts"><span><b>1,240</b> products</span><span><b>186</b> verified manufacturers</span><span><b>Ahmedabad</b> inspection office</span><span><b>Licensed</b> US customs broker</span></div>
+  </div>
+
+  <div class="wrap blk">
+    <h2>Categories</h2>
+    <p class="lead">What US buyers are sourcing from India.</p>
+    <div class="catlist">
+      <a href="#list"><div class="ph">Photo: filtration skid on factory floor</div><b>Industrial equipment</b><small>Filtration systems, pumps, valves</small></a>
+      <a href="#list"><div class="ph">Photo: pipe bundles at mill</div><b>Steel &amp; metals</b><small>ERW pipe, TMT, stainless sheet</small></a>
+      <a href="#list"><div class="ph">Photo: 50 kg urea bags</div><b>Fertilizers &amp; chemicals</b><small>Urea, DAP, caustic soda, PVC</small></a>
+      <a href="#list"><div class="ph">Photo: rice bags in warehouse</div><b>Agri commodities</b><small>Basmati, pulses, spices</small></a>
+      <a href="#list"><div class="ph">Photo: cookware on shelf</div><b>Kitchenware &amp; hardware</b><small>Commercial aluminium cookware</small></a>
+    </div>
+  </div>
+
+  <div class="wrap blk">
+    <h2>How pricing works</h2>
+    <p class="lead">Other marketplaces stop at the factory gate. We take it to your dock.</p>
+    <div class="how">
+      <div><span class="k">Browse</span><h3>Factory price from the supplier</h3><p>Ex-works price, quantity breaks and minimum order, listed by the manufacturer.</p></div>
+      <div><span class="k">Checkout</span><h3>One price to your door</h3><p>We size the shipment, choose the ports and show sea and air options with freight, duty and customs included.</p></div>
+      <div><span class="k">Delivery</span><h3>Tracked to your dock</h3><p>Picked up by our Ahmedabad team, cleared by our US customs brokers, delivered by our trucks.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIST -->
+<section id="list" class="view"><div class="wrap">
+  <div class="crumb"><a href="#home">Home</a> / <a href="#list">Industrial equipment</a> / Filtration systems</div>
+  <div class="lay">
+    <aside class="fil">
+      <h4>Flow rate</h4>
+      <label><span><input type="checkbox">Up to 1,000 LPH</span><i>14</i></label><label><span><input type="checkbox" checked>1,000–6,000 LPH</span><i>22</i></label><label><span><input type="checkbox">Over 6,000 LPH</span><i>9</i></label>
+      <h4>Oil type</h4>
+      <label><span><input type="checkbox" checked>Lube / turbine</span><i>17</i></label><label><span><input type="checkbox">Transformer</span><i>12</i></label><label><span><input type="checkbox">Hydraulic</span><i>16</i></label>
+      <h4>Mounting</h4>
+      <label><span><input type="checkbox">Trolley</span><i>19</i></label><label><span><input type="checkbox" checked>Skid</span><i>18</i></label><label><span><input type="checkbox">Container</span><i>4</i></label>
+      <h4>Power supply</h4>
+      <label><span><input type="checkbox" checked>480 V / 60 Hz</span><i>21</i></label><label><span><input type="checkbox">230 V / 60 Hz</span><i>11</i></label>
+      <h4>Supplier</h4>
+      <label><span><input type="checkbox" checked>Verified</span><i>31</i></label><label><span><input type="checkbox">Has shipped to USA</span><i>13</i></label><label><span><input type="checkbox">ISO 9001</span><i>28</i></label>
+    </aside>
+    <main>
+      <div class="ttl"><h1>Lube oil filtration systems</h1><span class="c n">45 products, 18 manufacturers</span></div>
+      <div class="sub">Prices are ex-works India, per set. Your delivered price is calculated at checkout.</div>
+      <div class="chips"><a class="on" href="#list">Lube oil</a><a href="#list">Transformer oil</a><a href="#list">Hydraulic oil</a><a href="#list">Diesel and fuel</a><a href="#list">Cartridges and spares</a></div>
+      <div class="spec"><b>How these are specified:</b> flow rate (LPH), filtration rating (micron), vacuum dehydration, heater power, oil grade (ISO VG), power supply.</div>
+      <div class="bar"><span class="n">Showing 1–5 of 45</span><span>Sort <select aria-label="Sort"><option>Relevance</option><option>Price, low to high</option><option>Reply time</option></select></span></div>
+      <div id="rows"></div>
+    </main>
+  </div>
+</div></section>
+
+<!-- PRODUCT -->
+<section id="product" class="view"><div class="wrap">
+  <div class="crumb"><a href="#home">Home</a> / <a href="#list">Filtration systems</a> / LFS-6000-VD</div>
+  <div class="pg">
+    <div>
+      <div class="gal"><div><div class="t on"></div><div class="t"></div><div class="t"></div><div class="t"></div><div class="t"></div></div><div class="big">Photo: LFS-6000-VD skid, front view</div></div>
+      <h1>Lube oil filtration system, 6,000 LPH, skid-mounted, with vacuum dehydration</h1>
+      <div class="meta">Model LFS-6000-VD &nbsp;|&nbsp; <a href="#product">Luboil Filtration Systems</a>, Ahmedabad &nbsp;|&nbsp; HS 8421.23</div>
+      <h2>Specifications</h2>
+      <table class="kv n">
+        <tr><td>Flow rate</td><td>6,000 L/h</td></tr>
+        <tr><td>Filtration</td><td>3 stages: 25, 5 and 1 micron</td></tr>
+        <tr><td>Dehydration</td><td>Vacuum chamber, water removal to below 100 ppm</td></tr>
+        <tr><td>Oil grade</td><td>ISO VG 32 to 220 (turbine, compressor, hydraulic)</td></tr>
+        <tr><td>Heater</td><td>36 kW, thermostat controlled</td></tr>
+        <tr><td>Power supply</td><td>480 V, 3-phase, 60 Hz</td></tr>
+        <tr><td>Crate</td><td>2.4 × 1.2 × 1.8 m, 1,450 kg</td></tr>
+        <tr><td>Lead time</td><td>21 days to ready at factory</td></tr>
+        <tr><td>Warranty</td><td>12 months; spares stocked in New Jersey</td></tr>
+      </table>
+      <h2>Price by quantity</h2>
+      <table class="kv n"><tr><td>1 set</td><td>$14,800 per set</td></tr><tr><td>2 to 4 sets</td><td>$14,200 per set</td></tr><tr><td>5 sets or more</td><td>$13,600 per set</td></tr></table>
+      <h2>Documents</h2>
+      <div class="docs"><a href="#product">Datasheet (PDF)</a><a href="#product">GA drawing</a><a href="#product">Factory test report</a><a href="#product">ISO 9001 certificate</a><a href="#product">Operating manual</a></div>
+    </div>
+    <aside>
+      <div class="buy">
+        <div class="ex"><span class="lab">Factory price</span><b class="n" id="pTier">$14,800</b></div>
+        <div class="lab">Quantity (sets)</div>
+        <div class="qty"><button onclick="q(-1)" aria-label="Fewer">−</button><input id="qP" class="n" value="1" oninput="calc()" aria-label="Quantity"><button onclick="q(1)" aria-label="More">+</button></div>
+        <div class="fit n" id="fit"></div>
+        <div class="route">Ahmedabad → Mundra → New York/NJ → <b>Jersey City, NJ 07302</b></div>
+        <div class="opts">
+          <label class="opt on" id="oS"><input type="radio" name="m" checked onchange="pick('s')"><span class="m">By sea</span><span class="v n" id="sP"></span><span class="t n" id="sT"></span></label>
+          <label class="opt" id="oA"><input type="radio" name="m" onchange="pick('a')"><span class="m">By air</span><span class="v n" id="aP"></span><span class="t n" id="aT"></span></label>
+        </div>
+        <div class="incl">Delivered to your door: freight, insurance, US duty, customs and trucking included. <a onclick="document.getElementById('bd').classList.toggle('on')">See what’s included</a></div>
+        <div class="bd n" id="bd"></div>
+        <button class="btn acc lg">Add to cart</button>
+        <div class="fine">Pay 30% now and 70% when it ships. <a href="#product">Ask for a custom quote</a></div>
+      </div>
+      <div class="supcard">
+        <div class="nm">Luboil Filtration Systems</div>
+        <div class="lc">Ahmedabad, Gujarat. Manufacturer, exporting since 2009.</div>
+        <div class="badges"><span class="v">Verified</span><span>IEC</span><span>GST</span><span>ISO 9001</span><span>Shipped to USA</span></div>
+        <div class="st n"><div><b>Under 4 h</b>Reply time</div><div><b>98%</b>On-time dispatch</div><div><b>31%</b>Reorder rate</div></div>
+      </div>
+    </aside>
+  </div>
+</div></section>
+
+<div class="ft"><div class="wrap"><span>Prime Cargo People Logistics, Jersey City, NJ. Licensed ocean forwarder and US customs broker. Office in Ahmedabad.</span><span>Prototype</span></div></div>
+
+<script>
+var P=[
+ {n:'Lube oil filtration system, 6,000 LPH, skid-mounted',s:'3-stage to 1 micron, vacuum dehydration, 480 V / 60 Hz',w:'Luboil Filtration Systems',c:'Ahmedabad',ok:1,m:'Since 2009, ships to USA',t:[['1 set','$14,800'],['2–4','$14,200'],['5+','$13,600']],p:'$14,800',u:'per set, min. 1'},
+ {n:'Turbine oil purifier, 3,000 LPH, trolley-mounted',s:'Coalescer and 3 micron, 480 V / 60 Hz',w:'Luboil Filtration Systems',c:'Ahmedabad',ok:1,m:'Since 2009, ships to USA',t:[['1 set','$8,950'],['3+','$8,400']],p:'$8,950',u:'per set, min. 1'},
+ {n:'Transformer oil filtration plant, 6,000 LPH',s:'High vacuum, two-stage degassing, 60 kW heater',w:'Andavar Lathe Works',c:'Coimbatore',ok:1,m:'Since 2013',t:[['1 set','$21,400']],p:'$21,400',u:'per set, min. 1'},
+ {n:'Hydraulic oil filtration unit, 1,200 LPH',s:'10 micron, portable, 230 / 460 V',w:'Minimac Systems',c:'Pune',ok:1,m:'Since 2012, ships to USA',t:[['1 set','$4,100'],['5+','$3,750']],p:'$4,100',u:'per set, min. 1'},
+ {n:'Lube oil filtration machine, 600 LPH',s:'Cartridge type, trolley, single phase',w:'Rohit Engineering Works',c:'Vadodara',ok:0,m:'Audit scheduled',t:[['2–9','$2,300'],['10+','$2,050']],p:'$2,300',u:'per set, min. 2'}
+];
+document.getElementById('rows').innerHTML=P.map(function(r){return '<div class="row"><a class="th" href="#product" aria-label="'+r.n+'"></a><div><h3><a href="#product">'+r.n+'</a></h3><div class="sp">'+r.s+'</div><div class="sup">'+r.w+', '+r.c+' &nbsp;'+(r.ok?'<span class="v">Verified</span>':'<span class="m">Not yet verified</span>')+' &nbsp;<span class="m">'+r.m+'</span></div></div><div class="tw"><table class="tiers n">'+r.t.map(function(t,i){return '<tr'+(i===0?' class="cur"':'')+'><td>'+t[0]+'</td><td>'+t[1]+'</td></tr>'}).join('')+'</table></div><div class="pr n"><div class="p">'+r.p+'</div><div class="u">'+r.u+'</div><a class="btn sec" href="#product">View</a><div class="d">Delivered price at checkout</div></div></div>'}).join('');
+var mode='s';
+function money(n){return '$'+Math.round(n).toLocaleString('en-US')}
+function eta(d){var x=new Date();x.setDate(x.getDate()+d+21);return x.toLocaleDateString('en-US',{month:'short',day:'numeric'})}
+function q(d){var i=document.getElementById('qP');i.value=Math.max(1,(parseInt(i.value)||1)+d);calc()}
+function pick(m){mode=m;document.getElementById('oS').classList.toggle('on',m==='s');document.getElementById('oA').classList.toggle('on',m==='a');calc()}
+function calc(){
+ var n=Math.max(1,parseInt(document.getElementById('qP').value)||1),unit=n>=5?13600:n>=2?14200:14800,goods=n*unit,kg=n*1450,cbm=n*5.18;
+ var fcl=cbm>14,origin=380+n*120,sea=fcl?Math.ceil(n/4)*2650:Math.max(260,cbm*98),air=Math.max(kg,cbm*167)*4.2;
+ var duty=goods*0.026,fees=Math.max(33,Math.min(651,goods*0.003464))+275,last=n*260+340;
+ var S=goods+origin+sea+duty+fees+0.004*(goods+sea)+(fcl?780:420)+last,A=goods+origin+air+duty+fees+0.004*(goods+air)+260+last;
+ document.getElementById('pTier').textContent=money(unit)+' / set';
+ document.getElementById('fit').textContent=n+(n>1?' crates, ':' crate, ')+kg.toLocaleString()+' kg, '+cbm.toFixed(1)+' m³ — '+(fcl?'fits in '+Math.ceil(n/4)+' × 20 ft container':'ships in a shared container');
+ document.getElementById('sP').innerHTML=money(S)+'<small>'+money(S/n)+' per set</small>';document.getElementById('aP').innerHTML=money(A)+'<small>'+money(A/n)+' per set</small>';
+ document.getElementById('sT').textContent='About 34 days, arrives '+eta(34);document.getElementById('aT').textContent='About 7 days, arrives '+eta(7);
+ var o=mode==='s',parts=[['Factory price',goods],['Pickup and export clearance, Ahmedabad',origin],[o?'Ocean freight to New York/NJ':'Air freight to Newark',o?sea:air],['Insurance',0.004*(goods+(o?sea:air))],['US duty',duty],['US customs entry and fees',fees],['Port handling',o?(fcl?780:420):260],['Delivery to 07302',last]];
+ document.getElementById('bd').innerHTML=parts.map(function(r){return '<div><span>'+r[0]+'</span><span>'+money(r[1])+'</span></div>'}).join('')+'<div><span>Total delivered</span><span>'+money(o?S:A)+'</span></div>';
+}
+calc();
+(function(){var v=document.querySelectorAll('.view'),c=document.querySelectorAll('.cats a');function show(){var h=(location.hash||'#home').slice(1),hit=false;v.forEach(function(e){var on=e.id===h;e.classList.toggle('on',on);if(on)hit=true});if(!hit)v[0].classList.add('on');window.scrollTo(0,0)}window.addEventListener('hashchange',show);show()})();
+</script>
+</body>
+</html>
