@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"inverse-surface":"#283044","tertiary-container":"#00554f","secondary":"#9d4300","tertiary-fixed-dim":"#80d5cb","tertiary-fixed":"#9cf2e8","surface-bright":"#faf8ff","on-background":"#131b2e","surface":"#faf8ff","on-tertiary-fixed":"#00201d","inverse-primary":"#b8c4ff","primary-container":"#1e40af","surface-tint":"#3755c3","surface-container":"#eaedff","error":"#ba1a1a","on-error":"#ffffff","on-surface":"#131b2e","surface-container-high":"#e2e7ff","background":"#faf8ff","error-container":"#ffdad6","on-secondary":"#ffffff","secondary-fixed":"#ffdbca","on-primary-fixed":"#001453","on-secondary-fixed":"#341100","outline-variant":"#c4c5d5","secondary-container":"#fd761a","secondary-fixed-dim":"#ffb690","surface-container-low":"#f2f3ff","on-tertiary-container":"#75cac1","outline":"#757684","on-primary-fixed-variant":"#173bab","surface-container-highest":"#dae2fd","primary-fixed":"#dde1ff","surface-variant":"#dae2fd","on-secondary-container":"#5c2400","surface-container-lowest":"#ffffff","on-tertiary":"#ffffff","tertiary":"#003c37","on-error-container":"#93000a","inverse-on-surface":"#eef0ff","primary-fixed-dim":"#b8c4ff","on-secondary-fixed-variant":"#783200","on-tertiary-fixed-variant":"#00504a","on-surface-variant":"#444653","on-primary-container":"#a8b8ff","surface-dim":"#d2d9f4","on-primary":"#ffffff","primary":"#00288e"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin-lg":"4rem","gutter-lg":"2rem","gutter-sm":"1rem","gutter":"1.5rem","space-xl":"2.5rem","space-sm":"0.5rem","space-md":"1rem","space-xs":"0.25rem","margin":"2rem","margin-sm":"1rem","space-lg":"1.5rem"},"fontFamily":{"body-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"display-hero-mobile":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"display-hero":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"title-lg":["Plus Jakarta Sans"],"data-mono":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"]},"fontSize":{"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"title-md":["16px",{"lineHeight":"24px","fontWeight":"600"}],"display-hero-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"800"}],"label-lg":["14px",{"lineHeight":"20px","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"display-hero":["48px",{"lineHeight":"56px","letterSpacing":"-0.025em","fontWeight":"800"}],"body-lg":["16px",{"lineHeight":"26px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-lg-mobile":["26px",{"lineHeight":"34px","letterSpacing":"-0.015em","fontWeight":"700"}],"title-lg":["18px",{"lineHeight":"26px","letterSpacing":"-0.005em","fontWeight":"600"}],"data-mono":["13px",{"lineHeight":"18px","fontWeight":"500"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"700"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-44 flex flex-col justify-between"><div class="bg-surface-container-low"><div class="w-full px-gutter flex items-center justify-between h-9 font-label-sm text-label-sm text-on-surface-variant"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs text-on-surface font-medium cursor-pointer hover:text-primary"><span class="material-symbols-outlined text-[15px] text-primary">anchor</span><span>Delivering to: US Port / Zip Code</span><span class="material-symbols-outlined text-[14px]">expand_more</span></div><div class="hidden md:flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary-container"></span><span>FMC &amp; US Customs In-House Guaranteed</span></div><div class="hidden lg:flex items-center gap-space-xs"><span>Direct Route: IN → US Hubs</span></div></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs cursor-pointer hover:text-primary"><span class="material-symbols-outlined text-[15px]">attach_money</span><span>USD ($)</span></div><a class="flex items-center gap-space-xs hover:text-primary" data-path="order-tracking" href="#"><span class="material-symbols-outlined text-[15px]">local_shipping</span><span>Track Shipment</span></a><a class="flex items-center gap-space-xs hover:text-primary" data-path="buyer-help-center" href="#"><span class="material-symbols-outlined text-[15px]">support_agent</span><span>Buyer Help Line</span></a></div></div></div><div class="w-full px-gutter py-space-xs flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-sm shrink-0"><a class="flex items-center gap-space-sm" data-path="marketplace-catalog" href="#"><div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[22px]">inventory_2</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary leading-none tracking-tight">PRIME CARGO</span><div class="flex items-center gap-1.5 mt-0.5"><span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">PEOPLE TRADE</span><span class="font-label-sm text-[9px] px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant uppercase font-semibold">B2B US DDP</span></div></div></a></div><div class="flex-1 max-w-4xl mx-space-md"><div class="flex items-center rounded-xl bg-surface-container-low shadow-[0_1px_3px_rgba(15,23,42,0.06)]"><div class="relative hidden sm:flex items-center pl-space-md pr-space-sm py-2 shrink-0"><select class="bg-transparent font-label-md text-label-md text-on-surface font-semibold focus:outline-none cursor-pointer pr-4 appearance-none"><option>All Categories</option><option>Steel &amp; Metals</option><option>Agri &amp; Food Commodities</option><option>Chemicals &amp; Polymers</option><option>Building &amp; Construction</option><option>Packaging</option></select><span class="material-symbols-outlined text-on-surface-variant text-[16px] pointer-events-none -ml-3">expand_more</span></div><div class="h-5 w-px bg-outline-variant hidden sm:block"></div><input class="flex-1 bg-transparent px-space-md py-3 font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none" placeholder="Search 50,000+ industrial commodities, grades, ASTM specs, CAS #, rice, urea..." type="text"/><button class="h-10 px-space-lg mx-1 rounded-lg bg-primary text-on-primary font-label-md text-label-md flex items-center gap-1.5 hover:bg-primary-container transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">search</span><span class="hidden lg:inline">Search</span></button></div></div><div class="flex items-center gap-space-md shrink-0"><a class="h-10 px-space-lg rounded-full bg-secondary-container text-on-secondary font-label-md text-label-md flex items-center gap-1.5 shadow-[0_1px_4px_rgba(253,118,26,0.25)] hover:bg-secondary transition-colors shrink-0" data-path="rfq-post-requirement" href="#"><span class="material-symbols-outlined text-[18px]">post_add</span><span>Post RFQ</span></a><a class="hidden xl:flex items-center gap-1 text-on-surface-variant hover:text-on-surface px-space-xs py-1.5" data-path="saved-commodities" href="#"><div class="relative"><span class="material-symbols-outlined text-[22px]">bookmark</span><span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-secondary text-on-secondary font-label-sm text-[10px] flex items-center justify-center">3</span></div><span class="font-label-md text-label-md">Saved</span></a><a class="hidden md:flex items-center gap-1 text-on-surface-variant hover:text-on-surface px-space-xs py-1.5" data-path="buyer-orders-quotes" href="#"><span class="material-symbols-outlined text-[22px]">receipt_long</span><span class="font-label-md text-label-md">Orders &amp; Quotes</span></a><div class="flex items-center gap-space-xs pl-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="hidden 2xl:flex flex-col text-left"><span class="font-label-sm text-[11px] text-on-surface-variant leading-none">US Buyer</span><span class="font-label-md text-label-md font-semibold text-on-surface leading-tight">Sign In</span></div></div></div></div><div class="bg-surface-container-lowest"><div class="w-full px-gutter flex items-center justify-between h-11"><div class="flex items-center gap-space-md overflow-x-auto"><button class="flex items-center gap-1.5 px-space-md py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md shrink-0 hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">grid_view</span><span>Browse Categories</span><span class="material-symbols-outlined text-[16px]">expand_more</span></button><nav class="flex items-center gap-space-xs shrink-0" data-active-classes="bg-surface-container text-primary font-bold rounded-lg"><a class="px-space-sm py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors whitespace-nowrap" data-path="steel-pipes-tubes" href="#">Steel Pipes &amp; Tubes</a><a class="px-space-sm py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors whitespace-nowrap" data-path="structural-flat-steel" href="#">Structural &amp; Flat Steel</a><a class="px-space-sm py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors whitespace-nowrap" data-path="fertilizers-urea" href="#">Fertilizers &amp; Urea</a><a class="px-space-sm py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors whitespace-nowrap" data-path="agri-commodities" href="#">Agri Commodities</a><a class="px-space-sm py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors whitespace-nowrap" data-path="chemicals-resins" href="#">Chemicals &amp; Resins</a><a class="px-space-sm py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors whitespace-nowrap" data-path="ceramics-granite" href="#">Ceramics &amp; Granite</a><a class="px-space-sm py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors whitespace-nowrap" data-path="verified-indian-mills" href="#">Verified Indian Mills</a><a class="px-space-sm py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors whitespace-nowrap" data-path="us-port-delivered-deals" href="#">US Port Deals</a><a class="px-space-sm py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors whitespace-nowrap" data-path="trade-financing" href="#">Net 60 Financing</a></nav></div><div class="hidden xl:flex items-center gap-space-sm shrink-0 font-label-sm text-label-sm text-secondary"><span class="material-symbols-outlined text-[16px]">verified</span><span class="font-semibold">DDP US Ports Guaranteed</span></div></div></div></div></header><main class="w-full pt-44 bg-surface min-h-[calc(100vh-11rem)]"><div class="flex flex-col w-full">
+<!-- SECTION 1: MARKETPLACE HERO WITH 3-COLUMN BENTO (TAXONOMY + SPOTLIGHT + FAST INQUIRY) -->
+<section class="w-full px-gutter py-space-md">
+<div class="max-w-[1560px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-md items-stretch">
+<!-- 1A: Quick-Category Vertical Taxonomy (3 cols on desktop) -->
+<aside class="lg:col-span-3 bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-space-sm mb-space-sm">
+<span class="font-label-lg text-label-lg text-primary flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[19px]">account_tree</span>
+              Raw Materials Directory
+            </span>
+<span class="font-label-sm text-label-sm text-tertiary-container px-2 py-0.5 rounded-full bg-surface-container">
+              Verified Mills
+            </span>
+</div>
+<nav class="flex flex-col gap-1">
+<!-- Item 1 -->
+<a class="group flex items-center justify-between p-2.5 rounded-lg hover:bg-surface-container-low transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">view_in_ar</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary font-semibold">Steel Pipes &amp; Tubulars</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">ASTM A53, API 5L, ERW</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:translate-x-0.5 transition-transform">chevron_right</span>
+</a>
+<!-- Item 2 -->
+<a class="group flex items-center justify-between p-2.5 rounded-lg hover:bg-surface-container-low transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">layers</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary font-semibold">Heavy Flat &amp; Coils</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">HRC, CRC, ASTM A36 Plates</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:translate-x-0.5 transition-transform">chevron_right</span>
+</a>
+<!-- Item 3 -->
+<a class="group flex items-center justify-between p-2.5 rounded-lg hover:bg-surface-container-low transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">eco</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary font-semibold">Fertilizers &amp; Agchem</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Technical Urea 46%, DAP</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:translate-x-0.5 transition-transform">chevron_right</span>
+</a>
+<!-- Item 4 -->
+<a class="group flex items-center justify-between p-2.5 rounded-lg hover:bg-surface-container-low transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">science</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary font-semibold">Polymers &amp; Resins</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">PVC K67, HDPE, Caustic Soda</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:translate-x-0.5 transition-transform">chevron_right</span>
+</a>
+<!-- Item 5 -->
+<a class="group flex items-center justify-between p-2.5 rounded-lg hover:bg-surface-container-low transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">grain</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary font-semibold">Food &amp; Grain Bulk</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">1121 Basmati, Non-Basmati</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:translate-x-0.5 transition-transform">chevron_right</span>
+</a>
+<!-- Item 6 -->
+<a class="group flex items-center justify-between p-2.5 rounded-lg hover:bg-surface-container-low transition-colors" href="#">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">grid_4x4</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary font-semibold">Ceramic Slabs &amp; Stone</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Morbi 600x1200, Black Granite</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:translate-x-0.5 transition-transform">chevron_right</span>
+</a>
+</nav>
+</div>
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-lg flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary-container text-[20px]">local_shipping</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-bold leading-tight">Direct FCL Routes Active</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Nhava Sheva / Mundra → Houston, NY, LA</span>
+</div>
+</div>
+</aside>
+<!-- 1B: Central Interactive Procurement Showcase (6 cols on desktop) -->
+<div class="lg:col-span-6 bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col justify-between relative overflow-hidden">
+<!-- Ambient decorative gradient mesh -->
+<div class="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-primary/5 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-secondary-container/10 blur-3xl pointer-events-none"></div>
+<div class="relative z-10">
+<!-- Top Badge Bar -->
+<div class="flex flex-wrap items-center gap-2 mb-space-sm">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              Direct Mill-to-Port Sourcing
+            </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-tertiary-fixed/40 text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">format_image_left</span>
+              FMC &amp; US Customs In-House
+            </span>
+</div>
+<!-- Main Typography -->
+<h1 class="font-headline-lg text-headline-lg text-on-surface max-w-2xl leading-tight">
+            Source Raw Materials Direct from India’s Top Mills. 
+            <span class="text-primary block mt-1">Delivered to Your US Port in One Single USD Invoice.</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-sm max-w-xl">
+            No freight headaches. No customs surprises. In-house ocean FCL logistics, US CBP port clearance, Section 232 handling, and third-party pre-shipment factory audits included.
+          </p>
+<!-- Search Fast Tags -->
+<div class="mt-space-md">
+<span class="font-label-sm text-label-sm text-outline block mb-2 uppercase tracking-wider">Fast Search Benchmarks:</span>
+<div class="flex flex-wrap gap-1.5">
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm transition-colors">
+                ASTM A53 ERW Pipe
+              </button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm transition-colors">
+                Urea 46% Granular
+              </button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm transition-colors">
+                Basmati 1121 Sella
+              </button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm transition-colors">
+                PVC K67 Resin
+              </button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm transition-colors">
+                SS 304 Sheets
+              </button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm transition-colors">
+                Morbi Porcelain Slabs
+              </button>
+</div>
+</div>
+</div>
+<!-- Hero Feature Pillars Footer -->
+<div class="relative z-10 mt-space-lg pt-space-md grid grid-cols-3 gap-2 bg-surface-container-low/70 rounded-xl p-3">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[17px]">verified</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-bold">Verified Mills</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Tier-1 Indian Plants</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[17px]">credit_card</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-bold">Net 60 Financing</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Pay on Port Arrival</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[17px]">biotech</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-bold">SGS / BV Tested</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Free Pre-ship Inspection</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 1C: Right-Side Quick Quote Card (3 cols on desktop) -->
+<div class="lg:col-span-3 bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-space-xs mb-space-xs">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container animate-pulse"></span>
+<h2 class="font-title-md text-title-md text-on-surface font-bold">Instant US Port Quote</h2>
+</div>
+<span class="font-label-sm text-[10px] text-secondary font-bold uppercase tracking-wider">Avg 2h response</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">
+            Enter required material specs. We compute mill fob + ocean freight + customs into 1 landed price.
+          </p>
+<form class="flex flex-col gap-2.5" id="hero-quick-rfq" onsubmit="event.preventDefault(); alert('Landed quotation request submitted! A trade specialist will provide port-specific pricing within 2 hours.');">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Commodity / Material Grade</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low px-3 py-2 rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest shadow-sm" placeholder="e.g. ASTM A53 Gr B 2' Pipe" required="" type="text"/>
+<span class="material-symbols-outlined text-[17px] text-outline absolute right-2.5 top-2.5">search</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Volume Needed</label>
+<div class="flex items-center bg-surface-container-low rounded-lg px-2 shadow-sm">
+<input class="w-full bg-transparent py-2 font-data-mono text-data-mono text-on-surface focus:outline-none" min="5" placeholder="50" type="number" value="25"/>
+<span class="font-label-sm text-label-sm text-outline shrink-0">MT</span>
+</div>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Packaging</label>
+<select class="w-full bg-surface-container-low py-2 px-2 rounded-lg font-label-sm text-label-sm text-on-surface focus:outline-none shadow-sm">
+<option>Loose / Bundles</option>
+<option>1000kg Jumbo Bags</option>
+<option>Wooden Crates</option>
+<option>200L Steel Drums</option>
+</select>
+</div>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Target US Port / Zip Code</label>
+<select class="w-full bg-surface-container-low py-2 px-3 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none shadow-sm">
+<option value="houston">Port of Houston, TX (Gulf Coast)</option>
+<option value="newark">Port Newark / NY (East Coast)</option>
+<option value="savannah">Port of Savannah, GA (SE)</option>
+<option value="la">Port of Los Angeles / Long Beach, CA</option>
+<option value="chicago">Chicago Intermodal Rail Ramp</option>
+</select>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Your Work Email</label>
+<input class="w-full bg-surface-container-low px-3 py-2 rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none shadow-sm" placeholder="buyer@acme-industrial.com" required="" type="email"/>
+</div>
+<button class="mt-1 w-full py-2.5 rounded-lg bg-secondary-container hover:bg-secondary text-on-secondary font-label-md text-label-md flex items-center justify-center gap-1.5 shadow-[0_2px_8px_rgba(253,118,26,0.3)] transition-all cursor-pointer" type="submit">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span>Get Landed Quote in 2 Hrs</span>
+</button>
+</form>
+</div>
+<div class="mt-3 pt-2 text-center">
+<span class="font-body-sm text-[11px] text-outline flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary">lock</span>
+            Confidential RFQ • Direct Mill Network • No Markups
+          </span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: INTERACTIVE COMMODITY CATEGORY EXPLORER -->
+<section class="w-full px-gutter py-space-lg">
+<div class="max-w-[1560px] mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-md">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-bold">Catalog Breakdown</span>
+<span class="w-6 h-px bg-primary/40"></span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Explore Core Sourcing Sectors</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">High-volume industrial raw materials audited at Indian manufacturing clusters with live freight indexed to US ports.</p>
+</div>
+<a class="mt-2 md:mt-0 font-label-md text-label-md text-primary hover:text-primary-container flex items-center gap-1 transition-colors" href="#">
+<span>View All 18 Industrial Sub-Sectors</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- 6 Sector Cards Grid with Visual Photography -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-space-md">
+<!-- Sector 1 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="relative h-32 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High-grade industrial seamless steel pipes and ERW hollow sections stacked neatly in an audited Indian steel mill warehouse with overhead industrial crane lighting, clean metallic reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBccdDHymz2gtzqD8PNUHt5Dx4205L9FXk6US23Ohyh_bZQzxLKRbX3lTabNq61FdzHYLvEdV2MmVpRmcZSC4pqfBPVCANgtcWgxz20gcnPckV82BGMGK4kfCgcelFIcBWZCLxIcA2GLjPW7gCY52PzaXkx_UKhQLj0cFsXpnPlVHkg62kHd5smox8h_uZBLN-EV0rXsrLRWNGVsckKFcBl9Yom4Gyt3SW7U3dUG4s"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest/90 font-label-sm text-[10px] text-on-surface font-bold backdrop-blur-sm">
+                42 Mills
+              </span>
+</div>
+<div class="p-space-sm">
+<h3 class="font-title-md text-title-md text-on-surface font-semibold group-hover:text-primary transition-colors">Steel Pipes &amp; Tubes</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Seamless, ERW, API 5L line pipe, Schedule 40/80.</p>
+</div>
+</div>
+<div class="px-space-sm pb-space-sm pt-0">
+<div class="bg-surface-container-low p-2 rounded-lg flex items-center justify-between">
+<span class="font-body-sm text-[11px] text-outline">Starting at</span>
+<span class="font-label-md text-label-md text-primary font-bold">$810/MT</span>
+</div>
+</div>
+</div>
+<!-- Sector 2 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="relative h-32 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Granular nitrogen urea fertilizer in crystalline white beads flowing into high capacity bulk shipping container at Indian coastal port loading terminal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNAk6uKVaU71lWZu6_j1tkuZPqpwFC-vVhpKdforcHltpMRQxqKKOHhGCaJdcroWnXNBLtdDVnt_PLB6IECNa9WNqwvk_qbzDQmklAf498p0eYjMUqG_6U1yV4cj6vwbIlrM7YpxbrasQOBPDI87It5RReZpNflUzOMLg8bvtRsY7fTjeLh3WcxYB4LidFKdd-j14opOPCR9qzTJZ3bf1DT8nVBAKHRzigtw1P8xg"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest/90 font-label-sm text-[10px] text-on-surface font-bold backdrop-blur-sm">
+                28 Mills
+              </span>
+</div>
+<div class="p-space-sm">
+<h3 class="font-title-md text-title-md text-on-surface font-semibold group-hover:text-primary transition-colors">Agrochemicals &amp; Urea</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Granular Urea 46%, DAP technical grade, sulfur prills.</p>
+</div>
+</div>
+<div class="px-space-sm pb-space-sm pt-0">
+<div class="bg-surface-container-low p-2 rounded-lg flex items-center justify-between">
+<span class="font-body-sm text-[11px] text-outline">Starting at</span>
+<span class="font-label-md text-label-md text-primary font-bold">$395/MT</span>
+</div>
+</div>
+</div>
+<!-- Sector 3 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="relative h-32 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Premium long slender 1121 Sella Basmati rice grains displayed in a clean laboratory inspection bowl with brass scale and quality certificate in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARPOkKlT3EuI-4qBm3MlE-8I0DDHzKYytO6vacXd64pSPTn_OFLDY7BR6vmHW7N5JhHK4-pRs9yoY4ZcTRI5vq7Fd4T2-uhHyv9f_REnanoYxZUeF6r6DmkLGa52fwVGEsjm9hZu5dxVWDuUdXqEpH-9Il0Z0g6RWc80gJLLzFEU7TOLB6zJ9nTKZtU_UH_HunnXLaonBUyw8QWLnXEcjzXJuvsV5Q-EEjDmOr68k"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest/90 font-label-sm text-[10px] text-on-surface font-bold backdrop-blur-sm">
+                54 Millers
+              </span>
+</div>
+<div class="p-space-sm">
+<h3 class="font-title-md text-title-md text-on-surface font-semibold group-hover:text-primary transition-colors">Agri &amp; Food Grains</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">1121 Sella Basmati, IR 64 Non-Basmati, Fast Guar Gum.</p>
+</div>
+</div>
+<div class="px-space-sm pb-space-sm pt-0">
+<div class="bg-surface-container-low p-2 rounded-lg flex items-center justify-between">
+<span class="font-body-sm text-[11px] text-outline">Starting at</span>
+<span class="font-label-md text-label-md text-primary font-bold">$1,050/MT</span>
+</div>
+</div>
+</div>
+<!-- Sector 4 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="relative h-32 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Pure white polymer resin pellets and chemical flakes packaged in 25kg multiwall paper bags stacked on export wooden pallets in chemical manufacturing facility" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRvKrzS4MlaccAGwqtk18UHNZMrBLyebyZuJWlReQRIZ9QQZp9T0TegrTnTQxaKnSUZL48M6BCHVLOSzfWbgZl4hnFb5yUx286Y6-HeA9IGW5pVN80nNP-v_EcMd3V07rS9CwfhBQ-kPUN-w-OBA_QhdL9lUxX-8jI0d4rs-EoPVgIO6SR7upa-uTJdIai8fIP-VqDkMItGAvhdhq6LYDuXJMHFg7NCNfirtAPsqE"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest/90 font-label-sm text-[10px] text-on-surface font-bold backdrop-blur-sm">
+                36 Plants
+              </span>
+</div>
+<div class="p-space-sm">
+<h3 class="font-title-md text-title-md text-on-surface font-semibold group-hover:text-primary transition-colors">Polymers &amp; Chemicals</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">PVC Suspension K67, Caustic Soda flakes 99%, HDPE.</p>
+</div>
+</div>
+<div class="px-space-sm pb-space-sm pt-0">
+<div class="bg-surface-container-low p-2 rounded-lg flex items-center justify-between">
+<span class="font-body-sm text-[11px] text-outline">Starting at</span>
+<span class="font-label-md text-label-md text-primary font-bold">$740/MT</span>
+</div>
+</div>
+</div>
+<!-- Sector 5 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="relative h-32 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Coils of heavy cold rolled stainless steel grade 304 with mirrored industrial finish stored in precision metal stamping production warehouse" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARBfYvOwyk19SnW-6ONDGRusrt9fnsEmUYRwpn8cG73w7X57NvjYuYz9fEfiJKbeS02Vc78vbZqCmx9rFBo2CsFnZz605i9886GrGyrdePLdTKu_NpZNcmZigZB31XlvIJbMXgMX9oB7RxbSa-6-nqpK0LE-3rwzQs0pafseiLmb9xgzbkcEu6iAlulkzwKZgwD5IYNfoEUbx2OxuU_oosZYGHODyN6jZ3luYneeM"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest/90 font-label-sm text-[10px] text-on-surface font-bold backdrop-blur-sm">
+                31 Mills
+              </span>
+</div>
+<div class="p-space-sm">
+<h3 class="font-title-md text-title-md text-on-surface font-semibold group-hover:text-primary transition-colors">Stainless &amp; Alloys</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">SS 304/316 Coils, Aluminium 6063 billets, Copper wire rod.</p>
+</div>
+</div>
+<div class="px-space-sm pb-space-sm pt-0">
+<div class="bg-surface-container-low p-2 rounded-lg flex items-center justify-between">
+<span class="font-body-sm text-[11px] text-outline">Starting at</span>
+<span class="font-label-md text-label-md text-primary font-bold">$2,150/MT</span>
+</div>
+</div>
+</div>
+<!-- Sector 6 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+<div>
+<div class="relative h-32 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Large architectural porcelain tile slabs with elegant Italian marble veining stacked on heavy wooden A-frames in modern Morbi tile manufacturing facility" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgIY-FynVp-66HgMqk3hTK0edM1QScvv5u7VHan6jyvdrI4SbiPQ_uhXbGm5Ks8VIJ3kaujA7y6as-lFDiLzr7Sh44NMKEBq2L1NPK_APZ9FDC1lyis1QfLtNdc-Fgufh0qhMIO7p_y0JSVPTHrlYUrY2H1EaUlNpPmxAErXo5Qb9RQYbLfn5P7XdPQ4ndrF6irSrVFj4YP3sWyXlFrQtJ3hCJDRFM1aUAjeGOQr0"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest/90 font-label-sm text-[10px] text-on-surface font-bold backdrop-blur-sm">
+                70+ Factories
+              </span>
+</div>
+<div class="p-space-sm">
+<h3 class="font-title-md text-title-md text-on-surface font-semibold group-hover:text-primary transition-colors">Porcelain &amp; Granite</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Morbi 600x1200mm slabs, polished Black Galaxy granite.</p>
+</div>
+</div>
+<div class="px-space-sm pb-space-sm pt-0">
+<div class="bg-surface-container-low p-2 rounded-lg flex items-center justify-between">
+<span class="font-body-sm text-[11px] text-outline">Starting at</span>
+<span class="font-label-md text-label-md text-primary font-bold">$6.80/m²</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: TRENDING BULK COMMODITIES & DYNAMIC DELIVERED PRICING GRID -->
+<section class="w-full px-gutter py-space-lg bg-surface-container-low/50">
+<div class="max-w-[1560px] mx-auto">
+<!-- Section Header with Port Destination Global Switcher -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md mb-space-lg bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container"></span>
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Live Landed Ocean Quotes</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">Trending Bulk Commodities Ready for Export</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Switch target US entry port below to instantly recalculate door/port all-inclusive landed pricing.</p>
+</div>
+<div class="flex items-center gap-3 bg-surface-container-low px-4 py-2 rounded-xl shrink-0">
+<span class="material-symbols-outlined text-primary text-[20px]">anchor</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-on-surface-variant font-bold uppercase">Calculate For Destination:</span>
+<select class="bg-transparent font-title-md text-title-md text-primary font-bold focus:outline-none cursor-pointer" id="global-port-selector" onchange="updateDeliveredPrices(this.value)">
+<option value="houston">Port of Houston, TX (Gulf Hub)</option>
+<option value="newark">Port Newark, NJ / NY</option>
+<option value="savannah">Port of Savannah, GA</option>
+<option value="la">Port of Los Angeles / Long Beach, CA</option>
+<option value="chicago">Chicago Rail Ramp (Inland Ramp)</option>
+</select>
+</div>
+</div>
+</div>
+<!-- 8 Dynamic Product Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- CARD 1 -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow p-space-md flex flex-col justify-between">
+<div>
+<div class="relative h-44 rounded-lg overflow-hidden bg-surface-container mb-space-sm">
+<img class="w-full h-full object-cover" data-alt="Precision ERW steel pipes ASTM A53 with clean beveled ends and black anti-corrosion mill protective varnish stacked in bundle ready for export" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADsMdv580ZWsKWXVvNP4M8iDJT4kEsqz2to-OEeY4jd6BMlGVQfhG50FyPqhKaqm7ojwoW-UJmwtQ5zHfLrWvavvS8j2SA1bEzvu6s2w8ZSIfVdRTun2V8ijC1Rpr1E2373fM5O25oPc3JJ-FhcWjN0VcBQ6xK06Kz0Two-MWWxKqDPKSok-YyBOuRhjcBgCsBLwBOGaJRKVHEWwbC7ISIbPiudXrqtFjVCBheBzw"/>
+<div class="absolute top-2 left-2 flex flex-col gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 font-label-sm text-[10px] text-on-surface font-bold">ASTM A53 Grade B</span>
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-tertiary font-label-sm text-[10px] font-bold">MTC 3.1 Certified</span>
+</div>
+<span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-data-mono text-[11px]">MOQ: 25 MT (1 FCL)</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-[12px] mb-1">
+<span class="material-symbols-outlined text-[15px] text-primary">factory</span>
+<span>Anjar Steel Cluster, Gujarat</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold leading-snug">ERW Steel Pipe 2" SCH 40</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">Beveled ends, black varnished, hydrostatic tested for US industrial fire &amp; fluid transfer line construction.</p>
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-lg space-y-1.5">
+<div class="flex justify-between items-center font-body-sm text-body-sm text-on-surface-variant">
+<span>Mill Ex-Works (India):</span>
+<span class="font-data-mono font-semibold text-on-surface">$812 / MT</span>
+</div>
+<div class="flex justify-between items-center pt-1">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-secondary font-bold uppercase tracking-wider">All-in Delivered:</span>
+<span class="font-body-sm text-[10px] text-outline target-port-label">Houston, TX</span>
+</div>
+<div class="text-right">
+<span class="font-title-lg text-title-lg font-bold text-primary dynamic-price" data-base="1148">$1,148</span>
+<span class="font-data-mono text-[12px] text-on-surface-variant">/ MT</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-md grid grid-cols-2 gap-2">
+<button class="py-2 px-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors text-center cursor-pointer" onclick="requestSample('ERW Steel Pipe 2&quot; SCH 40')">
+              Sample Kit
+            </button>
+<button class="py-2 px-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-colors text-center cursor-pointer" onclick="requestQuote('ERW Steel Pipe 2&quot; SCH 40')">
+              Get Quote
+            </button>
+</div>
+</article>
+<!-- CARD 2 -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow p-space-md flex flex-col justify-between">
+<div>
+<div class="relative h-44 rounded-lg overflow-hidden bg-surface-container mb-space-sm">
+<img class="w-full h-full object-cover" data-alt="Technical grade white granular urea 46% nitrogen fertilizer granules held in lab scoop against sealed moisture resistant jumbo export sacks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaieaVlFPrWSolAOKZRPaG9YqcA79PleWpVrq4bKC8r3dbw56ksWzOwXumCZywQ-KuFDsukFs5N0ZZLdjZgl4XEZu65ggdshBIZZ3emgW3z_B0tJCpLfbNdX1IzSNVNtZj_6KfgCAxKhNBdaG9GYvz9oXvvoSJ_sIKvXlW_0CCeyHGzs8GhPeBEPSNmy5DWXK5iRedX1O9SB8NbslwyHRA4R1fKmM38aWH48QiaAU"/>
+<div class="absolute top-2 left-2 flex flex-col gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 font-label-sm text-[10px] text-on-surface font-bold">46% Nitrogen</span>
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-tertiary font-label-sm text-[10px] font-bold">Low Biuret &lt; 1%</span>
+</div>
+<span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-data-mono text-[11px]">MOQ: 50 MT</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-[12px] mb-1">
+<span class="material-symbols-outlined text-[15px] text-primary">factory</span>
+<span>Kandla Port Chemical Cluster</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold leading-snug">Granular Urea 46% Nitrogen</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">Technical &amp; DEF grade purity, anti-caking coated, packed in 1,000kg weather-sealed big bags.</p>
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-lg space-y-1.5">
+<div class="flex justify-between items-center font-body-sm text-body-sm text-on-surface-variant">
+<span>Mill Ex-Works (India):</span>
+<span class="font-data-mono font-semibold text-on-surface">$398 / MT</span>
+</div>
+<div class="flex justify-between items-center pt-1">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-secondary font-bold uppercase tracking-wider">All-in Delivered:</span>
+<span class="font-body-sm text-[10px] text-outline target-port-label">Houston, TX</span>
+</div>
+<div class="text-right">
+<span class="font-title-lg text-title-lg font-bold text-primary dynamic-price" data-base="455">$455</span>
+<span class="font-data-mono text-[12px] text-on-surface-variant">/ MT</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-md grid grid-cols-2 gap-2">
+<button class="py-2 px-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors text-center cursor-pointer" onclick="requestSample('Granular Urea 46%')">
+              Sample Kit
+            </button>
+<button class="py-2 px-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-colors text-center cursor-pointer" onclick="requestQuote('Granular Urea 46%')">
+              Get Quote
+            </button>
+</div>
+</article>
+<!-- CARD 3 -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow p-space-md flex flex-col justify-between">
+<div>
+<div class="relative h-44 rounded-lg overflow-hidden bg-surface-container mb-space-sm">
+<img class="w-full h-full object-cover" data-alt="Long grain 1121 steam Basmati rice polished and sorted by optical color sorter inside automated Haryana milling facility" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzo0a3DzhQ-EHigpHqFEBtQ0vDjwjW_CsgletkiZ2ggH4DgULopdMpGjhyn4m_5EqtZYuldVLHykQPRVtTv2P-cswJ_2VXupqDymZliBpNPfMZ16Cv3Qx31e5JwQM92T6GIaPZkUCekJuOZmAyLDnHUG07BHRMQDhbBg5Mpw4wLZE7BxfqZH8AX0EgI7Klp7uo504n4w9clrz6Yiux8detUGyU7fNhGZxwxiVeluo"/>
+<div class="absolute top-2 left-2 flex flex-col gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 font-label-sm text-[10px] text-on-surface font-bold">Length: 8.35mm+</span>
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-tertiary font-label-sm text-[10px] font-bold">FDA Registered</span>
+</div>
+<span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-data-mono text-[11px]">MOQ: 20 MT (1 FCL)</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-[12px] mb-1">
+<span class="material-symbols-outlined text-[15px] text-primary">factory</span>
+<span>Karnal Agri Belt, Haryana</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold leading-snug">Traditional 1121 Steam Basmati</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">Extra-long grain, non-sticky elongation ratio 2.5x, double polished with optical sorting guarantee.</p>
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-lg space-y-1.5">
+<div class="flex justify-between items-center font-body-sm text-body-sm text-on-surface-variant">
+<span>Mill Ex-Works (India):</span>
+<span class="font-data-mono font-semibold text-on-surface">$1,060 / MT</span>
+</div>
+<div class="flex justify-between items-center pt-1">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-secondary font-bold uppercase tracking-wider">All-in Delivered:</span>
+<span class="font-body-sm text-[10px] text-outline target-port-label">Houston, TX</span>
+</div>
+<div class="text-right">
+<span class="font-title-lg text-title-lg font-bold text-primary dynamic-price" data-base="1312">$1,312</span>
+<span class="font-data-mono text-[12px] text-on-surface-variant">/ MT</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-md grid grid-cols-2 gap-2">
+<button class="py-2 px-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors text-center cursor-pointer" onclick="requestSample('1121 Steam Basmati')">
+              Sample Kit
+            </button>
+<button class="py-2 px-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-colors text-center cursor-pointer" onclick="requestQuote('1121 Steam Basmati')">
+              Get Quote
+            </button>
+</div>
+</article>
+<!-- CARD 4 -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow p-space-md flex flex-col justify-between">
+<div>
+<div class="relative h-44 rounded-lg overflow-hidden bg-surface-container mb-space-sm">
+<img class="w-full h-full object-cover" data-alt="Industrial polymer suspension PVC resin powder grade K67 in clean sampling container with lab technical datasheet and certificates in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF2i19hrhdCd_c9moAdP2chOCpEfHWHptXJXNd_olzrH-g_iW3nA7Okq8ugAF1sb2mCqI_Fjj73KJCWdlQV99zUDiu34t5e6xBBQMB02grtF6I8N-tEPTVSOpwrO2IHAERtFgFnB_95i4oNGfT2TWX4KXAgYy6nNPZkdQyvTKjS2iTxQUVnrQVDYgAPRItsmF5oAa5HZKdzAGP3t4av66hE-4g4BhqA8CmNj_eTWc"/>
+<div class="absolute top-2 left-2 flex flex-col gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 font-label-sm text-[10px] text-on-surface font-bold">K-Value 66-68</span>
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-tertiary font-label-sm text-[10px] font-bold">ASTM D1755 Spec</span>
+</div>
+<span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-data-mono text-[11px]">MOQ: 20 MT</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-[12px] mb-1">
+<span class="material-symbols-outlined text-[15px] text-primary">factory</span>
+<span>Dahej Petrochem Hub, Gujarat</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold leading-snug">PVC Suspension Resin K67</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">Ideal for rigid pipe extrusion, window profiles, and US conduit manufacturing. Uniform bulk density.</p>
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-lg space-y-1.5">
+<div class="flex justify-between items-center font-body-sm text-body-sm text-on-surface-variant">
+<span>Mill Ex-Works (India):</span>
+<span class="font-data-mono font-semibold text-on-surface">$745 / MT</span>
+</div>
+<div class="flex justify-between items-center pt-1">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-secondary font-bold uppercase tracking-wider">All-in Delivered:</span>
+<span class="font-body-sm text-[10px] text-outline target-port-label">Houston, TX</span>
+</div>
+<div class="text-right">
+<span class="font-title-lg text-title-lg font-bold text-primary dynamic-price" data-base="982">$982</span>
+<span class="font-data-mono text-[12px] text-on-surface-variant">/ MT</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-md grid grid-cols-2 gap-2">
+<button class="py-2 px-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors text-center cursor-pointer" onclick="requestSample('PVC Resin K67')">
+              Sample Kit
+            </button>
+<button class="py-2 px-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-colors text-center cursor-pointer" onclick="requestQuote('PVC Resin K67')">
+              Get Quote
+            </button>
+</div>
+</article>
+<!-- CARD 5 -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow p-space-md flex flex-col justify-between">
+<div>
+<div class="relative h-44 rounded-lg overflow-hidden bg-surface-container mb-space-sm">
+<img class="w-full h-full object-cover" data-alt="Massive rolls of hot rolled steel coils strapped with heavy steel bands in Hazira shipping port yard ready for crane loading" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAptC3sWepufuN42yD56eQ3n3aYXwqP33Io9_cUrAWdHk54p1Wn0T2QGKtOna7h0BZRKt13Y8mUOa2X84XmVQ-zzT4GMQfEaTl8lVMAWfvKtOZLRbXJofgXxMEmr5qcjltko73o4Rqm_emGDU6TJlCWebqINwG5bdTjqWy02mHoTOyilgOPso-PSH4vwxTOFxxOB4LDH5Vjk9R1AQ2c3G5tuqJoyVgjMj5nUBHs9LY"/>
+<div class="absolute top-2 left-2 flex flex-col gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 font-label-sm text-[10px] text-on-surface font-bold">ASTM A36 / SS400</span>
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-tertiary font-label-sm text-[10px] font-bold">Section 232 Compliant</span>
+</div>
+<span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-data-mono text-[11px]">MOQ: 50 MT</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-[12px] mb-1">
+<span class="material-symbols-outlined text-[15px] text-primary">factory</span>
+<span>Hazira Integrated Steel Complex</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold leading-snug">Hot Rolled Steel Coils 3.0mm</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">Prime commercial quality, pickled and oiled options, mill test cert 3.1 with heat number tracking.</p>
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-lg space-y-1.5">
+<div class="flex justify-between items-center font-body-sm text-body-sm text-on-surface-variant">
+<span>Mill Ex-Works (India):</span>
+<span class="font-data-mono font-semibold text-on-surface">$625 / MT</span>
+</div>
+<div class="flex justify-between items-center pt-1">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-secondary font-bold uppercase tracking-wider">All-in Delivered:</span>
+<span class="font-body-sm text-[10px] text-outline target-port-label">Houston, TX</span>
+</div>
+<div class="text-right">
+<span class="font-title-lg text-title-lg font-bold text-primary dynamic-price" data-base="928">$928</span>
+<span class="font-data-mono text-[12px] text-on-surface-variant">/ MT</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-md grid grid-cols-2 gap-2">
+<button class="py-2 px-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors text-center cursor-pointer" onclick="requestSample('Hot Rolled Coils 3.0mm')">
+              Sample Kit
+            </button>
+<button class="py-2 px-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-colors text-center cursor-pointer" onclick="requestQuote('Hot Rolled Coils 3.0mm')">
+              Get Quote
+            </button>
+</div>
+</article>
+<!-- CARD 6 -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow p-space-md flex flex-col justify-between">
+<div>
+<div class="relative h-44 rounded-lg overflow-hidden bg-surface-container mb-space-sm">
+<img class="w-full h-full object-cover" data-alt="Reflective stainless steel sheet grade 304 2B surface finish with laser protective film in clean Indian cold rolling metal workshop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGHLJoYulGLP1fCxm5EiZ5PqGknf8GX3MOQySztuGP7sMvSbsYbQejdlNjXf1YU1LbVgaPgeJrvbyE7LvCeUQiSlvWE2xjckiGni3-o9MQ-KHVPtwYpv6rMt5XOpJ-iII7mmbQzehm9AIaQF8hpS7PxQeZq0OalfdebgNeC3e3i29N_HS_6W2jKzVZuue2BqSoX4W4uBefymfqN8kq693JZUen3NHfkr7_j-dOyqU"/>
+<div class="absolute top-2 left-2 flex flex-col gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 font-label-sm text-[10px] text-on-surface font-bold">AISI 304 / 1.4301</span>
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-tertiary font-label-sm text-[10px] font-bold">2B Finish + PVC Film</span>
+</div>
+<span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-data-mono text-[11px]">MOQ: 15 MT</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-[12px] mb-1">
+<span class="material-symbols-outlined text-[15px] text-primary">factory</span>
+<span>Ahmedabad Stainless Mill</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold leading-snug">SS 304 2B CR Sheet 1.5mm</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">Standard 4x8 ft sheets, tight tolerance gauge, suitable for kitchenware, chemical tanks, and architectural trim.</p>
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-lg space-y-1.5">
+<div class="flex justify-between items-center font-body-sm text-body-sm text-on-surface-variant">
+<span>Mill Ex-Works (India):</span>
+<span class="font-data-mono font-semibold text-on-surface">$2,180 / MT</span>
+</div>
+<div class="flex justify-between items-center pt-1">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-secondary font-bold uppercase tracking-wider">All-in Delivered:</span>
+<span class="font-body-sm text-[10px] text-outline target-port-label">Houston, TX</span>
+</div>
+<div class="text-right">
+<span class="font-title-lg text-title-lg font-bold text-primary dynamic-price" data-base="2785">$2,785</span>
+<span class="font-data-mono text-[12px] text-on-surface-variant">/ MT</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-md grid grid-cols-2 gap-2">
+<button class="py-2 px-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors text-center cursor-pointer" onclick="requestSample('SS 304 Sheets 1.5mm')">
+              Sample Kit
+            </button>
+<button class="py-2 px-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-colors text-center cursor-pointer" onclick="requestQuote('SS 304 Sheets 1.5mm')">
+              Get Quote
+            </button>
+</div>
+</article>
+<!-- CARD 7 -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow p-space-md flex flex-col justify-between">
+<div>
+<div class="relative h-44 rounded-lg overflow-hidden bg-surface-container mb-space-sm">
+<img class="w-full h-full object-cover" data-alt="High purity white caustic soda sodium hydroxide flakes inside transparent industrial specimen bottle with hazmat class 8 label" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3vMDpxe048MeUGKDktqIW_xl3AyVQhAuJ_iUlTXySRlYvx8DjXHm9i3qT2oa-iC55XsOwhoGUItgrD_9gTGrwn_KzHqWnvlndbzhGKKVSiVAl1wIS4tAZvs2WBUpIqzUTZFnMVv2h40bWBrDMV2CW1TFrRg-eYrlUsYuEXNS1iKHDNBSFm20Tpg2myfEHDL6Xc7cRmXBHztnUxAEDGVNTfdqUhhEU_UJlrCedpAM"/>
+<div class="absolute top-2 left-2 flex flex-col gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 font-label-sm text-[10px] text-on-surface font-bold">99.5% NaOH Min</span>
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-tertiary font-label-sm text-[10px] font-bold">IMDG Code Class 8</span>
+</div>
+<span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-data-mono text-[11px]">MOQ: 25 MT</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-[12px] mb-1">
+<span class="material-symbols-outlined text-[15px] text-primary">factory</span>
+<span>Ankleshwar Chemical Belt</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold leading-snug">Caustic Soda Flakes 99% Pure</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">Membrane chlor-alkali process, low chloride &amp; iron content. Heavy duty 25kg PP bags with PE inner liner.</p>
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-lg space-y-1.5">
+<div class="flex justify-between items-center font-body-sm text-body-sm text-on-surface-variant">
+<span>Mill Ex-Works (India):</span>
+<span class="font-data-mono font-semibold text-on-surface">$540 / MT</span>
+</div>
+<div class="flex justify-between items-center pt-1">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-secondary font-bold uppercase tracking-wider">All-in Delivered:</span>
+<span class="font-body-sm text-[10px] text-outline target-port-label">Houston, TX</span>
+</div>
+<div class="text-right">
+<span class="font-title-lg text-title-lg font-bold text-primary dynamic-price" data-base="760">$760</span>
+<span class="font-data-mono text-[12px] text-on-surface-variant">/ MT</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-md grid grid-cols-2 gap-2">
+<button class="py-2 px-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors text-center cursor-pointer" onclick="requestSample('Caustic Soda Flakes')">
+              Sample Kit
+            </button>
+<button class="py-2 px-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-colors text-center cursor-pointer" onclick="requestQuote('Caustic Soda Flakes')">
+              Get Quote
+            </button>
+</div>
+</article>
+<!-- CARD 8 -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow p-space-md flex flex-col justify-between">
+<div>
+<div class="relative h-44 rounded-lg overflow-hidden bg-surface-container mb-space-sm">
+<img class="w-full h-full object-cover" data-alt="High gloss rectified Calacatta Gold porcelain tiles 600x1200mm displayed on showroom wooden vertical rack with protective corner packaging" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL3xMAUsros8i_NuWn8cvFrsupEVgRPq4XhfiazHNWi9SojXXiqh9bc02iCom3btwRo7aygbyw7KbRIxd_PvtEXqZYxiILmS1pYlNWpMr1y_DNtbkpbLBBHWQX0K9FSU1oHXfmIs6juc1OyVDvQ-0Y-sF6xUHBmHPB1fwAbWJBEJcRRBwkX8nBfrjuAvXiUHYOTViYSMAX2FcqTmPcbrv79H8Lua8Jl3WoasTRkPE"/>
+<div class="absolute top-2 left-2 flex flex-col gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/90 font-label-sm text-[10px] text-on-surface font-bold">600x1200mm Rectified</span>
+<span class="px-2 py-0.5 rounded bg-tertiary-fixed text-tertiary font-label-sm text-[10px] font-bold">Water Abs &lt; 0.05%</span>
+</div>
+<span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-data-mono text-[11px]">MOQ: 1 FCL (1,440 m²)</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-[12px] mb-1">
+<span class="material-symbols-outlined text-[15px] text-primary">factory</span>
+<span>Morbi Ceramics Cluster, Gujarat</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold leading-snug">Calacatta Porcelain Slabs</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">Ultra-durable polished glazed vitrified porcelain tile, Italian digital printing, heavy commercial rating.</p>
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-lg space-y-1.5">
+<div class="flex justify-between items-center font-body-sm text-body-sm text-on-surface-variant">
+<span>Mill Ex-Works (India):</span>
+<span class="font-data-mono font-semibold text-on-surface">$5.20 / m²</span>
+</div>
+<div class="flex justify-between items-center pt-1">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] text-secondary font-bold uppercase tracking-wider">All-in Delivered:</span>
+<span class="font-body-sm text-[10px] text-outline target-port-label">Houston, TX</span>
+</div>
+<div class="text-right">
+<span class="font-title-lg text-title-lg font-bold text-primary dynamic-price" data-base="7.40">$7.40</span>
+<span class="font-data-mono text-[12px] text-on-surface-variant">/ m²</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-md grid grid-cols-2 gap-2">
+<button class="py-2 px-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors text-center cursor-pointer" onclick="requestSample('Calacatta Porcelain 600x1200')">
+              Sample Box
+            </button>
+<button class="py-2 px-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-colors text-center cursor-pointer" onclick="requestQuote('Calacatta Porcelain 600x1200')">
+              Get Quote
+            </button>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- SECTION 4: FEATURED AUDITED INDIAN MANUFACTURERS & MILLS (ALIBABA GOLD SUPPLIER VIBE) -->
+<section class="w-full px-gutter py-space-lg">
+<div class="max-w-[1560px] mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-md">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-[18px] text-secondary-container">verified</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Mill Direct Verification Program</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Audited Indian Manufacturers with Track Records</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Every mill is on-site audited by our engineers, carries active US export declarations, and complies with ASTM/ASME standards.</p>
+</div>
+<a class="mt-2 md:mt-0 px-4 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-colors" href="#">
+          Browse All 340+ Audited Facilities
+        </a>
+</div>
+<!-- 3 Tier-1 Manufacturer Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-md">
+<!-- Factory 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between gap-space-sm pb-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-title-lg font-bold">
+                  JS
+                </div>
+<div>
+<div class="flex items-center gap-1.5">
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Kutch Steel Tubulars</h3>
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+</div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Hisar &amp; Raigarh Production Hub</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-[11px] font-bold">
+                12 Yrs US Exporter
+              </span>
+</div>
+<!-- Factory Facility Preview -->
+<div class="relative h-36 rounded-lg overflow-hidden bg-surface-container my-space-sm">
+<img class="w-full h-full object-cover" data-alt="High tech robotic steel pipe extrusion rolling mill inside steel mill floor with computerized quality assurance control booth" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg7LpDgdQ7_SaeIDd4bgpHj5Z8LTStvnJr-X5ZGC2hBFdUl8wq0M89xJOyuuZoO3ov5r8fVhLKNGqqNs1yoSR2fZAdpfNBZ3xw8Xqv3rw5E_XzhZxP_FFZHEgT22JKnltqV93hbGPY98HsuGPHR_YOTQi4uthrBBZ5cHT6JwdjsVmqLQZAxzjlI8xtI1C0dsrAnk3HVn3yO4p63d_a6ahUKHnez1_ghnMeHm8etKE"/>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-body-sm text-[11px]">
+                Capacity: 1.2M MT / Annum
+              </div>
+</div>
+<!-- Metrics -->
+<div class="grid grid-cols-3 gap-2 py-space-xs text-center bg-surface-container-low rounded-lg p-2">
+<div>
+<span class="font-title-md text-title-md font-bold text-on-surface block">99.4%</span>
+<span class="font-body-sm text-[11px] text-outline">On-Time Sailing</span>
+</div>
+<div>
+<span class="font-title-md text-title-md font-bold text-on-surface block">&lt; 45 min</span>
+<span class="font-body-sm text-[11px] text-outline">Quote Response</span>
+</div>
+<div>
+<span class="font-title-md text-title-md font-bold text-on-surface block">84 FCL</span>
+<span class="font-body-sm text-[11px] text-outline">Shipped to US (30d)</span>
+</div>
+</div>
+<div class="mt-space-sm flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-[11px] text-on-surface-variant">API 5L Spec</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-[11px] text-on-surface-variant">ISO 9001:2015</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-[11px] text-on-surface-variant">MTC EN 10204 3.1</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-[11px] text-on-surface-variant">ASTM A53 / A106</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-primary font-semibold">18 Active Listings Available</span>
+<button class="px-4 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-colors cursor-pointer" onclick="requestQuote('Kutch Steel Mill RFQ')">
+              Direct Mill Inquiry
+            </button>
+</div>
+</div>
+<!-- Factory 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between gap-space-sm pb-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary font-title-lg font-bold">
+                  GC
+                </div>
+<div>
+<div class="flex items-center gap-1.5">
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Dahej Alkali Chemicals</h3>
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+</div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Dahej Chemical Industrial Estate</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-[11px] font-bold">
+                State PSU Partner
+              </span>
+</div>
+<!-- Factory Facility Preview -->
+<div class="relative h-36 rounded-lg overflow-hidden bg-surface-container my-space-sm">
+<img class="w-full h-full object-cover" data-alt="Massive automated chemical refinery towers and pipeline manifolds against clear sky at Gujarat chlor-alkali plant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhimD5yUZIFAKiy3AUqCWZz_wraaL0_jVimr3q1iBBNYzvwNhFhGpQmwk-plMMZQuWm6xbCaGnrOQKxLmTBGH62rsEpKM3zgoQkCkt4VPTKfyFh8Qbodn4GeMjeqLOFOJLWpHLxc9xtwOKirCQCthrt3Rwdz07GK0cwYmKA8JVr7n__zVG2tRy-52QImujSU2F6MiR9ddO602rLAVjuEdxKEe1fk9aAvBvZ4zEPMQ"/>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-body-sm text-[11px]">
+                Capacity: 500,000 MT / Annum
+              </div>
+</div>
+<!-- Metrics -->
+<div class="grid grid-cols-3 gap-2 py-space-xs text-center bg-surface-container-low rounded-lg p-2">
+<div>
+<span class="font-title-md text-title-md font-bold text-on-surface block">99.8%</span>
+<span class="font-body-sm text-[11px] text-outline">Assay Purity</span>
+</div>
+<div>
+<span class="font-title-md text-title-md font-bold text-on-surface block">&lt; 15 min</span>
+<span class="font-body-sm text-[11px] text-outline">COA Generation</span>
+</div>
+<div>
+<span class="font-title-md text-title-md font-bold text-on-surface block">62 FCL</span>
+<span class="font-body-sm text-[11px] text-outline">Shipped to US (30d)</span>
+</div>
+</div>
+<div class="mt-space-sm flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-[11px] text-on-surface-variant">REACH Compliant</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-[11px] text-on-surface-variant">ISO 14001</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-[11px] text-on-surface-variant">EPA TSCA Registered</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-[11px] text-on-surface-variant">Kosher &amp; Halal</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-primary font-semibold">12 Active Listings Available</span>
+<button class="px-4 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-colors cursor-pointer" onclick="requestQuote('Dahej Alkali RFQ')">
+              Direct Mill Inquiry
+            </button>
+</div>
+</div>
+<!-- Factory 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between gap-space-sm pb-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary font-title-lg font-bold">
+                  SK
+                </div>
+<div>
+<div class="flex items-center gap-1.5">
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Morbi Surface Mills</h3>
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+</div>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Morbi Industrial Export SEZ</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-[11px] font-bold">
+                Licensed customs broker
+              </span>
+</div>
+<!-- Factory Facility Preview -->
+<div class="relative h-36 rounded-lg overflow-hidden bg-surface-container my-space-sm">
+<img class="w-full h-full object-cover" data-alt="Modern continuous Italian kiln system pressing porcelain slabs in spotless high capacity Morbi ceramic factory floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVqHLOh91Kop5-7mhUGHuMcjXJI5tfLcLmVw3Zm6grEeDlLVXCR6RI5joqE1vdvoDgp-Ssqit-1C4rrLMjh7ptYkCYcnU_URdJjwiTxHB0_Sxfqu3hD6DYmBK7aUDcdHOmSWYc373JwVuB3RWZmpICVmuUXugEuK_6b2r7xwvtQcpXvYmRXWw8UxU0uWR-UlYjlPzHzcJpiVBytRH5ygxEIAxwnONLLVBXFuUoeCs"/>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-body-sm text-[11px]">
+                Capacity: 14M m² / Annum
+              </div>
+</div>
+<!-- Metrics -->
+<div class="grid grid-cols-3 gap-2 py-space-xs text-center bg-surface-container-low rounded-lg p-2">
+<div>
+<span class="font-title-md text-title-md font-bold text-on-surface block">0.02%</span>
+<span class="font-body-sm text-[11px] text-outline">Transit Breakage</span>
+</div>
+<div>
+<span class="font-title-md text-title-md font-bold text-on-surface block">Same Day</span>
+<span class="font-body-sm text-[11px] text-outline">Sample Dispatch</span>
+</div>
+<div>
+<span class="font-title-md text-title-md font-bold text-on-surface block">110 FCL</span>
+<span class="font-body-sm text-[11px] text-outline">Shipped to US (30d)</span>
+</div>
+</div>
+<div class="mt-space-sm flex flex-wrap gap-1">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-[11px] text-on-surface-variant">ANSI A137.1 Spec</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-[11px] text-on-surface-variant">GreenGuard Gold</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-[11px] text-on-surface-variant">IS 15622 Group B1a</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-[11px] text-on-surface-variant">A-Frame Export Pack</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-primary font-semibold">24 Active Collections Available</span>
+<button class="px-4 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-colors cursor-pointer" onclick="requestQuote('Morbi Ceramic RFQ')">
+              Direct Mill Inquiry
+            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: WHY US BUYERS CHOOSE PRIME CARGO PEOPLE TRADE (4-STEP TRANSPARENCY PIPELINE) -->
+<section class="w-full px-gutter py-space-xl bg-surface-container-lowest">
+<div class="max-w-[1560px] mx-auto">
+<div class="text-center max-w-3xl mx-auto mb-space-lg">
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-widest">End-to-End Cross Border Protocol</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-1">Cross-Border Procurement, De-Risked.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">We bridge Indian factory floors directly with North American commercial buyers by taking 100% legal ownership of logistics, ocean freight, customs tariff risks, and quality verification.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md relative">
+<!-- Step 1 -->
+<div class="bg-surface-container-low p-space-lg rounded-xl relative group hover:bg-surface-container transition-colors">
+<div class="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center font-headline-sm font-bold mb-space-md shadow-sm">
+            01
+          </div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Browse or Submit Custom Specs</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+            Review real-time prices from ISO audited Indian mills or upload your ASTM / ASME drawing &amp; technical specification sheet.
+          </p>
+<div class="mt-space-md flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>Zero intermediary brokers</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-low p-space-lg rounded-xl relative group hover:bg-surface-container transition-colors">
+<div class="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center font-headline-sm font-bold mb-space-md shadow-sm">
+            02
+          </div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">One Single Landed USD Price</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+            Your quotation includes Indian FOB costs + ocean container transport + US CBP port duties + Section 232 / anti-dumping tariffs.
+          </p>
+<div class="mt-space-md flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">attach_money</span>
+<span>No surprise currency fluctuation</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-low p-space-lg rounded-xl relative group hover:bg-surface-container transition-colors">
+<div class="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center font-headline-sm font-bold mb-space-md shadow-sm">
+            03
+          </div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Escrow &amp; Pre-Shipment Inspection</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+            SGS, Bureau Veritas, or Intertek inspect your cargo right at the factory gate before container stuffing. Payment held in secure escrow.
+          </p>
+<div class="mt-space-md flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">gavel</span>
+<span>Inspection pass guarantee</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="bg-surface-container-low p-space-lg rounded-xl relative group hover:bg-surface-container transition-colors">
+<div class="w-12 h-12 rounded-xl bg-secondary-container text-on-secondary flex items-center justify-center font-headline-sm font-bold mb-space-md shadow-sm">
+            04
+          </div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Guaranteed Port or Door Release</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+            Our licensed US Customs brokers clear the Bill of Lading, arrange terminal appointments, and release goods directly to your truck or yard.
+          </p>
+<div class="mt-space-md flex items-center gap-1 font-label-sm text-label-sm text-secondary font-semibold">
+<span class="material-symbols-outlined text-[16px]">local_shipping</span>
+<span>Net 60 trade terms available</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 6: INTERACTIVE TONNAGE & LANDED ESTIMATOR + POST BULK RFQ BANNER -->
+<section class="w-full px-gutter py-space-xl">
+<div class="max-w-[1560px] mx-auto bg-primary rounded-2xl overflow-hidden shadow-xl text-on-primary p-space-lg lg:p-space-xl relative">
+<!-- Background SVG network nodes -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="30" id="grid-dots" patternunits="userSpaceOnUse" width="30">
+<circle cx="2" cy="2" fill="currentColor" r="1.5"></circle>
+</pattern>
+</defs>
+<rect fill="url(#grid-dots)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<!-- Left: Callout and live Tonnage Estimator -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div>
+<span class="px-3 py-1 rounded-full bg-on-primary/10 text-on-primary font-label-sm text-label-sm tracking-wider uppercase font-bold inline-block mb-space-sm">
+              Custom Industrial Sourcing Desk
+            </span>
+<h2 class="font-headline-lg text-headline-lg text-on-primary">
+              Need Contract Pricing for 50 to 5,000 Metric Tons?
+            </h2>
+<p class="font-body-lg text-body-lg text-on-primary/80 mt-2 max-w-xl">
+              Post your exact ASTM / CAS specification sheet or Bill of Materials. Receive vetted mill factory costs, ocean container freight schedules, and landed DDP terms within 2 hours.
+            </p>
+</div>
+<!-- Dynamic Volume Savings Slider Box -->
+<div class="bg-surface-container-lowest/10 backdrop-blur-md rounded-xl p-space-md max-w-xl">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-on-primary font-semibold">Estimate Bulk Freight Savings (FCL Volume):</span>
+<span class="font-data-mono font-bold text-secondary-fixed text-title-md" id="tonnage-display">100 MT (4 x 40' FCL)</span>
+</div>
+<input class="w-full h-2 bg-on-primary/20 rounded-lg appearance-none cursor-pointer accent-secondary-container" id="tonnage-slider" max="1000" min="25" oninput="calculateSavings(this.value)" step="25" type="range" value="100"/>
+<div class="mt-space-sm pt-space-xs grid grid-cols-2 gap-4">
+<div>
+<span class="font-body-sm text-[11px] text-on-primary/70 block">Estimated Ocean Ocean FCL Rate:</span>
+<span class="font-title-md text-title-md font-bold text-on-primary" id="rate-display">$1,850 / Container</span>
+</div>
+<div class="text-right">
+<span class="font-body-sm text-[11px] text-on-primary/70 block">Avg Savings vs US Domestic Wholesaler:</span>
+<span class="font-title-md text-title-md font-bold text-secondary-fixed" id="savings-display">Save ~$31,200 (18.4%)</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-lg text-on-primary/80 font-body-sm text-body-sm">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[17px] text-secondary-container">check_circle</span> MTC 3.1 &amp; SGS inspection verified</span>
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[17px] text-secondary-container">check_circle</span> Net 60 days on approved credit</span>
+</div>
+</div>
+<!-- Right: Fast RFQ Box Form -->
+<div class="lg:col-span-5 bg-surface-container-lowest text-on-surface rounded-xl p-space-lg shadow-2xl">
+<div class="flex items-center justify-between mb-space-sm">
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Post Custom Requirement (RFQ)</h3>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-[10px] text-primary font-bold uppercase">Rapid Response</span>
+</div>
+<form class="flex flex-col gap-3" id="detailed-rfq" onsubmit="event.preventDefault(); alert('Custom RFQ transmitted to Indian mill sourcing desk. Your dedicated procurement manager will connect via email shortly.');">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Company / Organization</label>
+<input class="w-full bg-surface-container-low px-3 py-2 rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none" placeholder="e.g. Apex Pipeline &amp; Infrastructure LLC" required="" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Commodity / Spec</label>
+<input class="w-full bg-surface-container-low px-3 py-2 rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none" placeholder="e.g. API 5L X52 Seamless" required="" type="text"/>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Quantity (MT / FCL)</label>
+<input class="w-full bg-surface-container-low px-3 py-2 rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none" placeholder="e.g. 150 MT (6 FCL)" required="" type="text"/>
+</div>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Delivery Requirement</label>
+<div class="grid grid-cols-2 gap-2">
+<select class="w-full bg-surface-container-low py-2 px-2.5 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none">
+<option>US Port CIF (Discharge Port)</option>
+<option>US Door DDP (Delivered to Yard)</option>
+</select>
+<input class="w-full bg-surface-container-low px-3 py-2 rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none" placeholder="Port / City / Zip" required="" type="text"/>
+</div>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Buyer Work Email</label>
+<input class="w-full bg-surface-container-low px-3 py-2 rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none" placeholder="procurement@apex-pipeline.com" required="" type="email"/>
+</div>
+<div class="pt-1">
+<button class="w-full py-3 rounded-lg bg-secondary-container hover:bg-secondary text-on-secondary font-label-md text-label-md flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer" type="submit">
+<span class="material-symbols-outlined text-[19px]">send</span>
+<span>Submit RFQ • Receive Mill Matrix</span>
+</button>
+</div>
+<div class="text-center font-body-sm text-[11px] text-outline mt-1">
+              Backed by US &amp; India legal contracts • FMC registered forwarder • NDA guaranteed
+            </div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- QUICK MODAL TO CONFIRM SAMPLE DISPATCH (Vanilla JS micro-interaction) -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm hidden items-center justify-center p-4" id="sample-modal">
+<div class="bg-surface-container-lowest rounded-2xl max-w-md w-full p-space-lg shadow-2xl relative">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">science</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Request Physical Sample Kit</h3>
+</div>
+<button class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-outline cursor-pointer" onclick="closeModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md" id="sample-modal-desc">
+        We arrange mill sample inspection kits couriered via DHL Express directly to your US lab / plant.
+      </p>
+<form class="space-y-3" onsubmit="event.preventDefault(); alert('Sample courier dispatched to your facility. DHL tracking will arrive in your inbox.'); closeModal();">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Delivery Attention &amp; Facility Name</label>
+<input class="w-full bg-surface-container-low px-3 py-2 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none" placeholder="Materials Testing Lab / John Smith" required="" type="text"/>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">US Shipping Address</label>
+<input class="w-full bg-surface-container-low px-3 py-2 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none" placeholder="1200 Industrial Pkwy, Houston, TX 77002" required="" type="text"/>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Business Email</label>
+<input class="w-full bg-surface-container-low px-3 py-2 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none" placeholder="qa@industrialcorp.com" required="" type="email"/>
+</div>
+<button class="w-full py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center gap-1.5 transition-colors cursor-pointer" type="submit">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span>
+<span>Dispatch Sample (Courier Free for Verified Buyers)</span>
+</button>
+</form>
+</div>
+</div>
+<!-- SCRIPT FOR CLIENT-SIDE PRICE PORT UPDATER & TONNAGE SLIDER -->
+<script>
+    // Port differential freight table
+    const portMultipliers = {
+      'houston': { label: 'Port of Houston, TX', delta: 0 },
+      'newark': { label: 'Port Newark, NJ / NY', delta: 24 },
+      'savannah': { label: 'Port of Savannah, GA', delta: 18 },
+      'la': { label: 'Port of LA / Long Beach, CA', delta: -12 },
+      'chicago': { label: 'Chicago Rail Ramp (Inland)', delta: 85 }
+    };
+
+    function updateDeliveredPrices(portKey) {
+      const port = portMultipliers[portKey] || portMultipliers['houston'];
+      
+      // Update all labels
+      document.querySelectorAll('.target-port-label').forEach(el => {
+        el.textContent = port.label;
+      });
+
+      // Update all dynamic price spans
+      document.querySelectorAll('.dynamic-price').forEach(el => {
+        const base = parseFloat(el.getAttribute('data-base'));
+        if (!isNaN(base)) {
+          // If price is small (e.g. tile per sqm)
+          if (base < 20) {
+            const tileDelta = (port.delta / 100).toFixed(2);
+            const newPrice = (base + parseFloat(tileDelta)).toFixed(2);
+            el.textContent = '$' + newPrice;
+          } else {
+            const newPrice = Math.round(base + port.delta);
+            el.textContent = '$' + newPrice.toLocaleString();
+          }
+        }
+      });
+    }
+
+    function calculateSavings(tonnage) {
+      const t = parseInt(tonnage, 10);
+      const fcl = Math.max(1, Math.round(t / 25));
+      document.getElementById('tonnage-display').textContent = `${t} MT (${fcl} x 40' FCL)`;
+
+      // Volume rate discount calculation
+      let fclRate = 1950 - Math.min(300, Math.floor(t / 50) * 25);
+      document.getElementById('rate-display').textContent = `$${fclRate.toLocaleString()} / Container`;
+
+      // Estimated savings calculation based on average $320/MT US distributor markups
+      let totalSavings = Math.round(t * 312);
+      let pct = (16 + Math.min(6, (t / 200))).toFixed(1);
+      document.getElementById('savings-display').textContent = `Save ~$${totalSavings.toLocaleString()} (${pct}%)`;
+    }
+
+    function requestSample(itemName) {
+      const modal = document.getElementById('sample-modal');
+      const desc = document.getElementById('sample-modal-desc');
+      desc.textContent = `You are requesting an accredited pre-shipment sample kit & COA for: ${itemName}. Couriered direct to your US plant.`;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function requestQuote(itemName) {
+      const selector = document.getElementById('global-port-selector');
+      const portName = selector ? selector.options[selector.selectedIndex].text : 'Houston, TX';
+      alert(`Custom FOB & Delivered DDP calculation generated for "${itemName}" delivering to ${portName}. Check your registered buyer dashboard or proceed to submit official RFQ.`);
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('sample-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest text-on-surface"><div class="bg-surface-container-low py-space-lg"><div class="w-full px-gutter grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md"><div class="flex items-center gap-space-md p-space-sm"><div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary text-[24px]">verified_user</span></div><div><h4 class="font-title-md text-title-md text-on-surface leading-tight">100% In-House Logistics</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">FMC licensed, US Customs broker clearance included.</p></div></div><div class="flex items-center gap-space-md p-space-sm"><div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary text-[24px]">factory</span></div><div><h4 class="font-title-md text-title-md text-on-surface leading-tight">Verified Tier-1 Indian Mills</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">ISO &amp; ASTM certified producers with test certificates.</p></div></div><div class="flex items-center gap-space-md p-space-sm"><div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary text-[24px]">currency_exchange</span></div><div><h4 class="font-title-md text-title-md text-on-surface leading-tight">Single USD Door Invoice</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">No forex risk. Landed delivery directly in USD.</p></div></div><div class="flex items-center gap-space-md p-space-sm"><div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary text-[24px]">gavel</span></div><div><h4 class="font-title-md text-title-md text-on-surface leading-tight">Escrow &amp; Inspection Shield</h4><p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">SGS pre-shipment quality verification protocol.</p></div></div></div></div><div class="w-full px-gutter py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter"><div class="lg:col-span-2 flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[20px]">inventory_2</span></div><span class="font-headline-sm text-headline-sm text-primary font-bold">PRIME CARGO PEOPLE TRADE</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-md">Democratizing cross-border raw materials and commodities trade between vetted Indian manufacturing plants and North American enterprise buyers with guaranteed delivered pricing.</p><div class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-primary">location_on</span><span>North America Hub: 101 Hudson St, Suite 2100, Jersey City, NJ 07302</span></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-primary">location_on</span><span>India Sourcing Office: BKC Commercial Complex, Bandra East, Mumbai 400051</span></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px] text-primary">call</span><span>het@primecargopeople.com / Ahmedabad export desk</span></div></div></div><div><h5 class="font-title-md text-title-md text-on-surface mb-space-md">Industrial Sectors</h5><ul class="flex flex-col gap-space-xs font-body-md text-body-md text-on-surface-variant"><li><a class="hover:text-primary transition-colors" data-path="steel-pipes-tubes" href="#">Steel Pipes &amp; Tubulars</a></li><li><a class="hover:text-primary transition-colors" data-path="structural-flat-steel" href="#">HR/CR Coils &amp; Plates</a></li><li><a class="hover:text-primary transition-colors" data-path="fertilizers-urea" href="#">Technical Urea &amp; DAP</a></li><li><a class="hover:text-primary transition-colors" data-path="agri-commodities" href="#">Non-Basmati &amp; Basmati Rice</a></li><li><a class="hover:text-primary transition-colors" data-path="chemicals-resins" href="#">PVC Resins &amp; Caustic Soda</a></li><li><a class="hover:text-primary transition-colors" data-path="ceramics-granite" href="#">Granite Slabs &amp; Porcelain Tiles</a></li></ul></div><div><h5 class="font-title-md text-title-md text-on-surface mb-space-md">Buyer Protection</h5><ul class="flex flex-col gap-space-xs font-body-md text-body-md text-on-surface-variant"><li><a class="hover:text-primary transition-colors" data-path="us-port-delivered-deals" href="#">US Port DDP Delivery</a></li><li><a class="hover:text-primary transition-colors" data-path="trade-financing" href="#">Net 60 Terms Application</a></li><li><a class="hover:text-primary transition-colors" data-path="order-tracking" href="#">Real-Time Ocean Tracking</a></li><li><a class="hover:text-primary transition-colors" data-path="buyer-help-center" href="#">SGS Quality Certification</a></li><li><a class="hover:text-primary transition-colors" data-path="rfq-post-requirement" href="#">Custom Mill RFQ</a></li><li><a class="hover:text-primary transition-colors" data-path="verified-indian-mills" href="#">Audited Exporters Directory</a></li></ul></div><div><h5 class="font-title-md text-title-md text-on-surface mb-space-md">Enterprise &amp; Compliance</h5><ul class="flex flex-col gap-space-xs font-body-md text-body-md text-on-surface-variant"><li><a class="hover:text-primary transition-colors" data-path="verified-indian-mills" href="#">Exporter Onboarding (India)</a></li><li><a class="hover:text-primary transition-colors" data-path="buyer-orders-quotes" href="#">US Customs Brokerage</a></li><li><a class="hover:text-primary transition-colors" data-path="buyer-help-center" href="#">Anti-Dumping &amp; Tariffs</a></li><li><a class="hover:text-primary transition-colors" data-path="buyer-help-center" href="#">Terms of Sourcing &amp; Sale</a></li><li><a class="hover:text-primary transition-colors" data-path="buyer-help-center" href="#">Privacy &amp; Escrow Security</a></li><li><a class="hover:text-primary transition-colors" data-path="buyer-help-center" href="#">Contact Corporate Desk</a></li></ul></div></div><div class="mt-space-xl pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm text-on-surface-variant"><p>© 2026 Prime Cargo People Trade Inc. All rights reserved. Registered FMC Ocean Freight Forwarder &amp; Licensed Customs Broker.</p><div class="flex items-center gap-space-lg"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px] text-tertiary-container">lock</span>Bank-Grade Escrow</span><span>ISO 9001:2015 Operations</span><span>US CBP Automated Commercial Env (ACE)</span></div></div></div></footer><script>
+document.addEventListener('click',function(e){var el=e.target.closest('a,button');if(!el)return;var t=(el.textContent||'').replace(/\s+/g,' ').trim();var href=el.getAttribute('href');
+ if(href&&href!=='#'&&!href.startsWith('#'))return;
+ if(/PLACE ORDER/i.test(t)){e.preventDefault();var d=document.createElement('div');d.textContent='Demo preview — no order placed. Contact het@primecargopeople.com to order.';d.style.cssText='position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#0F2D59;color:#fff;padding:12px 18px;font:500 14px IBM Plex Sans,sans-serif;border-radius:2px;z-index:9999';document.body.appendChild(d);setTimeout(function(){d.remove()},4000);return}
+ if(/ADD TO ORDER|Checkout/i.test(t)){e.preventDefault();location.href='/pcp-checkout';return}
+ if(/PRIME CARGO|^PCP/.test(t)||/^HOME$/i.test(t)){e.preventDefault();location.href='/pcp';return}
+ if(/Configure Specs|Delivered Quote|View Specs|Get Quote|Sample Kit|Get Landed|Lube Oil|OIL FILTRATION/i.test(t)){e.preventDefault();location.href='/pcp-product';return}
+ if(/Catalog|Industrial Equipment|Steel|Fertil|Agri|Kitchen|Chemicals|Polymers|Ceramic|Search|Find Part|View All|Explore|Browse|Trending|Direct Mill|Pipes|Sourcing|Machinery/i.test(t)){e.preventDefault();location.href='/pcp-catalog';return}
+},true);
+</script></body></html>
