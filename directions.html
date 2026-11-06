@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Prime Cargo People Trade — Three Visual Directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
+<style>
+  /* ============ BOARD CHROME (the comparison document itself) ============ */
+  :root{
+    --c-ink:#17171a; --c-mut:#5d5d63; --c-line:#dcdce0; --c-panel:#f5f5f6; --c-bg:#ffffff;
+    --c-accent:#17171a; --c-link:#0b4ea2;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --c-ink:#ececf0; --c-mut:#a7a7b0; --c-line:#33333a; --c-panel:#1d1d22; --c-bg:#131316; --c-link:#7db3f5; }
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ margin:0; background:var(--c-bg); color:var(--c-ink); font:400 15px/1.55 "Public Sans",-apple-system,"Segoe UI",Arial,sans-serif; }
+  .wrap{ max-width:1240px; margin:0 auto; padding:0 20px 80px; }
+  a{ color:var(--c-link); }
+  .boardnav{ position:sticky; top:0; z-index:50; background:var(--c-bg); border-bottom:1px solid var(--c-line); }
+  .boardnav .in{ max-width:1240px; margin:0 auto; padding:0 20px; display:flex; gap:18px; align-items:center; height:46px; overflow-x:auto; white-space:nowrap; font-size:13px; }
+  .boardnav b{ font-size:13px; margin-right:4px; }
+  .boardnav a{ color:var(--c-mut); text-decoration:none; }
+  .boardnav a:hover{ color:var(--c-ink); }
+  h1.board{ font-size:28px; line-height:1.2; font-weight:700; margin:34px 0 6px; letter-spacing:-.01em; }
+  .boardsub{ color:var(--c-mut); font-size:15px; max-width:820px; margin:0 0 8px; }
+  h2.board{ font-size:22px; font-weight:700; margin:52px 0 4px; letter-spacing:-.01em; }
+  h3.board{ font-size:17px; font-weight:700; margin:30px 0 6px; }
+  .secnote{ color:var(--c-mut); font-size:14px; max-width:860px; margin:0 0 14px; }
+  table.spec{ border-collapse:collapse; width:100%; font-size:13px; margin:10px 0 18px; }
+  table.spec th, table.spec td{ border:1px solid var(--c-line); padding:7px 9px; text-align:left; vertical-align:top; }
+  table.spec th{ background:var(--c-panel); font-weight:600; }
+  table.spec td.num{ font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .findings{ display:grid; grid-template-columns:1fr 1fr; gap:0 28px; margin:6px 0 4px; }
+  .findings li{ margin:0 0 7px; }
+  ul.tight{ padding-left:19px; margin:6px 0; }
+  ul.tight li{ margin-bottom:6px; }
+  .dirhead{ border-top:3px solid var(--c-ink); margin-top:64px; padding-top:18px; }
+  .dirhead h2{ font-size:24px; margin:0 0 4px; font-weight:700; }
+  .dirhead .from{ color:var(--c-mut); font-size:14px; margin:0; max-width:900px; }
+  .tokenwrap{ overflow-x:auto; }
+  table.tokens{ border-collapse:collapse; width:100%; font-size:13px; margin:12px 0 6px; min-width:640px; }
+  table.tokens th, table.tokens td{ border:1px solid var(--c-line); padding:7px 10px; text-align:left; vertical-align:top; }
+  table.tokens th{ background:var(--c-panel); font-weight:600; width:150px; }
+  .sw{ display:inline-block; width:12px; height:12px; border:1px solid rgba(0,0,0,.25); vertical-align:-1px; margin-right:6px; }
+  /* ============ SCREEN FRAMES ============ */
+  .frame{ border:1px solid var(--c-line); background:#fff; margin:16px 0 34px; }
+  .frame-label{ display:flex; justify-content:space-between; gap:10px; background:#17171a; color:#f2f2f2; padding:6px 12px; font-size:12px; font-weight:600; }
+  .frame-label span:last-child{ font-weight:400; color:#bdbdc4; }
+  .frame.mobileframe{ width:392px; max-width:100%; margin-left:auto; margin-right:auto; }
+  .frame .scaler{ overflow-x:auto; overflow-y:hidden; }
+  .frame:not(.mobileframe) .mk{ min-width:1024px; }
+  /* ============ MARKETPLACE MOCK — shared anatomy, per-direction tokens ============ */
+  .mk{ font-family:var(--mfont); font-size:var(--base); color:var(--ink); background:var(--bgc); line-height:1.45; }
+  .mk *{ box-sizing:border-box; }
+  .mk a{ color:var(--brand); text-decoration:none; }
+  .mk .mut{ color:var(--mut); }
+  .mk .small{ font-size:calc(var(--base) - 1.5px); }
+  .d1{ --brand:#005eb8; --brandink:#ffffff; --ink:#1b1b1b; --mut:#5a5a5a; --line:#d8d8d8; --panel:#f2f2f2; --bgc:#ffffff; --rad:2px; --base:13px; --mfont:Arial,Helvetica,sans-serif; --hfont:Arial,Helvetica,sans-serif; --btnH:32px; --rowpad:11px; --ok:#1e7a34; --price:#1b1b1b; }
+  .d2{ --brand:#20503c; --brandink:#ffffff; --ink:#1f1f1f; --mut:#6f6a61; --line:#e3e0d9; --panel:#fafaf8; --bgc:#ffffff; --rad:3px; --base:14px; --mfont:"Public Sans",Arial,sans-serif; --hfont:"Source Serif 4",Georgia,serif; --btnH:40px; --rowpad:20px; --ok:#20503c; --price:#1f1f1f; }
+  .d3{ --brand:#f85606; --brandink:#ffffff; --ink:#222222; --mut:#666666; --line:#e6e6e6; --panel:#f7f7f7; --bgc:#ffffff; --rad:4px; --base:13px; --mfont:"Roboto",Arial,sans-serif; --hfont:"Roboto",Arial,sans-serif; --btnH:36px; --price:#111111; --ok:#0e8a3c; --rowpad:13px; }
+  /* top bar */
+  .mk-top{ display:flex; align-items:center; gap:16px; padding:10px 18px; border-bottom:1px solid var(--line); flex-wrap:wrap; }
+  .mk-logo{ font-family:var(--hfont); font-weight:700; font-size:17px; color:var(--ink); white-space:nowrap; }
+  .mk-logo em{ font-style:normal; color:var(--brand); }
+  .d2 .mk-logo{ font-weight:400; font-size:19px; letter-spacing:.01em; }
+  .mk-search{ flex:1 1 300px; display:flex; border:1.5px solid var(--brand); border-radius:var(--rad); overflow:hidden; min-width:220px; }
+  .mk-search input{ flex:1; border:0; outline:0; padding:0 11px; height:36px; font:inherit; color:var(--ink); background:#fff; min-width:0; }
+  .mk-search button{ background:var(--brand); color:var(--brandink); border:0; padding:0 18px; font:inherit; font-weight:600; cursor:pointer; }
+  .d1 .mk-search{ border-color:#8a8a8a; } .d1 .mk-search button{ background:#005eb8; }
+  .mk-topnav{ display:flex; gap:15px; font-size:calc(var(--base) - .5px); white-space:nowrap; }
+  .mk-topnav a{ color:var(--ink); }
+  .mk-cats{ display:flex; gap:18px; padding:8px 18px; border-bottom:1px solid var(--line); flex-wrap:wrap; background:var(--panel); }
+  .mk-cats a{ color:var(--ink); font-size:calc(var(--base) - .5px); }
+  .mk-cats a.on{ font-weight:700; color:var(--brand); }
+  /* hero */
+  .mk-hero{ padding:26px 18px 22px; border-bottom:1px solid var(--line); }
+  .mk-hero h1{ font-family:var(--hfont); font-size:24px; line-height:1.25; margin:0 0 6px; font-weight:700; max-width:640px; }
+  .d2 .mk-hero h1{ font-weight:400; font-size:26px; }
+  .d3 .mk-hero h1{ font-size:23px; }
+  .mk-hero p{ margin:0 0 14px; color:var(--mut); max-width:600px; }
+  .mk-hero .mk-search{ max-width:640px; }
+  .mk-popular{ margin-top:10px; font-size:calc(var(--base) - 1px); color:var(--mut); }
+  .mk-popular a{ margin-right:10px; }
+  .mk-steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-bottom:1px solid var(--line); }
+  .mk-step{ padding:14px 18px; border-right:1px solid var(--line); }
+  .mk-step:last-child{ border-right:0; }
+  .mk-step b{ display:block; margin-bottom:2px; }
+  .mk-step span{ color:var(--mut); font-size:calc(var(--base) - 1px); }
+  .mk-secttl{ font-family:var(--hfont); font-size:17px; font-weight:700; padding:16px 18px 2px; margin:0; }
+  .d2 .mk-secttl{ font-weight:400; font-size:19px; }
+  /* list rows */
+  .mk-row{ display:flex; gap:15px; padding:var(--rowpad) 18px; border-bottom:1px solid var(--line); align-items:flex-start; }
+  .mk-ph{ background:#e9e9ea; color:#76767c; display:flex; align-items:center; justify-content:center; text-align:center; padding:8px; font-size:10.5px; line-height:1.4; border:1px solid #dcdcde; flex:none; }
+  .d2 .mk-ph{ background:#efeeea; border-color:#e3e0d9; }
+  .mk-ph.thumb{ width:128px; height:96px; }
+  .mk-ph.big{ width:100%; height:300px; font-size:12px; }
+  .mk-ph.sm{ width:64px; height:48px; font-size:9px; padding:4px; }
+  .mk-main{ flex:1; min-width:0; }
+  .mk-name{ font-family:var(--hfont); font-size:calc(var(--base) + 2px); font-weight:700; color:var(--ink); line-height:1.3; }
+  .d2 .mk-name{ font-weight:400; font-size:calc(var(--base) + 4px); }
+  .mk-name a{ color:var(--ink); }
+  .mk-specs{ color:var(--mut); margin-top:2px; }
+  .mk-sup{ margin-top:6px; }
+  .mk-sup b{ color:var(--ink); }
+  .mk-verified{ color:var(--ok); font-weight:700; }
+  .mk-trust{ color:var(--mut); font-size:calc(var(--base) - 1.5px); margin-top:1px; }
+  .mk-side{ flex:none; width:196px; text-align:right; }
+  .mk-price{ font-size:calc(var(--base) + 3px); font-weight:700; color:var(--price); font-variant-numeric:tabular-nums; }
+  .d3 .mk-price{ font-size:20px; }
+  .d1 .mk-price{ font-size:15px; }
+  .mk-price .per{ font-size:calc(var(--base) - 1px); font-weight:400; color:var(--mut); }
+  .mk-tiers{ color:var(--mut); font-size:calc(var(--base) - 1.5px); font-variant-numeric:tabular-nums; margin-top:2px; line-height:1.5; }
+  .mk-moq{ font-size:calc(var(--base) - 1px); color:var(--mut); margin-top:2px; }
+  .mk-btn{ display:inline-flex; align-items:center; justify-content:center; height:var(--btnH); padding:0 16px; background:var(--brand); color:var(--brandink); border:1px solid var(--brand); border-radius:var(--rad); font:inherit; font-weight:600; cursor:pointer; margin-top:8px; }
+  .mk-btn.ghost{ background:#fff; color:var(--brand); }
+  .d2 .mk-btn{ font-weight:500; padding:0 22px; }
+  .mk-side .mk-btn{ min-width:118px; }
+  /* results layout */
+  .mk-results{ display:flex; align-items:flex-start; }
+  .mk-filters{ flex:none; width:196px; padding:14px 14px 14px 18px; border-right:1px solid var(--line); }
+  .mk-filters h4{ margin:0 0 6px; font-size:var(--base); }
+  .mk-filters .fg{ margin-bottom:14px; }
+  .mk-filters label{ display:block; color:var(--mut); padding:2px 0; font-size:calc(var(--base) - 1px); }
+  .mk-filters label b{ color:var(--ink); font-weight:600; }
+  .mk-rlist{ flex:1; min-width:0; }
+  .mk-rhead{ display:flex; justify-content:space-between; gap:10px; padding:12px 18px; border-bottom:1px solid var(--line); flex-wrap:wrap; }
+  .mk-rhead h1{ font-family:var(--hfont); font-size:19px; margin:0; font-weight:700; }
+  .d2 .mk-rhead h1{ font-weight:400; font-size:21px; }
+  .mk-rhead .sort{ color:var(--mut); font-size:calc(var(--base) - 1px); }
+  /* product page */
+  .mk-crumbs{ padding:10px 18px 0; color:var(--mut); font-size:calc(var(--base) - 1px); }
+  .mk-prod{ display:flex; gap:20px; padding:12px 18px 18px; align-items:flex-start; }
+  .mk-gal{ flex:none; width:340px; }
+  .mk-thumbs{ display:flex; gap:8px; margin-top:8px; }
+  .mk-det{ flex:1; min-width:0; }
+  .mk-det h1{ font-family:var(--hfont); font-size:21px; line-height:1.3; margin:0 0 4px; font-weight:700; }
+  .d2 .mk-det h1{ font-weight:400; font-size:23px; }
+  table.mk-spec{ border-collapse:collapse; width:100%; margin-top:12px; font-size:calc(var(--base) - .5px); }
+  table.mk-spec th, table.mk-spec td{ border:1px solid var(--line); padding:5px 8px; text-align:left; vertical-align:top; }
+  table.mk-spec th{ background:var(--panel); font-weight:600; width:42%; }
+  .d1 table.mk-spec th, .d1 table.mk-spec td{ padding:4px 7px; }
+  .mk-buy{ flex:none; width:308px; border:1px solid var(--line); border-radius:var(--rad); padding:14px 16px; background:#fff; }
+  .d1 .mk-buy{ background:var(--panel); border-color:#c9c9c9; }
+  .mk-buy h3{ margin:0 0 8px; font-size:calc(var(--base) + 1px); font-family:var(--hfont); }
+  table.mk-tier{ border-collapse:collapse; width:100%; font-variant-numeric:tabular-nums; font-size:calc(var(--base) - .5px); margin-bottom:10px; }
+  table.mk-tier td{ padding:3px 0; border-bottom:1px dotted var(--line); }
+  table.mk-tier td:last-child{ text-align:right; font-weight:700; }
+  table.mk-tier tr.on td{ color:var(--brand); }
+  .mk-qty{ display:flex; align-items:center; gap:8px; margin:8px 0; }
+  .mk-qty button{ width:30px; height:30px; border:1px solid var(--line); background:#fff; border-radius:var(--rad); font:inherit; cursor:pointer; }
+  .mk-qty input{ width:52px; height:30px; border:1px solid var(--line); border-radius:var(--rad); text-align:center; font:inherit; }
+  .mk-ship{ border:1px solid var(--line); border-radius:var(--rad); padding:8px 10px; margin:6px 0; cursor:pointer; display:flex; justify-content:space-between; gap:8px; }
+  .mk-ship.on{ border-color:var(--brand); background:var(--panel); }
+  .mk-ship b{ font-variant-numeric:tabular-nums; }
+  .mk-total{ display:flex; justify-content:space-between; font-weight:700; font-size:calc(var(--base) + 3px); border-top:1px solid var(--line); padding-top:9px; margin-top:9px; font-variant-numeric:tabular-nums; }
+  .mk-split{ display:flex; justify-content:space-between; color:var(--mut); font-size:calc(var(--base) - 1px); font-variant-numeric:tabular-nums; }
+  .mk-buy .mk-btn{ width:100%; margin-top:10px; }
+  .mk-inc{ margin-top:10px; font-size:calc(var(--base) - 1px); }
+  .mk-inc summary{ cursor:pointer; color:var(--brand); font-weight:600; }
+  .mk-inc ul{ margin:6px 0 0; padding-left:16px; color:var(--mut); }
+  /* checkout */
+  .mk-check{ display:flex; gap:22px; padding:16px 18px 20px; align-items:flex-start; }
+  .mk-checkmain{ flex:1; min-width:0; }
+  .mk-check h1{ font-family:var(--hfont); font-size:20px; margin:0 0 4px; font-weight:700; }
+  .d2 .mk-check h1{ font-weight:400; font-size:22px; }
+  .mk-check h3{ font-size:calc(var(--base) + 1px); margin:18px 0 6px; font-family:var(--hfont); }
+  .mk-field{ border:1px solid var(--line); border-radius:var(--rad); padding:9px 11px; margin-bottom:8px; background:#fff; }
+  .mk-field .fl{ color:var(--mut); font-size:calc(var(--base) - 2px); }
+  .mk-sum{ flex:none; width:320px; border:1px solid var(--line); border-radius:var(--rad); padding:14px 16px; }
+  .d1 .mk-sum{ background:var(--panel); }
+  .mk-sum .r{ display:flex; justify-content:space-between; padding:3px 0; font-variant-numeric:tabular-nums; }
+  .mk-sum .r.tot{ border-top:1px solid var(--line); margin-top:7px; padding-top:8px; font-weight:700; font-size:calc(var(--base) + 2px); }
+  .mk-sum .mk-btn{ width:100%; margin-top:10px; }
+  .mk-foot{ border-top:1px solid var(--line); padding:12px 18px; color:var(--mut); font-size:calc(var(--base) - 1.5px); display:flex; gap:18px; flex-wrap:wrap; }
+  /* mobile mock adjustments */
+  .mk.mob .mk-top{ padding:9px 12px; gap:10px; }
+  .mk.mob .mk-topnav{ display:none; }
+  .mk.mob .mk-cats{ padding:7px 12px; gap:12px; overflow:hidden; }
+  .mk.mob .mk-row{ flex-wrap:wrap; padding:13px 12px; gap:10px; }
+  .mk.mob .mk-ph.thumb{ width:92px; height:72px; }
+  .mk.mob .mk-side{ width:100%; text-align:left; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .mk.mob .mk-side .mk-btn{ margin-top:0; }
+  .mk.mob .mk-filters{ display:none; }
+  .mk.mob .mk-prod{ flex-direction:column; padding:10px 12px 16px; }
+  .mk.mob .mk-gal{ width:100%; } .mk.mob .mk-ph.big{ height:220px; }
+  .mk.mob .mk-buy{ width:100%; }
+  .mk.mob .mk-det h1{ font-size:19px; }
+  .mk.mob .mk-check{ flex-direction:column; padding:12px; }
+  .mk.mob .mk-sum{ width:100%; }
+  .mk.mob .mk-hero{ padding:18px 12px; } .mk.mob .mk-hero h1{ font-size:20px; }
+  .mk.mob .mk-steps{ grid-template-columns:1fr; } .mk.mob .mk-step{ border-right:0; border-bottom:1px solid var(--line); }
+  .mk.mob .mk-rhead{ padding:10px 12px; } .mk.mob .mk-rhead h1{ font-size:17px; }
+  .verdict{ border:1px solid var(--c-line); border-left:4px solid var(--c-ink); padding:14px 18px; margin:16px 0; background:var(--c-panel); }
+  .verdict p{ margin:0; }
+  @media (max-width:760px){
+    .findings{ grid-template-columns:1fr; }
+    h1.board{ font-size:24px; }
+    .frame.mobileframe{ width:100%; }
+    .mk-steps{ grid-template-columns:1fr; }
+    .boardnav .in{ flex-wrap:wrap; height:auto; padding-top:7px; padding-bottom:7px; row-gap:4px; white-space:normal; }
+    table.spec, table.tokens{ min-width:0; }
+    table.spec, table.spec tbody, table.spec tr, table.spec td, table.spec th,
+    table.tokens, table.tokens tbody, table.tokens tr, table.tokens td, table.tokens th{ display:block; width:auto; }
+    table.spec tr, table.tokens tr{ border:1px solid var(--c-line); margin-bottom:10px; }
+    table.spec th, table.spec td, table.tokens th, table.tokens td{ border:0; border-bottom:1px solid var(--c-line); }
+    table.spec tr > :last-child, table.tokens tr > :last-child{ border-bottom:0; }
+  }
+</style>
+</head>
+<body>
+<nav class="boardnav"><div class="in">
+  <b>Prime Cargo People Trade</b>
+  <a href="#research">Research</a>
+  <a href="#d1">1 · Industrial catalog</a>
+  <a href="#d2">2 · Calm premium wholesale</a>
+  <a href="#d3">3 · Global trade, made simple</a>
+  <a href="#compare">Comparison</a>
+  <a href="#verdict">Recommendation</a>
+</div></nav>
+
+<div class="wrap">
+<h1 class="board">Three visual directions for Prime Cargo People Trade</h1>
+<p class="boardsub">Same product, same content, same four screens in each direction — Home, Search results, Product, Checkout — so the only thing being compared is the design. Research summary first, then the three directions with token sheets, then a comparison and a recommendation. Supplier names, prices and track-record numbers in the mockups are sample data. Product photos are shown as described placeholders (what the photo will be), to be replaced with real factory photography.</p>
+
+<!-- ================= RESEARCH ================= -->
+<h2 class="board" id="research">Research: what real B2B marketplaces actually look like</h2>
+<p class="secnote">Ten sites reviewed — Alibaba, OfBusiness, IndiaMART Export, Made-in-China, Thomasnet, McMaster-Carr, Grainger, Faire, Amazon Business, Tradeling. The pattern is consistent: these sites were built by engineering teams over 10–20 years, and they look it — small type, hard edges, one brand colour, and density that comes from real catalogue data, not from a design system template.</p>
+
+<div class="tokenwrap"><table class="spec">
+<tr><th style="width:130px">Site</th><th>Type</th><th>Sizes</th><th>Colour</th><th>Radius / buttons</th><th>Results layout</th></tr>
+<tr><td><b>Alibaba</b></td><td>Alibaba Sans (custom grotesque), one family</td><td class="num">Body 14px · price 16–20px bold</td><td>Orange #FF6A00 + black/greys</td><td>4–8px · buttons ~36px</td><td>List rows: photo, title, price range, MOQ, supplier years, Trade Assurance badge</td></tr>
+<tr><td><b>OfBusiness</b></td><td>System grotesque, one family</td><td class="num">Body 13–14px · tables 13px</td><td>Dark blue + white/grey</td><td>2–4px · compact</td><td>Price-led tables and rows; live commodity prices up front</td></tr>
+<tr><td><b>IndiaMART Export</b></td><td>Arial / Roboto</td><td class="num">Body 13px · headings ≤20px</td><td>Blue #2E3192 family + greys</td><td>2px · buttons 32–36px</td><td>Dense rows, supplier city + ratings, “Get quotes” — no firm checkout price</td></tr>
+<tr><td><b>Made-in-China</b></td><td>Arial, one family</td><td class="num">Body 12–13px</td><td>Red accents + blue links, greys</td><td>2px · compact</td><td>Very dense rows; FOB price range, MOQ, audited-supplier badges</td></tr>
+<tr><td><b>Thomasnet</b></td><td>Arial / Helvetica</td><td class="num">Body 13–14px · headings ≤22px</td><td>Industrial blue #004B8D + greys</td><td>2px</td><td>Directory rows: company, capabilities, location — no prices, RFQ model</td></tr>
+<tr><td><b>McMaster-Carr</b></td><td>Arial, one family</td><td class="num">Body 13px · product titles ~15px</td><td>Black on white, blue links, one yellow accent in the brand mark</td><td>0–2px · buttons ~30px</td><td>Spec-first tables; price always shown; instant checkout (domestic only)</td></tr>
+<tr><td><b>Grainger</b></td><td>Helvetica / Arial</td><td class="num">Body 13–14px · headings ≤24px</td><td>Red #CC0000 + dark greys</td><td>2–3px · buttons 36–40px</td><td>Dense rows with spec filters left; price shown to signed-in business accounts</td></tr>
+<tr><td><b>Faire</b></td><td>Licensed serif for headings (regular weight) + grotesque body — the one two-family exception</td><td class="num">Body 14px · headings 20–28px serif, never bold</td><td>Black on white, warm neutrals, almost no colour</td><td>3–4px · tall, quiet buttons</td><td>Calm rows/cards, large photography, generous white space — premium wholesale</td></tr>
+<tr><td><b>Amazon Business</b></td><td>Amazon Ember, one family</td><td class="num">Body 13–14px</td><td>Navy #131921 header, orange #FF9900 accents</td><td>3px · buttons ~34px</td><td>List rows with business pricing, quantity discounts, tax-exempt handling</td></tr>
+<tr><td><b>Tradeling</b></td><td>Modern grotesque, one family</td><td class="num">Body 14px</td><td>Blue/teal + white</td><td>6–8px (the most “designed” of the ten)</td><td>Hybrid rows and tiles; MENA B2B, quote + checkout mix</td></tr>
+</table></div>
+
+<h3 class="board">Known findings — verified against the ten sites</h3>
+<div class="findings">
+<ul class="tight">
+<li><b>Body text 12–14px — confirmed.</b> Every utilitarian site sits at 12–14px. 16px body text is a consumer/SaaS habit and instantly reads as a landing page, not a tool.</li>
+<li><b>Results headings no larger than ~20–24px — confirmed.</b> Inside the app, nothing is display-sized. Big type is reserved for marketing pages these companies keep separate from the catalogue.</li>
+<li><b>One font family — confirmed, with one exception.</b> Nine of ten use a single grotesque family in 2–3 weights. Faire is the exception: a licensed serif at <i>regular</i> weight for headings, which is exactly why it feels premium rather than editorial.</li>
+<li><b>Corner radius 2–4px — confirmed</b> on the catalogue sites (McMaster is near 0). Radius grows only on the marketing-led sites (Alibaba, Tradeling). 12–16px radius + pill buttons is the single strongest “template” tell.</li>
+</ul>
+<ul class="tight">
+<li><b>2–3 neutral greys + one brand colour — confirmed.</b> Alibaba orange, Grainger red, Thomasnet blue. Nobody runs a palette; they run one colour and greys.</li>
+<li><b>Buttons 32–42px tall — confirmed.</b> Compact, rectangular, one primary action per row. No floating pill CTAs.</li>
+<li><b>Dense list rows — confirmed.</b> Rows carry photo, specs, supplier, trust signals and price tiers in one horizontal band. Buyers scan vertically and compare — grids break comparison.</li>
+<li><b>The templated look has a fingerprint:</b> Inter + slate greys, 12–16px radius on everything, soft shadows, pill buttons, gradient hero. That combination appears in no real marketplace above — it is what off-the-shelf website templates produce, which is why it reads as generic at a glance.</li>
+</ul>
+</div>
+<p class="secnote">One business finding that shapes all three directions: <b>none of the ten shows a firm delivered-to-door price for cross-border orders.</b> The Asian marketplaces stop at FOB + “contact supplier”; the US catalogues are domestic only. Prime Cargo's one delivered price at checkout (sea or air, duty and trucking included, 30% now / 70% at shipment) is the differentiator — so in every direction below, browsing shows the factory price and the buy box is built around the delivered price.</p>
+<!-- ================= DIRECTION 1 ================= -->
+<div class="dirhead" id="d1">
+<h2>Direction 1 — “Industrial catalog”</h2>
+<p class="from">Borrows from Thomasnet, McMaster-Carr and Grainger. Dense, precise, engineered. White and grey, one strong blue, everything in its place. This is the direction that looks most like a tool a plant engineer already trusts — spec tables, tight rows, no decoration. Deliberately <i>not</i> a plain grey McMaster clone: the brand blue carries the header actions, and the delivered-price buy box — which McMaster doesn't have — is the visual centre of the product page.</p>
+</div>
+<div class="tokenwrap"><table class="tokens">
+<tr><th>Typeface</th><td>Arial / Helvetica (system, no webfont). One family, headings and body. Tabular figures for all prices.</td><th>Radius</th><td>2px on everything — buttons, inputs, buy box</td></tr>
+<tr><th>Type scale</th><td>Body 13px · row title 15px bold · page heading 19–20px bold · price 15px bold. Weights: 400 and 700 only.</td><th>Buttons</th><td>32px tall, rectangular, solid brand blue, white text</td></tr>
+<tr><th>Colours</th><td><span class="sw" style="background:#1b1b1b"></span>Ink #1B1B1B · <span class="sw" style="background:#5a5a5a"></span>Secondary #5A5A5A · <span class="sw" style="background:#d8d8d8"></span>Line #D8D8D8 · <span class="sw" style="background:#f2f2f2"></span>Panel #F2F2F2 · <span class="sw" style="background:#005eb8"></span>Brand blue #005EB8 · <span class="sw" style="background:#1e7a34"></span>Verified green #1E7A34 · Background #FFFFFF</td><th>Spacing</th><td>8px base grid · row padding 11px × 18px · thumbnails 128×96px, hard crop</td></tr>
+</table></div>
+<div data-mount="d1"></div>
+
+<!-- ================= DIRECTION 2 ================= -->
+<div class="dirhead" id="d2">
+<h2>Direction 2 — “Calm premium wholesale”</h2>
+<p class="from">Borrows from Faire, applied to industrial goods. More white space, larger photography, headings in a serif at regular weight — never bold — and a single deep green used sparingly. The bet: a US buyer who has been burned by chaotic sourcing sites reads calm as competence. The risk is the opposite read: at $14,800 a set, some procurement managers may find it too quiet and go looking for the “real” catalogue.</p>
+</div>
+<div class="tokenwrap"><table class="tokens">
+<tr><th>Typefaces</th><td>Source Serif 4 for headings (weight 400 only — free stand-in for Faire's licensed serif) + Public Sans for body and prices. The only two-family direction.</td><th>Radius</th><td>3px</td></tr>
+<tr><th>Type scale</th><td>Body 14px · row title 18px serif regular · page heading 21–26px serif regular · price 16px medium. No bold headings anywhere on the site.</td><th>Buttons</th><td>40px tall, quiet solid green, wide padding, weight 500</td></tr>
+<tr><th>Colours</th><td><span class="sw" style="background:#1f1f1f"></span>Ink #1F1F1F · <span class="sw" style="background:#6f6a61"></span>Secondary #6F6A61 · <span class="sw" style="background:#e3e0d9"></span>Line #E3E0D9 · <span class="sw" style="background:#fafaf8"></span>Panel #FAFAF8 · <span class="sw" style="background:#20503c"></span>Accent green #20503C · Background #FFFFFF</td><th>Spacing</th><td>16px base · row padding 20px · product photography 340px wide — the largest of the three</td></tr>
+</table></div>
+<div data-mount="d2"></div>
+
+<!-- ================= DIRECTION 3 ================= -->
+<div class="dirhead" id="d3">
+<h2>Direction 3 — “Global trade, made simple”</h2>
+<p class="from">Borrows from Alibaba and Made-in-China, cleaned up. Supplier-first: the maker's name, verification and track record sit directly under the product name, and the price is the boldest element on every row — because on a marketplace the buyer is comparing offers, not reading a catalogue. One confident orange accent. This keeps the structure Indian suppliers already know from Alibaba, minus the clutter, banners and badge spam.</p>
+</div>
+<div class="tokenwrap"><table class="tokens">
+<tr><th>Typeface</th><td>Roboto (closest free match to Alibaba Sans). One family, weights 400 / 500 / 700.</td><th>Radius</th><td>4px</td></tr>
+<tr><th>Type scale</th><td>Body 13px · row title 15px · <b>price 20px bold — the largest, boldest element in every row</b> · page heading 19px bold</td><th>Buttons</th><td>36px tall, solid orange, white text</td></tr>
+<tr><th>Colours</th><td><span class="sw" style="background:#222222"></span>Ink #222222 · <span class="sw" style="background:#666666"></span>Secondary #666666 · <span class="sw" style="background:#e6e6e6"></span>Line #E6E6E6 · <span class="sw" style="background:#f7f7f7"></span>Panel #F7F7F7 · <span class="sw" style="background:#f85606"></span>Accent orange #F85606 · <span class="sw" style="background:#0e8a3c"></span>Trust green #0E8A3C · Background #FFFFFF</td><th>Spacing</th><td>12px base · row padding 13px × 18px · trust line sits immediately under supplier name</td></tr>
+</table></div>
+<div data-mount="d3"></div>
+
+<!-- ================= COMPARISON ================= -->
+<h2 class="board" id="compare">Comparison</h2>
+<div class="tokenwrap"><table class="spec">
+<tr><th style="width:170px"></th><th>1 · Industrial catalog</th><th>2 · Calm premium wholesale</th><th>3 · Global trade, made simple</th></tr>
+<tr><td><b>Clarity</b></td><td>Highest for specs — tables and tight rows reward an engineer comparing micron ratings and voltages.</td><td>Highest at a glance — fewest elements per screen, nothing competes with the product photo.</td><td>High for offers — price and supplier are unmissable; spec detail is one click deeper.</td></tr>
+<tr><td><b>Trust</b></td><td>Trust by precision: exact specs, exact tiers, no marketing language. Reads as “these people are engineers.”</td><td>Trust by restraint: calm reads as established and well-run. Weakest on hard proof — trust signals are quiet too.</td><td>Strongest explicit trust: verified badge, since-2009, on-time %, reorder rate and reply time on every row, where the decision happens.</td></tr>
+<tr><td><b>Speed to buy</b></td><td>Fast for repeat/known-spec buyers; the density slows a first-time buyer slightly.</td><td>Fastest first purchase — least to read — but comparison across suppliers is slower.</td><td>Fastest comparison-to-checkout path: price tiers and MOQ visible in the row, buy box leads with the delivered total.</td></tr>
+<tr><td><b>How “human” it feels</b></td><td>Very — it looks maintained by a working catalogue team, Arial and all. No template produces this.</td><td>High, with a caveat — it depends on photography. With real factory photos it feels art-directed; with weak photos it feels empty.</td><td>High — it looks like a marketplace with real sellers on it, because it copies the structure of sites that have them.</td></tr>
+<tr><td><b>Risk of looking templated</b></td><td>Lowest. It shares almost nothing with template defaults (no Inter, no pills, no shadows, no radius).</td><td>Medium. Serif + white space is one step from a generic editorial look if photography or colour drifts warm.</td><td>Low–medium. The orange and big prices are distinctly Alibaba-family; cleaned up, it reads as “marketplace”, not “template”.</td></tr>
+<tr><td><b>Best-fit buyer</b></td><td>Plant engineers, maintenance and procurement at manufacturers — spec-led, repeat buyers.</td><td>Owner-operators and distributors buying considered, higher-ticket equipment for the first time.</td><td>Distributors, traders and first-time importers comparing suppliers and prices across categories.</td></tr>
+</table></div>
+
+<h2 class="board" id="verdict">Recommendation</h2>
+<div class="verdict"><p><b>Build Direction 3 — “Global trade, made simple” — for launch.</b> The test is “does this look like a real marketplace that real sellers use?” Direction 3 is the only one whose structure a skeptical buyer — and a skeptical supplier — already believes, because Alibaba proved it at scale. It puts the two things that decide a cross-border order, <b>price and supplier proof</b>, in the row where the comparison happens, and it carries Prime Cargo's one real advantage — the delivered price — without changing a layout buyers have to learn. Direction 1 is the strongest second choice and the right skin for the industrial-equipment category pages later; Direction 2 is the best-looking and the riskiest, because its calm depends entirely on photography Prime Cargo doesn't have yet.</p></div>
+<p class="secnote">One more reason specific to this business: suppliers are often one person on a phone in Ahmedabad or Morbi. Direction 3's mobile results and product screens mirror the Alibaba app patterns they already use, so listing and replying will feel familiar on day one. Directions 1 and 2 both ask suppliers to learn a new visual language; Direction 3 only asks buyers to notice a cleaner one.</p>
+
+<h3 class="board">Five things that would make Direction 3 look even more real</h3>
+<ol class="tight" style="padding-left:19px">
+<li><b>Real factory photography.</b> Phone photos from each supplier's floor — products mid-assembly, the test bench, cartons being packed — slightly imperfect beats polished. Real photos are the single biggest gap between these mockups and a believable marketplace.</li>
+<li><b>Real supplier data with variance.</b> Actual reply times, shipment counts and reorder rates per supplier, all slightly different. Uniform “98% on-time” on every row reads as invented; messy real numbers read as audited.</li>
+<li><b>Destination-specific prices.</b> Delivered totals that genuinely change by ZIP code and week (freight moves). A buyer who checks Jersey City and Houston and sees the same number will assume the price is fake.</li>
+<li><b>Signs of other buyers.</b> “Last ordered 6 days ago by a distributor in Ohio”, a short review naming a company and a use case, order counts per listing. Marketplaces look real because other people are visibly using them.</li>
+<li><b>A licensed typeface and wordmark later.</b> Roboto is the honest free stand-in; licensing a grotesque with its own character (and drawing a real “Prime Cargo People” wordmark) is the finishing step that separates a brand from a well-made clone — worth doing once the direction is approved, not before.</li>
+</ol>
+
+</div>
+<script>
+var fmt = function(n){ return '$' + Math.round(n).toLocaleString('en-US'); };
+
+var LUB_TRUST = 'Exporting since 2009 · Ships to USA · Replies in under 4 h · 98% on-time · 31% reorder rate';
+var PRODUCTS = [
+  { name:'Lube oil filtration system — 6,000 LPH, skid-mounted, vacuum dehydration',
+    specs:'3-stage filtration 25 / 5 / 1 micron · 36 kW heater · 480 V, 3-phase, 60 Hz · 21-day lead time',
+    sup:'Filtration equipment maker', city:'Ahmedabad', trust:LUB_TRUST,
+    price:'$14,800', per:'/ set', tiers:'1 set $14,800 &nbsp;·&nbsp; 2–4 sets $14,200 &nbsp;·&nbsp; 5+ sets $13,600', moq:'Min. order 1 set',
+    photo:'Photo — skid-mounted filtration unit on the factory floor, supplier's works, Ahmedabad' },
+  { name:'Transformer oil filtration plant — 6,000 LPH, vacuum dehydration',
+    specs:'Two-stage vacuum · 25 / 5 / 1 micron · 480 V, 3-phase, 60 Hz · 24-day lead time',
+    sup:'Filtration equipment maker', city:'Ahmedabad', trust:LUB_TRUST,
+    price:'$21,400', per:'/ set', tiers:'1 set $21,400 &nbsp;·&nbsp; 2–4 sets $20,650 &nbsp;·&nbsp; 5+ sets $19,900', moq:'Min. order 1 set',
+    photo:'Photo — transformer oil plant with vacuum column, on the test bench' },
+  { name:'Hydraulic oil filtration unit — 1,200 LPH, trolley-mounted',
+    specs:'5 / 1 micron · 12 kW heater · 480 V, 3-phase, 60 Hz · 14-day lead time',
+    sup:'Filtration equipment maker', city:'Ahmedabad', trust:LUB_TRUST,
+    price:'$4,100', per:'/ set', tiers:'1 set $4,100 &nbsp;·&nbsp; 2–4 sets $3,950 &nbsp;·&nbsp; 5+ sets $3,800', moq:'Min. order 1 set',
+    photo:'Photo — trolley-mounted hydraulic unit beside a press shop line' },
+  { name:'ERW steel pipe — 2 in, SCH 40, ASTM A53',
+    specs:'6 m lengths · beveled ends · mill test certificate with every lot · sea freight only',
+    sup:'Pipe mill', city:'Kutch, Gujarat', trust:'Verified supplier · Exporting since 2014 · Ships to USA · 96% on-time',
+    price:'$824', per:'/ MT', tiers:'25–100 MT $824 &nbsp;·&nbsp; 100+ MT $796', moq:'Min. order 25 MT · Sea only',
+    photo:'Photo — bundled ERW pipe stacked in the mill yard, Kutch' },
+  { name:'Urea 46% N — granular, 50 kg bags',
+    specs:'46% nitrogen min. · 50 kg PP bags · SGS inspection at loading available · sea freight only',
+    sup:'Fertilizer exporter', city:'Kandla, Gujarat', trust:'Verified supplier · Exporting since 2011 · Ships to USA · 97% on-time',
+    price:'$398', per:'/ MT', tiers:'25–500 MT $398 &nbsp;·&nbsp; 500+ MT $386', moq:'Min. order 25 MT · Sea only',
+    photo:'Photo — 50 kg urea bags palletised at Kandla port warehouse' },
+  { name:'Basmati rice 1121 — sella, extra long grain',
+    specs:'Avg. length 8.3 mm · 25 / 50 kg PP bags · crop year 2026 · lab report with every lot',
+    sup:'Rice miller & exporter', city:'Karnal, Haryana', trust:'Verified supplier · Exporting since 2008 · Ships to USA · 95% on-time',
+    price:'$1,060', per:'/ MT', tiers:'25–100 MT $1,060 &nbsp;·&nbsp; 100+ MT $1,028', moq:'Min. order 25 MT',
+    photo:'Photo — basmati bags being stitched and stacked, Karnal mill' },
+  { name:'Commercial aluminium cookware — hotel & catering range',
+    specs:'Heavy-gauge aluminium · kadais, topes, stock pots · export cartons of 12–24 pcs',
+    sup:'Kailash Sagar Enterprise', city:'Ahmedabad', trust:'Verified supplier · Wholesale & export · Ships to USA · Replies same day',
+    price:'Per carton', per:'', tiers:'Priced per carton by item — full range on the product page', moq:'Min. order 10 cartons',
+    photo:'Photo — stacked aluminium kadais and topes, Kailash Sagar warehouse' }
+];
+
+function topBar(cls, mob){
+  return '<div class="mk-top"><div class="mk-logo">Prime Cargo <em>People</em> Trade</div>'
+    + '<div class="mk-search"><input value="" placeholder="Search products, suppliers, categories" /><button>Search</button></div>'
+    + (mob ? '' : '<div class="mk-topnav"><a href="#">Sell on Prime Cargo</a><a href="#">Orders</a><a href="#">Messages</a><a href="#">Sign in</a></div>')
+    + '</div>'
+    + '<div class="mk-cats"><a href="#" class="on">Industrial equipment</a><a href="#">Steel &amp; metals</a><a href="#">Fertilizers &amp; chemicals</a><a href="#">Agri commodities</a><a href="#">Kitchenware &amp; hardware</a></div>';
+}
+function foot(){
+  return '<div class="mk-foot"><span>Prime Cargo People Logistics — Jersey City, NJ</span><span>Licensed US ocean freight forwarder &amp; customs broker</span><span>India office: Ahmedabad</span><span>30% now · 70% when it ships</span></div>';
+}
+function row(p){
+  return '<div class="mk-row"><div class="mk-ph thumb">' + p.photo + '</div>'
+    + '<div class="mk-main"><div class="mk-name"><a href="#">' + p.name + '</a></div>'
+    + '<div class="mk-specs">' + p.specs + '</div>'
+    + '<div class="mk-sup"><b>' + p.sup + '</b> · ' + p.city + ' &nbsp;<span class="mk-verified">✓ Verified supplier</span></div>'
+    + '<div class="mk-trust">' + p.trust + '</div></div>'
+    + '<div class="mk-side"><div class="mk-price">' + p.price + ' <span class="per">' + p.per + '</span></div>'
+    + '<div class="mk-tiers">' + p.tiers + '</div><div class="mk-moq">' + p.moq + '</div>'
+    + '<button class="mk-btn">View product</button></div></div>';
+}
+function frame(label, sub, inner, mobile){
+  return '<div class="frame' + (mobile ? ' mobileframe' : '') + '"><div class="frame-label"><span>' + label + '</span><span>' + sub + '</span></div><div class="scaler">' + inner + '</div></div>';
+}
+
+/* ---------- HOME ---------- */
+function homeHTML(cls){
+  var rows = [PRODUCTS[0], PRODUCTS[3], PRODUCTS[4], PRODUCTS[5], PRODUCTS[6]].map(row).join('');
+  return '<div class="mk ' + cls + '">' + topBar(cls,false)
+    + '<div class="mk-hero"><h1>Industrial products from Indian manufacturers, delivered to your door in the US.</h1>'
+    + '<p>Browse at the supplier\u2019s factory price. At checkout you get one delivered price — freight, duty, customs and trucking included. Other marketplaces stop at the factory gate. We take it to your dock.</p>'
+    + '<div class="mk-search"><input placeholder="Try \u201clube oil filtration system\u201d or \u201cERW steel pipe\u201d" /><button>Search</button></div>'
+    + '<div class="mk-popular">Popular: <a href="#">oil filtration</a><a href="#">ERW pipe</a><a href="#">urea 46%</a><a href="#">basmati 1121</a><a href="#">aluminium cookware</a></div></div>'
+    + '<div class="mk-steps">'
+    + '<div class="mk-step"><b>1 · Browse at factory price</b><span>The price the supplier charges at their gate. No markup added while you browse.</span></div>'
+    + '<div class="mk-step"><b>2 · One delivered price</b><span>Sea or air, freight, duty, US customs clearance and trucking to your door in a single total.</span></div>'
+    + '<div class="mk-step"><b>3 · Pay 30% now, 70% at shipment</b><span>The balance is due only when your order ships and the bill of lading is issued.</span></div></div>'
+    + '<h2 class="mk-secttl">Featured listings</h2>' + rows + foot() + '</div>';
+}
+
+/* ---------- RESULTS ---------- */
+function resultsHTML(cls, mob){
+  var rows = [PRODUCTS[0], PRODUCTS[1], PRODUCTS[2]].map(row).join('');
+  var filters = '<div class="mk-filters"><div class="fg"><h4>Category</h4><label><b>Industrial equipment</b></label><label>Oil filtration (3)</label><label>Pumps &amp; motors</label></div>'
+    + '<div class="fg"><h4>Flow rate</h4><label>Under 1,000 LPH</label><label>1,000–3,000 LPH</label><label><b>3,000–6,000 LPH</b></label><label>Over 6,000 LPH</label></div>'
+    + '<div class="fg"><h4>Voltage</h4><label><b>480 V / 60 Hz (US)</b></label><label>415 V / 50 Hz</label></div>'
+    + '<div class="fg"><h4>Supplier</h4><label><b>Ships to USA</b></label><label>Verified only</label><label>Exporting 10+ years</label></div></div>';
+  return '<div class="mk ' + cls + (mob ? ' mob' : '') + '">' + topBar(cls, mob)
+    + '<div class="mk-results">' + (mob ? '' : filters)
+    + '<div class="mk-rlist"><div class="mk-rhead"><h1>Lube oil filtration systems</h1><span class="sort">3 results · Prices are factory prices — delivered price at checkout · Sort: <b>Relevance</b></span></div>'
+    + rows
+    + '<div style="padding:13px 18px" class="small mut">Need a different capacity? This maker builds filtration systems from 600 to 12,000 LPH — <a href="#">ask this supplier for a quote</a>.</div>'
+    + '</div></div>' + foot() + '</div>';
+}
+
+/* ---------- PRODUCT ---------- */
+function buyBox(cls){
+  return '<div class="mk-buy" data-calc>'
+    + '<h3>Buy from Filtration equipment maker</h3>'
+    + '<table class="mk-tier"><tr data-tier="1"><td>1 set</td><td>$14,800 / set</td></tr><tr data-tier="2"><td>2–4 sets</td><td>$14,200 / set</td></tr><tr data-tier="5"><td>5+ sets</td><td>$13,600 / set</td></tr></table>'
+    + '<div class="small mut">Factory price, ex-works Ahmedabad. Delivered price below includes everything to your door.</div>'
+    + '<div class="mk-qty"><span>Quantity</span><button data-step="-1" type="button">−</button><input data-qty value="1" /><button data-step="1" type="button">+</button><span class="mut">sets</span></div>'
+    + '<div class="small" data-container-note style="display:none;color:var(--ok);font-weight:600">4 sets fit in one 20 ft container.</div>'
+    + '<div style="margin-top:8px" class="small"><b>Deliver to</b> Jersey City, NJ 07310 — <a href="#">change</a></div>'
+    + '<div class="mk-ship on" data-freight="2800" data-mode="Sea freight"><div><b>By sea</b><div class="small mut">~34 days to your door</div></div><b>' + fmt(17600) + ' / set</b></div>'
+    + '<div class="mk-ship" data-freight="8245" data-mode="Air freight"><div><b>By air</b><div class="small mut">~7 days to your door</div></div><b>' + fmt(23045) + ' / set</b></div>'
+    + '<div class="mk-total"><span>Delivered total</span><span data-out-total>' + fmt(17600) + '</span></div>'
+    + '<div class="mk-split"><span>Due now (30%)</span><span data-out-now>' + fmt(5280) + '</span></div>'
+    + '<div class="mk-split"><span>Due at shipment (70%)</span><span data-out-later>' + fmt(12320) + '</span></div>'
+    + '<button class="mk-btn">Add to order</button><button class="mk-btn ghost">Message supplier</button>'
+    + '<details class="mk-inc"><summary>What\u2019s included in the delivered price</summary><ul>'
+    + '<li>Factory price, ex-works Ahmedabad</li><li>Export packing — crate 2.4 × 1.2 × 1.8 m, 1,450 kg</li><li>Ocean or air freight to the US</li><li>US import duty and customs clearance by Prime Cargo People (licensed broker)</li><li>Trucking from port to your door in Jersey City</li></ul>'
+    + '<div style="margin-top:5px" class="mut">Not included: US sales tax where it applies, and storage beyond 5 free days at destination.</div></details>'
+    + '</div>';
+}
+function productHTML(cls, mob){
+  return '<div class="mk ' + cls + (mob ? ' mob' : '') + '">' + topBar(cls, mob)
+    + '<div class="mk-crumbs">Industrial equipment › Oil filtration › <b style="color:var(--ink)">Lube oil filtration system 6,000 LPH</b></div>'
+    + '<div class="mk-prod"><div class="mk-gal"><div class="mk-ph big">Photo — skid-mounted 6,000 LPH filtration unit on the factory floor, supplier's works, Ahmedabad. Heater bank and vacuum chamber visible, control panel open.</div>'
+    + '<div class="mk-thumbs"><div class="mk-ph sm">Photo — control panel close-up</div><div class="mk-ph sm">Photo — unit crated for export</div><div class="mk-ph sm">Photo — factory test bench</div><div class="mk-ph sm">Photo — nameplate &amp; serial</div></div></div>'
+    + '<div class="mk-det"><h1>Lube oil filtration system — 6,000 LPH, skid-mounted, vacuum dehydration</h1>'
+    + '<div class="mk-sup"><b>Filtration equipment maker</b> · Ahmedabad, Gujarat &nbsp;<span class="mk-verified">✓ Verified supplier</span></div>'
+    + '<div class="mk-trust">' + LUB_TRUST + '</div>'
+    + '<table class="mk-spec">'
+    + '<tr><th>Flow rate</th><td>6,000 litres per hour</td></tr>'
+    + '<tr><th>Filtration</th><td>3-stage — 25 / 5 / 1 micron</td></tr>'
+    + '<tr><th>Heater</th><td>36 kW</td></tr>'
+    + '<tr><th>Electrical</th><td>480 V · 3-phase · 60 Hz (built for US supply)</td></tr>'
+    + '<tr><th>Mounting</th><td>Skid-mounted, vacuum dehydration</td></tr>'
+    + '<tr><th>Crate size / weight</th><td>2.4 × 1.2 × 1.8 m · 1,450 kg</td></tr>'
+    + '<tr><th>Lead time</th><td>21 days from deposit</td></tr>'
+    + '<tr><th>Container fit</th><td>4 sets per 20 ft container</td></tr></table>'
+    + '<p class="small mut" style="margin-top:10px">Every unit is run-tested at the factory before crating; the test report and photos are added to your order documents. Third-party inspection (SGS / BV) can be added at checkout.</p></div>'
+    + buyBox(cls) + '</div>' + foot() + '</div>';
+}
+
+/* ---------- CHECKOUT ---------- */
+function checkoutHTML(cls){
+  return '<div class="mk ' + cls + '"><div class="mk-top"><div class="mk-logo">Prime Cargo <em>People</em> Trade</div><div class="mut">Checkout · Prices firm for 48 hours</div></div>'
+    + '<div class="mk-check"><div class="mk-checkmain"><h1>Review and place order</h1>'
+    + '<div class="small mut">Order from Filtration equipment maker, Ahmedabad — sold and shipped by Prime Cargo People Logistics, Jersey City NJ.</div>'
+    + '<h3>Item</h3><div class="mk-row" style="border:1px solid var(--line);border-radius:var(--rad)"><div class="mk-ph sm">Photo — skid unit</div><div class="mk-main"><div class="mk-name" style="font-size:calc(var(--base) + 1px)">Lube oil filtration system — 6,000 LPH</div><div class="mk-specs">Qty 1 set · Crate 2.4 × 1.2 × 1.8 m · 1,450 kg · Lead time 21 days</div></div><div class="mk-side" style="width:130px"><div class="mk-price">$14,800</div><div class="mk-moq">factory price</div></div></div>'
+    + '<h3>Delivery</h3><div class="mk-field"><div class="fl">Deliver to</div>Your plant address — Jersey City, NJ 07310</div>'
+    + '<div data-calc><div class="mk-ship on" data-freight="2800" data-mode="Sea freight"><div><b>By sea</b><div class="small mut">~34 days, port to door</div></div><b>' + fmt(17600) + ' delivered</b></div>'
+    + '<div class="mk-ship" data-freight="8245" data-mode="Air freight"><div><b>By air</b><div class="small mut">~7 days, airport to door</div></div><b>' + fmt(23045) + ' delivered</b></div></div>'
+    + '<h3>Payment terms</h3><div class="mk-field"><b>30% now, 70% when it ships.</b><div class="small mut" style="margin-top:2px">Pay the deposit by card or wire today. The 70% balance is invoiced when the bill of lading is issued — you pay against shipping documents, not before the goods move.</div></div>'
+    + '<div class="mk-field"><div class="fl">Optional</div>Add third-party inspection (SGS) before loading — quoted within 24 h, added to the balance only.</div>'
+    + '</div>'
+    + '<div class="mk-sum" data-calc2><h3 style="margin-top:0">Order summary</h3>'
+    + '<div class="r"><span>Factory price (1 set)</span><span>$14,800</span></div>'
+    + '<div class="r"><span>Freight, duty, customs, trucking</span><span data-co-freight>$2,800</span></div>'
+    + '<div class="r tot"><span>Delivered total</span><span data-co-total>' + fmt(17600) + '</span></div>'
+    + '<div class="r"><span>Due today (30%)</span><span data-co-now>' + fmt(5280) + '</span></div>'
+    + '<div class="r"><span>Due at shipment (70%)</span><span data-co-later>' + fmt(12320) + '</span></div>'
+    + '<button class="mk-btn">Pay deposit &amp; place order</button>'
+    + '<details class="mk-inc"><summary>What\u2019s included</summary><ul><li>Ocean or air freight to the US</li><li>US import duty</li><li>Customs clearance by Prime Cargo People, licensed US customs broker</li><li>Trucking to your door</li></ul></details>'
+    + '<div class="small mut" style="margin-top:8px">Importer of record: your company. Prime Cargo People files the entry on your behalf.</div></div>'
+    + '</div>' + foot() + '</div>';
+}
+
+/* ---------- MOUNT ---------- */
+var DIRS = ['d1','d2','d3'];
+DIRS.forEach(function(cls){
+  var mount = document.querySelector('[data-mount="' + cls + '"]');
+  if(!mount) return;
+  mount.innerHTML =
+      frame('Home', 'Desktop · 1440', homeHTML(cls), false)
+    + frame('Search results — “lube oil filtration systems”', 'Desktop · 1440 · list rows', resultsHTML(cls,false), false)
+    + frame('Search results — mobile', 'Mobile · 390 · filters collapse, rows stack', resultsHTML(cls,true), true)
+    + frame('Product page — lube oil filtration system, with buy box', 'Desktop · 1440 · try the quantity and sea/air controls', productHTML(cls,false), false)
+    + frame('Product page — mobile', 'Mobile · 390 · buy box follows the specs', productHTML(cls,true), true)
+    + frame('Checkout — one delivered price, 30 / 70', 'Desktop · 1440', checkoutHTML(cls), false);
+});
+
+/* ---------- BUY-BOX / CHECKOUT MATH ---------- */
+function tierPrice(q){ return q >= 5 ? 13600 : (q >= 2 ? 14200 : 14800); }
+function recalc(box){
+  var qtyEl = box.querySelector('[data-qty]');
+  var q = qtyEl ? Math.max(1, parseInt(qtyEl.value || '1', 10) || 1) : 1;
+  var on = box.querySelector('.mk-ship.on');
+  var freight = on ? parseInt(on.getAttribute('data-freight'), 10) : 2800;
+  var unit = tierPrice(q);
+  var total = q * (unit + freight);
+  var t = box.querySelector('[data-out-total]'); if(t) t.textContent = fmt(total);
+  var n = box.querySelector('[data-out-now]'); if(n) n.textContent = fmt(total * 0.30);
+  var l = box.querySelector('[data-out-later]'); if(l) l.textContent = fmt(total * 0.70);
+  box.querySelectorAll('[data-tier]').forEach(function(r){
+    var min = parseInt(r.getAttribute('data-tier'), 10);
+    var active = (min === 1 && q === 1) || (min === 2 && q >= 2 && q <= 4) || (min === 5 && q >= 5);
+    r.classList.toggle('on', active);
+  });
+  var note = box.querySelector('[data-container-note]');
+  if(note) note.style.display = q >= 4 ? 'block' : 'none';
+  /* checkout summary mirrors the delivery choice in the same screen */
+  var screen = box.closest('.mk');
+  if(screen){
+    var co = screen.querySelector('[data-calc2]');
+    if(co && !qtyEl){
+      co.querySelector('[data-co-freight]').textContent = fmt(freight);
+      co.querySelector('[data-co-total]').textContent = fmt(14800 + freight);
+      co.querySelector('[data-co-now]').textContent = fmt((14800 + freight) * 0.30);
+      co.querySelector('[data-co-later]').textContent = fmt((14800 + freight) * 0.70);
+    }
+  }
+}
+document.addEventListener('click', function(e){
+  var ship = e.target.closest('.mk-ship');
+  if(ship){
+    var box = ship.closest('[data-calc]');
+    box.querySelectorAll('.mk-ship').forEach(function(s){ s.classList.remove('on'); });
+    ship.classList.add('on'); recalc(box); return;
+  }
+  var step = e.target.closest('[data-step]');
+  if(step){
+    var box2 = step.closest('[data-calc]');
+    var inp = box2.querySelector('[data-qty]');
+    inp.value = Math.max(1, (parseInt(inp.value || '1', 10) || 1) + parseInt(step.getAttribute('data-step'), 10));
+    recalc(box2);
+  }
+});
+document.addEventListener('change', function(e){
+  if(e.target.matches('[data-qty]')) recalc(e.target.closest('[data-calc]'));
+});
+</script>
+</body>
+</html>

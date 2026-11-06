@@ -542,7 +542,7 @@ function renderHome(){
   $('st-p').textContent=P.length;$('st-s').textContent=Object.keys(S).length;$('st-c').textContent=Object.keys(C).length;
   const icon={filters:P[0].img,kitchen:null,steel:null,agri:null,chem:null};
   $('home-cats').innerHTML=Object.entries(C).map(([k,v])=>{const list=P.filter(p=>p.cat===k);const from=Math.min(...list.map(p=>landed(p,p.moq,'sea').pp));const u=per(list[0]);
-    return `<a class="catcard" href="#/c/${k}"><b>${v}</b><span class="small mute">${list.length} products, from ${S[list[0].sup].name}${list.some(p=>p.sup!==list[0].sup)?' and others':''}</span><span class="small">Delivered from <b>${fmt(from)}</b>${u}</span></a>`}).join('');
+    return `<a class="catcard" href="#/c/${k}"><b>${v}</b><span class="small mute">${list.length} product${list.length>1?'s':''}, from ${S[list[0].sup].name}${list.some(p=>p.sup!==list[0].sup)?' and others':''}</span><span class="small">Delivered from <b>${fmt(from)}</b>${u}</span></a>`}).join('');
   const pick=['spin-on-oil','erw-pipe','kadai-16','basmati','fuel-filter','pvc-k67'];
   $('home-rows').innerHTML=pick.map(id=>row(P.find(p=>p.id===id))).join('');
   $('home-sups').innerHTML=Object.keys(S).map(supCard).join('');
