@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light" />
+<link rel="icon" href="data:," />
+<title>Prime Cargo People Trade — Global trade, made simple</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
+<style>
+  /* ============ BOARD CHROME (the comparison document itself) ============ */
+  :root{
+    --c-ink:#17171a; --c-mut:#5d5d63; --c-line:#dcdce0; --c-panel:#f5f5f6; --c-bg:#ffffff;
+    --c-accent:#17171a; --c-link:#0b4ea2;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --c-ink:#ececf0; --c-mut:#a7a7b0; --c-line:#33333a; --c-panel:#1d1d22; --c-bg:#131316; --c-link:#7db3f5; }
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ margin:0; background:var(--c-bg); color:var(--c-ink); font:400 15px/1.55 "Public Sans",-apple-system,"Segoe UI",Arial,sans-serif; }
+  .wrap{ max-width:1240px; margin:0 auto; padding:0 20px 80px; }
+  a{ color:var(--c-link); }
+  .boardnav{ position:sticky; top:0; z-index:50; background:var(--c-bg); border-bottom:1px solid var(--c-line); }
+  .boardnav .in{ max-width:1240px; margin:0 auto; padding:0 20px; display:flex; gap:18px; align-items:center; height:46px; overflow-x:auto; white-space:nowrap; font-size:13px; }
+  .boardnav b{ font-size:13px; margin-right:4px; }
+  .boardnav a{ color:var(--c-mut); text-decoration:none; }
+  .boardnav a:hover{ color:var(--c-ink); }
+  h1.board{ font-size:28px; line-height:1.2; font-weight:700; margin:34px 0 6px; letter-spacing:-.01em; }
+  .boardsub{ color:var(--c-mut); font-size:15px; max-width:820px; margin:0 0 8px; }
+  h2.board{ font-size:22px; font-weight:700; margin:52px 0 4px; letter-spacing:-.01em; }
+  h3.board{ font-size:17px; font-weight:700; margin:30px 0 6px; }
+  .secnote{ color:var(--c-mut); font-size:14px; max-width:860px; margin:0 0 14px; }
+  table.spec{ border-collapse:collapse; width:100%; font-size:13px; margin:10px 0 18px; }
+  table.spec th, table.spec td{ border:1px solid var(--c-line); padding:7px 9px; text-align:left; vertical-align:top; }
+  table.spec th{ background:var(--c-panel); font-weight:600; }
+  table.spec td.num{ font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .findings{ display:grid; grid-template-columns:1fr 1fr; gap:0 28px; margin:6px 0 4px; }
+  .findings li{ margin:0 0 7px; }
+  ul.tight{ padding-left:19px; margin:6px 0; }
+  ul.tight li{ margin-bottom:6px; }
+  .dirhead{ border-top:3px solid var(--c-ink); margin-top:64px; padding-top:18px; }
+  .dirhead h2{ font-size:24px; margin:0 0 4px; font-weight:700; }
+  .dirhead .from{ color:var(--c-mut); font-size:14px; margin:0; max-width:900px; }
+  .tokenwrap{ overflow-x:auto; }
+  table.tokens{ border-collapse:collapse; width:100%; font-size:13px; margin:12px 0 6px; min-width:640px; }
+  table.tokens th, table.tokens td{ border:1px solid var(--c-line); padding:7px 10px; text-align:left; vertical-align:top; }
+  table.tokens th{ background:var(--c-panel); font-weight:600; width:150px; }
+  .sw{ display:inline-block; width:12px; height:12px; border:1px solid rgba(0,0,0,.25); vertical-align:-1px; margin-right:6px; }
+  /* ============ SCREEN FRAMES ============ */
+  .frame{ border:1px solid var(--c-line); background:#fff; margin:16px 0 34px; }
+  .frame-label{ display:flex; justify-content:space-between; gap:10px; background:#17171a; color:#f2f2f2; padding:6px 12px; font-size:12px; font-weight:600; }
+  .frame-label span:last-child{ font-weight:400; color:#bdbdc4; }
+  .frame.mobileframe{ width:392px; max-width:100%; margin-left:auto; margin-right:auto; }
+  .frame .scaler{ overflow-x:auto; overflow-y:hidden; }
+  .frame:not(.mobileframe) .mk{ min-width:1024px; }
+  /* ============ MARKETPLACE MOCK — shared anatomy, per-direction tokens ============ */
+  .mk{ font-family:var(--mfont); font-size:var(--base); color:var(--ink); background:var(--bgc); line-height:1.45; }
+  .mk *{ box-sizing:border-box; }
+  .mk a{ color:var(--brand); text-decoration:none; }
+  .mk .mut{ color:var(--mut); }
+  .mk .small{ font-size:calc(var(--base) - 1.5px); }
+  .d1{ --brand:#005eb8; --brandink:#ffffff; --ink:#1b1b1b; --mut:#5a5a5a; --line:#d8d8d8; --panel:#f2f2f2; --bgc:#ffffff; --rad:2px; --base:13px; --mfont:Arial,Helvetica,sans-serif; --hfont:Arial,Helvetica,sans-serif; --btnH:32px; --rowpad:11px; --ok:#1e7a34; --price:#1b1b1b; }
+  .d2{ --brand:#20503c; --brandink:#ffffff; --ink:#1f1f1f; --mut:#6f6a61; --line:#e3e0d9; --panel:#fafaf8; --bgc:#ffffff; --rad:3px; --base:14px; --mfont:"Public Sans",Arial,sans-serif; --hfont:"Source Serif 4",Georgia,serif; --btnH:40px; --rowpad:20px; --ok:#20503c; --price:#1f1f1f; }
+  .d3{ --brand:#f85606; --brandink:#ffffff; --ink:#222222; --mut:#666666; --line:#e6e6e6; --panel:#f7f7f7; --bgc:#ffffff; --rad:4px; --base:13px; --mfont:"Roboto",Arial,sans-serif; --hfont:"Roboto",Arial,sans-serif; --btnH:36px; --price:#111111; --ok:#0e8a3c; --rowpad:13px; }
+  /* top bar */
+  .mk-top{ display:flex; align-items:center; gap:16px; padding:10px 18px; border-bottom:1px solid var(--line); flex-wrap:wrap; }
+  .mk-logo{ font-family:var(--hfont); font-weight:700; font-size:17px; color:var(--ink); white-space:nowrap; }
+  .mk-logo em{ font-style:normal; color:var(--brand); }
+  .d2 .mk-logo{ font-weight:400; font-size:19px; letter-spacing:.01em; }
+  .mk-search{ flex:1 1 300px; display:flex; border:1.5px solid var(--brand); border-radius:var(--rad); overflow:hidden; min-width:220px; }
+  .mk-search input{ flex:1; border:0; outline:0; padding:0 11px; height:36px; font:inherit; color:var(--ink); background:#fff; min-width:0; }
+  .mk-search button{ background:var(--brand); color:var(--brandink); border:0; padding:0 18px; font:inherit; font-weight:600; cursor:pointer; }
+  .d1 .mk-search{ border-color:#8a8a8a; } .d1 .mk-search button{ background:#005eb8; }
+  .mk-topnav{ display:flex; gap:15px; font-size:calc(var(--base) - .5px); white-space:nowrap; }
+  .mk-topnav a{ color:var(--ink); }
+  .mk-cats{ display:flex; gap:18px; padding:8px 18px; border-bottom:1px solid var(--line); flex-wrap:wrap; background:var(--panel); }
+  .mk-cats a{ color:var(--ink); font-size:calc(var(--base) - .5px); }
+  .mk-cats a.on{ font-weight:700; color:var(--brand); }
+  /* hero */
+  .mk-hero{ padding:26px 18px 22px; border-bottom:1px solid var(--line); }
+  .mk-hero h1{ font-family:var(--hfont); font-size:24px; line-height:1.25; margin:0 0 6px; font-weight:700; max-width:640px; }
+  .d2 .mk-hero h1{ font-weight:400; font-size:26px; }
+  .d3 .mk-hero h1{ font-size:23px; }
+  .mk-hero p{ margin:0 0 14px; color:var(--mut); max-width:600px; }
+  .mk-hero .mk-search{ max-width:640px; }
+  .mk-popular{ margin-top:10px; font-size:calc(var(--base) - 1px); color:var(--mut); }
+  .mk-popular a{ margin-right:10px; }
+  .mk-steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-bottom:1px solid var(--line); }
+  .mk-step{ padding:14px 18px; border-right:1px solid var(--line); }
+  .mk-step:last-child{ border-right:0; }
+  .mk-step b{ display:block; margin-bottom:2px; }
+  .mk-step span{ color:var(--mut); font-size:calc(var(--base) - 1px); }
+  .mk-secttl{ font-family:var(--hfont); font-size:17px; font-weight:700; padding:16px 18px 2px; margin:0; }
+  .d2 .mk-secttl{ font-weight:400; font-size:19px; }
+  /* list rows */
+  .mk-row{ display:flex; gap:15px; padding:var(--rowpad) 18px; border-bottom:1px solid var(--line); align-items:flex-start; }
+  .mk-ph{ background:#e9e9ea; color:#76767c; display:flex; align-items:center; justify-content:center; text-align:center; padding:8px; font-size:10.5px; line-height:1.4; border:1px solid #dcdcde; flex:none; }
+  .d2 .mk-ph{ background:#efeeea; border-color:#e3e0d9; }
+  .mk-ph.thumb{ width:128px; height:96px; }
+  .mk-ph.big{ width:100%; height:300px; font-size:12px; }
+  .mk-ph.sm{ width:64px; height:48px; font-size:9px; padding:4px; }
+  .mk-main{ flex:1; min-width:0; }
+  .mk-name{ font-family:var(--hfont); font-size:calc(var(--base) + 2px); font-weight:700; color:var(--ink); line-height:1.3; }
+  .d2 .mk-name{ font-weight:400; font-size:calc(var(--base) + 4px); }
+  .mk-name a{ color:var(--ink); }
+  .mk-specs{ color:var(--mut); margin-top:2px; }
+  .mk-sup{ margin-top:6px; }
+  .mk-sup b{ color:var(--ink); }
+  .mk-verified{ color:var(--ok); font-weight:700; }
+  .mk-trust{ color:var(--mut); font-size:calc(var(--base) - 1.5px); margin-top:1px; }
+  .mk-side{ flex:none; width:196px; text-align:right; }
+  .mk-price{ font-size:calc(var(--base) + 3px); font-weight:700; color:var(--price); font-variant-numeric:tabular-nums; }
+  .d3 .mk-price{ font-size:20px; }
+  .d1 .mk-price{ font-size:15px; }
+  .mk-price .per{ font-size:calc(var(--base) - 1px); font-weight:400; color:var(--mut); }
+  .mk-tiers{ color:var(--mut); font-size:calc(var(--base) - 1.5px); font-variant-numeric:tabular-nums; margin-top:2px; line-height:1.5; }
+  .mk-moq{ font-size:calc(var(--base) - 1px); color:var(--mut); margin-top:2px; }
+  .mk-btn{ display:inline-flex; align-items:center; justify-content:center; height:var(--btnH); padding:0 16px; background:var(--brand); color:var(--brandink); border:1px solid var(--brand); border-radius:var(--rad); font:inherit; font-weight:600; cursor:pointer; margin-top:8px; }
+  .mk-btn.ghost{ background:#fff; color:var(--brand); }
+  .d2 .mk-btn{ font-weight:500; padding:0 22px; }
+  .mk-side .mk-btn{ min-width:118px; }
+  /* results layout */
+  .mk-results{ display:flex; align-items:flex-start; }
+  .mk-filters{ flex:none; width:196px; padding:14px 14px 14px 18px; border-right:1px solid var(--line); }
+  .mk-filters h4{ margin:0 0 6px; font-size:var(--base); }
+  .mk-filters .fg{ margin-bottom:14px; }
+  .mk-filters label{ display:block; color:var(--mut); padding:2px 0; font-size:calc(var(--base) - 1px); }
+  .mk-filters label b{ color:var(--ink); font-weight:600; }
+  .mk-rlist{ flex:1; min-width:0; }
+  .mk-rhead{ display:flex; justify-content:space-between; gap:10px; padding:12px 18px; border-bottom:1px solid var(--line); flex-wrap:wrap; }
+  .mk-rhead h1{ font-family:var(--hfont); font-size:19px; margin:0; font-weight:700; }
+  .d2 .mk-rhead h1{ font-weight:400; font-size:21px; }
+  .mk-rhead .sort{ color:var(--mut); font-size:calc(var(--base) - 1px); }
+  /* product page */
+  .mk-crumbs{ padding:10px 18px 0; color:var(--mut); font-size:calc(var(--base) - 1px); }
+  .mk-prod{ display:flex; gap:20px; padding:12px 18px 18px; align-items:flex-start; }
+  .mk-gal{ flex:none; width:340px; }
+  .mk-thumbs{ display:flex; gap:8px; margin-top:8px; }
+  .mk-det{ flex:1; min-width:0; }
+  .mk-det h1{ font-family:var(--hfont); font-size:21px; line-height:1.3; margin:0 0 4px; font-weight:700; }
+  .d2 .mk-det h1{ font-weight:400; font-size:23px; }
+  table.mk-spec{ border-collapse:collapse; width:100%; margin-top:12px; font-size:calc(var(--base) - .5px); }
+  table.mk-spec th, table.mk-spec td{ border:1px solid var(--line); padding:5px 8px; text-align:left; vertical-align:top; }
+  table.mk-spec th{ background:var(--panel); font-weight:600; width:42%; }
+  .d1 table.mk-spec th, .d1 table.mk-spec td{ padding:4px 7px; }
+  .mk-buy{ flex:none; width:308px; border:1px solid var(--line); border-radius:var(--rad); padding:14px 16px; background:#fff; }
+  .d1 .mk-buy{ background:var(--panel); border-color:#c9c9c9; }
+  .mk-buy h3{ margin:0 0 8px; font-size:calc(var(--base) + 1px); font-family:var(--hfont); }
+  table.mk-tier{ border-collapse:collapse; width:100%; font-variant-numeric:tabular-nums; font-size:calc(var(--base) - .5px); margin-bottom:10px; }
+  table.mk-tier td{ padding:3px 0; border-bottom:1px dotted var(--line); }
+  table.mk-tier td:last-child{ text-align:right; font-weight:700; }
+  table.mk-tier tr.on td{ color:var(--brand); }
+  .mk-qty{ display:flex; align-items:center; gap:8px; margin:8px 0; }
+  .mk-qty button{ width:30px; height:30px; border:1px solid var(--line); background:#fff; border-radius:var(--rad); font:inherit; cursor:pointer; }
+  .mk-qty input{ width:52px; height:30px; border:1px solid var(--line); border-radius:var(--rad); text-align:center; font:inherit; }
+  .mk-ship{ border:1px solid var(--line); border-radius:var(--rad); padding:8px 10px; margin:6px 0; cursor:pointer; display:flex; justify-content:space-between; gap:8px; }
+  .mk-ship.on{ border-color:var(--brand); background:var(--panel); }
+  .mk-ship b{ font-variant-numeric:tabular-nums; }
+  .mk-total{ display:flex; justify-content:space-between; font-weight:700; font-size:calc(var(--base) + 3px); border-top:1px solid var(--line); padding-top:9px; margin-top:9px; font-variant-numeric:tabular-nums; }
+  .mk-split{ display:flex; justify-content:space-between; color:var(--mut); font-size:calc(var(--base) - 1px); font-variant-numeric:tabular-nums; }
+  .mk-buy .mk-btn{ width:100%; margin-top:10px; }
+  .mk-inc{ margin-top:10px; font-size:calc(var(--base) - 1px); }
+  .mk-inc summary{ cursor:pointer; color:var(--brand); font-weight:600; }
+  .mk-inc ul{ margin:6px 0 0; padding-left:16px; color:var(--mut); }
+  /* checkout */
+  .mk-check{ display:flex; gap:22px; padding:16px 18px 20px; align-items:flex-start; }
+  .mk-checkmain{ flex:1; min-width:0; }
+  .mk-check h1{ font-family:var(--hfont); font-size:20px; margin:0 0 4px; font-weight:700; }
+  .d2 .mk-check h1{ font-weight:400; font-size:22px; }
+  .mk-check h3{ font-size:calc(var(--base) + 1px); margin:18px 0 6px; font-family:var(--hfont); }
+  .mk-field{ border:1px solid var(--line); border-radius:var(--rad); padding:9px 11px; margin-bottom:8px; background:#fff; }
+  .mk-field .fl{ color:var(--mut); font-size:calc(var(--base) - 2px); }
+  .mk-sum{ flex:none; width:320px; border:1px solid var(--line); border-radius:var(--rad); padding:14px 16px; }
+  .d1 .mk-sum{ background:var(--panel); }
+  .mk-sum .r{ display:flex; justify-content:space-between; padding:3px 0; font-variant-numeric:tabular-nums; }
+  .mk-sum .r.tot{ border-top:1px solid var(--line); margin-top:7px; padding-top:8px; font-weight:700; font-size:calc(var(--base) + 2px); }
+  .mk-sum .mk-btn{ width:100%; margin-top:10px; }
+  .mk-foot{ border-top:1px solid var(--line); padding:12px 18px; color:var(--mut); font-size:calc(var(--base) - 1.5px); display:flex; gap:18px; flex-wrap:wrap; }
+  /* mobile mock adjustments */
+  .mk.mob .mk-top{ padding:9px 12px; gap:10px; }
+  .mk.mob .mk-topnav{ display:none; }
+  .mk.mob .mk-cats{ padding:7px 12px; gap:12px; overflow:hidden; }
+  .mk.mob .mk-row{ flex-wrap:wrap; padding:13px 12px; gap:10px; }
+  .mk.mob .mk-ph.thumb{ width:92px; height:72px; }
+  .mk.mob .mk-side{ width:100%; text-align:left; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .mk.mob .mk-side .mk-btn{ margin-top:0; }
+  .mk.mob .mk-filters{ display:none; }
+  .mk.mob .mk-prod{ flex-direction:column; padding:10px 12px 16px; }
+  .mk.mob .mk-gal{ width:100%; } .mk.mob .mk-ph.big{ height:220px; }
+  .mk.mob .mk-buy{ width:100%; }
+  .mk.mob .mk-det h1{ font-size:19px; }
+  .mk.mob .mk-check{ flex-direction:column; padding:12px; }
+  .mk.mob .mk-sum{ width:100%; }
+  .mk.mob .mk-hero{ padding:18px 12px; } .mk.mob .mk-hero h1{ font-size:20px; }
+  .mk.mob .mk-steps{ grid-template-columns:1fr; } .mk.mob .mk-step{ border-right:0; border-bottom:1px solid var(--line); }
+  .mk.mob .mk-rhead{ padding:10px 12px; } .mk.mob .mk-rhead h1{ font-size:17px; }
+  .verdict{ border:1px solid var(--c-line); border-left:4px solid var(--c-ink); padding:14px 18px; margin:16px 0; background:var(--c-panel); }
+  .verdict p{ margin:0; }
+  @media (max-width:760px){
+    .findings{ grid-template-columns:1fr; }
+    h1.board{ font-size:24px; }
+    .frame.mobileframe{ width:100%; }
+    .mk-steps{ grid-template-columns:1fr; }
+    .boardnav .in{ flex-wrap:wrap; height:auto; padding-top:7px; padding-bottom:7px; row-gap:4px; white-space:normal; }
+    table.spec, table.tokens{ min-width:0; }
+    table.spec, table.spec tbody, table.spec tr, table.spec td, table.spec th,
+    table.tokens, table.tokens tbody, table.tokens tr, table.tokens td, table.tokens th{ display:block; width:auto; }
+    table.spec tr, table.tokens tr{ border:1px solid var(--c-line); margin-bottom:10px; }
+    table.spec th, table.spec td, table.tokens th, table.tokens td{ border:0; border-bottom:1px solid var(--c-line); }
+    table.spec tr > :last-child, table.tokens tr > :last-child{ border-bottom:0; }
+  }
+
+html,body{background:#fff !important;color-scheme:light}
+body{margin:0}
+#app .mk{max-width:1440px;margin:0 auto;min-height:100vh}
+#app .mk a, #app .mk button{cursor:pointer}
+.mk-logo{cursor:pointer}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#1b1b1b;color:#fff;padding:10px 16px;border-radius:3px;font:14px/1.4 Arial,sans-serif;display:none;z-index:9}
+</style>
+</head>
+<body>
+<div id="app"></div><div id="toast" role="status"></div>
+<script>
+var fmt = function(n){ return '$' + Math.round(n).toLocaleString('en-US'); };
+
+var LUB_TRUST = 'Exporting since 2009 · Ships to USA · Replies in under 4 h · 98% on-time · 31% reorder rate';
+var PRODUCTS = [
+  { name:'Lube oil filtration system — 6,000 LPH, skid-mounted, vacuum dehydration',
+    specs:'3-stage filtration 25 / 5 / 1 micron · 36 kW heater · 480 V, 3-phase, 60 Hz · 21-day lead time',
+    sup:'Filtration equipment maker', city:'Ahmedabad', trust:LUB_TRUST,
+    price:'$14,800', per:'/ set', tiers:'1 set $14,800 &nbsp;·&nbsp; 2–4 sets $14,200 &nbsp;·&nbsp; 5+ sets $13,600', moq:'Min. order 1 set',
+    photo:'Photo — skid-mounted filtration unit on the factory floor, supplier’s works, Ahmedabad' },
+  { name:'Transformer oil filtration plant — 6,000 LPH, vacuum dehydration',
+    specs:'Two-stage vacuum · 25 / 5 / 1 micron · 480 V, 3-phase, 60 Hz · 24-day lead time',
+    sup:'Filtration equipment maker', city:'Ahmedabad', trust:LUB_TRUST,
+    price:'$21,400', per:'/ set', tiers:'1 set $21,400 &nbsp;·&nbsp; 2–4 sets $20,650 &nbsp;·&nbsp; 5+ sets $19,900', moq:'Min. order 1 set',
+    photo:'Photo — transformer oil plant with vacuum column, on the test bench' },
+  { name:'Hydraulic oil filtration unit — 1,200 LPH, trolley-mounted',
+    specs:'5 / 1 micron · 12 kW heater · 480 V, 3-phase, 60 Hz · 14-day lead time',
+    sup:'Filtration equipment maker', city:'Ahmedabad', trust:LUB_TRUST,
+    price:'$4,100', per:'/ set', tiers:'1 set $4,100 &nbsp;·&nbsp; 2–4 sets $3,950 &nbsp;·&nbsp; 5+ sets $3,800', moq:'Min. order 1 set',
+    photo:'Photo — trolley-mounted hydraulic unit beside a press shop line' },
+  { name:'ERW steel pipe — 2 in, SCH 40, ASTM A53',
+    specs:'6 m lengths · beveled ends · mill test certificate with every lot · sea freight only',
+    sup:'Pipe mill', city:'Kutch, Gujarat', trust:'Verified supplier · Exporting since 2014 · Ships to USA · 96% on-time',
+    price:'$824', per:'/ MT', tiers:'25–100 MT $824 &nbsp;·&nbsp; 100+ MT $796', moq:'Min. order 25 MT · Sea only',
+    photo:'Photo — bundled ERW pipe stacked in the mill yard, Kutch' },
+  { name:'Urea 46% N — granular, 50 kg bags',
+    specs:'46% nitrogen min. · 50 kg PP bags · SGS inspection at loading available · sea freight only',
+    sup:'Fertilizer exporter', city:'Kandla, Gujarat', trust:'Verified supplier · Exporting since 2011 · Ships to USA · 97% on-time',
+    price:'$398', per:'/ MT', tiers:'25–500 MT $398 &nbsp;·&nbsp; 500+ MT $386', moq:'Min. order 25 MT · Sea only',
+    photo:'Photo — 50 kg urea bags palletised at Kandla port warehouse' },
+  { name:'Basmati rice 1121 — sella, extra long grain',
+    specs:'Avg. length 8.3 mm · 25 / 50 kg PP bags · crop year 2026 · lab report with every lot',
+    sup:'Rice miller & exporter', city:'Karnal, Haryana', trust:'Verified supplier · Exporting since 2008 · Ships to USA · 95% on-time',
+    price:'$1,060', per:'/ MT', tiers:'25–100 MT $1,060 &nbsp;·&nbsp; 100+ MT $1,028', moq:'Min. order 25 MT',
+    photo:'Photo — basmati bags being stitched and stacked, Karnal mill' },
+  { name:'Commercial aluminium cookware — hotel & catering range',
+    specs:'Heavy-gauge aluminium · kadais, topes, stock pots · export cartons of 12–24 pcs',
+    sup:'Kailash Sagar Enterprise', city:'Ahmedabad', trust:'Verified supplier · Wholesale & export · Ships to USA · Replies same day',
+    price:'Per carton', per:'', tiers:'Priced per carton by item — full range on the product page', moq:'Min. order 10 cartons',
+    photo:'Photo — stacked aluminium kadais and topes, Kailash Sagar warehouse' }
+];
+
+function topBar(cls, mob){
+  return '<div class="mk-top"><div class="mk-logo">Prime Cargo <em>People</em> Trade</div>'
+    + '<div class="mk-search"><input value="" placeholder="Search products, suppliers, categories" /><button>Search</button></div>'
+    + (mob ? '' : '<div class="mk-topnav"><a href="#">Sell on Prime Cargo</a><a href="#">Orders</a><a href="#">Messages</a><a href="#">Sign in</a></div>')
+    + '</div>'
+    + '<div class="mk-cats"><a href="#" class="on">Industrial equipment</a><a href="#">Steel &amp; metals</a><a href="#">Fertilizers &amp; chemicals</a><a href="#">Agri commodities</a><a href="#">Kitchenware &amp; hardware</a></div>';
+}
+function foot(){
+  return '<div class="mk-foot"><span>Prime Cargo People Logistics — Jersey City, NJ</span><span>Licensed US ocean freight forwarder &amp; customs broker</span><span>India office: Ahmedabad</span><span>30% now · 70% when it ships</span></div>';
+}
+function row(p){
+  return '<div class="mk-row"><div class="mk-ph thumb">' + p.photo + '</div>'
+    + '<div class="mk-main"><div class="mk-name"><a href="#">' + p.name + '</a></div>'
+    + '<div class="mk-specs">' + p.specs + '</div>'
+    + '<div class="mk-sup"><b>' + p.sup + '</b> · ' + p.city + ' &nbsp;<span class="mk-verified">✓ Verified supplier</span></div>'
+    + '<div class="mk-trust">' + p.trust + '</div></div>'
+    + '<div class="mk-side"><div class="mk-price">' + p.price + ' <span class="per">' + p.per + '</span></div>'
+    + '<div class="mk-tiers">' + p.tiers + '</div><div class="mk-moq">' + p.moq + '</div>'
+    + '<button class="mk-btn">View product</button></div></div>';
+}
+function frame(label, sub, inner, mobile){
+  return '<div class="frame' + (mobile ? ' mobileframe' : '') + '"><div class="frame-label"><span>' + label + '</span><span>' + sub + '</span></div><div class="scaler">' + inner + '</div></div>';
+}
+
+/* ---------- HOME ---------- */
+function homeHTML(cls){
+  var rows = [PRODUCTS[0], PRODUCTS[3], PRODUCTS[4], PRODUCTS[5], PRODUCTS[6]].map(row).join('');
+  return '<div class="mk ' + cls + '">' + topBar(cls,false)
+    + '<div class="mk-hero"><h1>Industrial products from Indian manufacturers, delivered to your door in the US.</h1>'
+    + '<p>Browse at the supplier\u2019s factory price. At checkout you get one delivered price — freight, duty, customs and trucking included. Other marketplaces stop at the factory gate. We take it to your dock.</p>'
+    + '<div class="mk-search"><input placeholder="Try \u201clube oil filtration system\u201d or \u201cERW steel pipe\u201d" /><button>Search</button></div>'
+    + '<div class="mk-popular">Popular: <a href="#">oil filtration</a><a href="#">ERW pipe</a><a href="#">urea 46%</a><a href="#">basmati 1121</a><a href="#">aluminium cookware</a></div></div>'
+    + '<div class="mk-steps">'
+    + '<div class="mk-step"><b>1 · Browse at factory price</b><span>The price the supplier charges at their gate. No markup added while you browse.</span></div>'
+    + '<div class="mk-step"><b>2 · One delivered price</b><span>Sea or air, freight, duty, US customs clearance and trucking to your door in a single total.</span></div>'
+    + '<div class="mk-step"><b>3 · Pay 30% now, 70% at shipment</b><span>The balance is due only when your order ships and the bill of lading is issued.</span></div></div>'
+    + '<h2 class="mk-secttl">Featured listings</h2>' + rows + foot() + '</div>';
+}
+
+/* ---------- RESULTS ---------- */
+function resultsHTML(cls, mob){
+  var rows = [PRODUCTS[0], PRODUCTS[1], PRODUCTS[2]].map(row).join('');
+  var filters = '<div class="mk-filters"><div class="fg"><h4>Category</h4><label><b>Industrial equipment</b></label><label>Oil filtration (3)</label><label>Pumps &amp; motors</label></div>'
+    + '<div class="fg"><h4>Flow rate</h4><label>Under 1,000 LPH</label><label>1,000–3,000 LPH</label><label><b>3,000–6,000 LPH</b></label><label>Over 6,000 LPH</label></div>'
+    + '<div class="fg"><h4>Voltage</h4><label><b>480 V / 60 Hz (US)</b></label><label>415 V / 50 Hz</label></div>'
+    + '<div class="fg"><h4>Supplier</h4><label><b>Ships to USA</b></label><label>Verified only</label><label>Exporting 10+ years</label></div></div>';
+  return '<div class="mk ' + cls + (mob ? ' mob' : '') + '">' + topBar(cls, mob)
+    + '<div class="mk-results">' + (mob ? '' : filters)
+    + '<div class="mk-rlist"><div class="mk-rhead"><h1>Lube oil filtration systems</h1><span class="sort">3 results · Prices are factory prices — delivered price at checkout · Sort: <b>Relevance</b></span></div>'
+    + rows
+    + '<div style="padding:13px 18px" class="small mut">Need a different capacity? This maker builds filtration systems from 600 to 12,000 LPH — <a href="#">ask this supplier for a quote</a>.</div>'
+    + '</div></div>' + foot() + '</div>';
+}
+
+/* ---------- PRODUCT ---------- */
+function buyBox(cls){
+  return '<div class="mk-buy" data-calc>'
+    + '<h3>Buy from Filtration equipment maker</h3>'
+    + '<table class="mk-tier"><tr data-tier="1"><td>1 set</td><td>$14,800 / set</td></tr><tr data-tier="2"><td>2–4 sets</td><td>$14,200 / set</td></tr><tr data-tier="5"><td>5+ sets</td><td>$13,600 / set</td></tr></table>'
+    + '<div class="small mut">Factory price, ex-works Ahmedabad. Delivered price below includes everything to your door.</div>'
+    + '<div class="mk-qty"><span>Quantity</span><button data-step="-1" type="button">−</button><input data-qty value="1" /><button data-step="1" type="button">+</button><span class="mut">sets</span></div>'
+    + '<div class="small" data-container-note style="display:none;color:var(--ok);font-weight:600">4 sets fit in one 20 ft container.</div>'
+    + '<div style="margin-top:8px" class="small"><b>Deliver to</b> Jersey City, NJ 07310 — <a href="#">change</a></div>'
+    + '<div class="mk-ship on" data-freight="2800" data-mode="Sea freight"><div><b>By sea</b><div class="small mut">~34 days to your door</div></div><b>' + fmt(17600) + ' / set</b></div>'
+    + '<div class="mk-ship" data-freight="8245" data-mode="Air freight"><div><b>By air</b><div class="small mut">~7 days to your door</div></div><b>' + fmt(23045) + ' / set</b></div>'
+    + '<div class="mk-total"><span>Delivered total</span><span data-out-total>' + fmt(17600) + '</span></div>'
+    + '<div class="mk-split"><span>Due now (30%)</span><span data-out-now>' + fmt(5280) + '</span></div>'
+    + '<div class="mk-split"><span>Due at shipment (70%)</span><span data-out-later>' + fmt(12320) + '</span></div>'
+    + '<button class="mk-btn">Add to order</button><button class="mk-btn ghost">Message supplier</button>'
+    + '<details class="mk-inc"><summary>What\u2019s included in the delivered price</summary><ul>'
+    + '<li>Factory price, ex-works Ahmedabad</li><li>Export packing — crate 2.4 × 1.2 × 1.8 m, 1,450 kg</li><li>Ocean or air freight to the US</li><li>US import duty and customs clearance by Prime Cargo People (licensed broker)</li><li>Trucking from port to your door in Jersey City</li></ul>'
+    + '<div style="margin-top:5px" class="mut">Not included: US sales tax where it applies, and storage beyond 5 free days at destination.</div></details>'
+    + '</div>';
+}
+function productHTML(cls, mob){
+  return '<div class="mk ' + cls + (mob ? ' mob' : '') + '">' + topBar(cls, mob)
+    + '<div class="mk-crumbs">Industrial equipment › Oil filtration › <b style="color:var(--ink)">Lube oil filtration system 6,000 LPH</b></div>'
+    + '<div class="mk-prod"><div class="mk-gal"><div class="mk-ph big">Photo — skid-mounted 6,000 LPH filtration unit on the factory floor, supplier’s works, Ahmedabad. Heater bank and vacuum chamber visible, control panel open.</div>'
+    + '<div class="mk-thumbs"><div class="mk-ph sm">Photo — control panel close-up</div><div class="mk-ph sm">Photo — unit crated for export</div><div class="mk-ph sm">Photo — factory test bench</div><div class="mk-ph sm">Photo — nameplate &amp; serial</div></div></div>'
+    + '<div class="mk-det"><h1>Lube oil filtration system — 6,000 LPH, skid-mounted, vacuum dehydration</h1>'
+    + '<div class="mk-sup"><b>Filtration equipment maker</b> · Ahmedabad, Gujarat &nbsp;<span class="mk-verified">✓ Verified supplier</span></div>'
+    + '<div class="mk-trust">' + LUB_TRUST + '</div>'
+    + '<table class="mk-spec">'
+    + '<tr><th>Flow rate</th><td>6,000 litres per hour</td></tr>'
+    + '<tr><th>Filtration</th><td>3-stage — 25 / 5 / 1 micron</td></tr>'
+    + '<tr><th>Heater</th><td>36 kW</td></tr>'
+    + '<tr><th>Electrical</th><td>480 V · 3-phase · 60 Hz (built for US supply)</td></tr>'
+    + '<tr><th>Mounting</th><td>Skid-mounted, vacuum dehydration</td></tr>'
+    + '<tr><th>Crate size / weight</th><td>2.4 × 1.2 × 1.8 m · 1,450 kg</td></tr>'
+    + '<tr><th>Lead time</th><td>21 days from deposit</td></tr>'
+    + '<tr><th>Container fit</th><td>4 sets per 20 ft container</td></tr></table>'
+    + '<p class="small mut" style="margin-top:10px">Every unit is run-tested at the factory before crating; the test report and photos are added to your order documents. Third-party inspection (SGS / BV) can be added at checkout.</p></div>'
+    + buyBox(cls) + '</div>' + foot() + '</div>';
+}
+
+/* ---------- CHECKOUT ---------- */
+function checkoutHTML(cls){
+  return '<div class="mk ' + cls + '"><div class="mk-top"><div class="mk-logo">Prime Cargo <em>People</em> Trade</div><div class="mut">Checkout · Prices firm for 48 hours</div></div>'
+    + '<div class="mk-check"><div class="mk-checkmain"><h1>Review and place order</h1>'
+    + '<div class="small mut">Order from Filtration equipment maker, Ahmedabad — sold and shipped by Prime Cargo People Logistics, Jersey City NJ.</div>'
+    + '<h3>Item</h3><div class="mk-row" style="border:1px solid var(--line);border-radius:var(--rad)"><div class="mk-ph sm">Photo — skid unit</div><div class="mk-main"><div class="mk-name" style="font-size:calc(var(--base) + 1px)">Lube oil filtration system — 6,000 LPH</div><div class="mk-specs">Qty 1 set · Crate 2.4 × 1.2 × 1.8 m · 1,450 kg · Lead time 21 days</div></div><div class="mk-side" style="width:130px"><div class="mk-price">$14,800</div><div class="mk-moq">factory price</div></div></div>'
+    + '<h3>Delivery</h3><div class="mk-field"><div class="fl">Deliver to</div>Your plant address — Jersey City, NJ 07310</div>'
+    + '<div data-calc><div class="mk-ship on" data-freight="2800" data-mode="Sea freight"><div><b>By sea</b><div class="small mut">~34 days, port to door</div></div><b>' + fmt(17600) + ' delivered</b></div>'
+    + '<div class="mk-ship" data-freight="8245" data-mode="Air freight"><div><b>By air</b><div class="small mut">~7 days, airport to door</div></div><b>' + fmt(23045) + ' delivered</b></div></div>'
+    + '<h3>Payment terms</h3><div class="mk-field"><b>30% now, 70% when it ships.</b><div class="small mut" style="margin-top:2px">Pay the deposit by card or wire today. The 70% balance is invoiced when the bill of lading is issued — you pay against shipping documents, not before the goods move.</div></div>'
+    + '<div class="mk-field"><div class="fl">Optional</div>Add third-party inspection (SGS) before loading — quoted within 24 h, added to the balance only.</div>'
+    + '</div>'
+    + '<div class="mk-sum" data-calc2><h3 style="margin-top:0">Order summary</h3>'
+    + '<div class="r"><span>Factory price (1 set)</span><span>$14,800</span></div>'
+    + '<div class="r"><span>Freight, duty, customs, trucking</span><span data-co-freight>$2,800</span></div>'
+    + '<div class="r tot"><span>Delivered total</span><span data-co-total>' + fmt(17600) + '</span></div>'
+    + '<div class="r"><span>Due today (30%)</span><span data-co-now>' + fmt(5280) + '</span></div>'
+    + '<div class="r"><span>Due at shipment (70%)</span><span data-co-later>' + fmt(12320) + '</span></div>'
+    + '<button class="mk-btn">Pay deposit &amp; place order</button>'
+    + '<details class="mk-inc"><summary>What\u2019s included</summary><ul><li>Ocean or air freight to the US</li><li>US import duty</li><li>Customs clearance by Prime Cargo People, licensed US customs broker</li><li>Trucking to your door</li></ul></details>'
+    + '<div class="small mut" style="margin-top:8px">Importer of record: your company. Prime Cargo People files the entry on your behalf.</div></div>'
+    + '</div>' + foot() + '</div>';
+}
+
+/* ---------- BUY-BOX / CHECKOUT MATH ---------- */
+function tierPrice(q){ return q >= 5 ? 13600 : (q >= 2 ? 14200 : 14800); }
+function recalc(box){
+  var qtyEl = box.querySelector('[data-qty]');
+  var q = qtyEl ? Math.max(1, parseInt(qtyEl.value || '1', 10) || 1) : 1;
+  var on = box.querySelector('.mk-ship.on');
+  var freight = on ? parseInt(on.getAttribute('data-freight'), 10) : 2800;
+  var unit = tierPrice(q);
+  var total = q * (unit + freight);
+  var t = box.querySelector('[data-out-total]'); if(t) t.textContent = fmt(total);
+  var n = box.querySelector('[data-out-now]'); if(n) n.textContent = fmt(total * 0.30);
+  var l = box.querySelector('[data-out-later]'); if(l) l.textContent = fmt(total * 0.70);
+  box.querySelectorAll('[data-tier]').forEach(function(r){
+    var min = parseInt(r.getAttribute('data-tier'), 10);
+    var active = (min === 1 && q === 1) || (min === 2 && q >= 2 && q <= 4) || (min === 5 && q >= 5);
+    r.classList.toggle('on', active);
+  });
+  var note = box.querySelector('[data-container-note]');
+  if(note) note.style.display = q >= 4 ? 'block' : 'none';
+  /* checkout summary mirrors the delivery choice in the same screen */
+  var screen = box.closest('.mk');
+  if(screen){
+    var co = screen.querySelector('[data-calc2]');
+    if(co && !qtyEl){
+      co.querySelector('[data-co-freight]').textContent = fmt(freight);
+      co.querySelector('[data-co-total]').textContent = fmt(14800 + freight);
+      co.querySelector('[data-co-now]').textContent = fmt((14800 + freight) * 0.30);
+      co.querySelector('[data-co-later]').textContent = fmt((14800 + freight) * 0.70);
+    }
+  }
+}
+document.addEventListener('click', function(e){
+  var ship = e.target.closest('.mk-ship');
+  if(ship){
+    var box = ship.closest('[data-calc]');
+    box.querySelectorAll('.mk-ship').forEach(function(s){ s.classList.remove('on'); });
+    ship.classList.add('on'); recalc(box); return;
+  }
+  var step = e.target.closest('[data-step]');
+  if(step){
+    var box2 = step.closest('[data-calc]');
+    var inp = box2.querySelector('[data-qty]');
+    inp.value = Math.max(1, (parseInt(inp.value || '1', 10) || 1) + parseInt(step.getAttribute('data-step'), 10));
+    recalc(box2);
+  }
+});
+document.addEventListener('change', function(e){
+  if(e.target.matches('[data-qty]')) recalc(e.target.closest('[data-calc]'));
+});
+
+var CLS='d3';
+function mob(){return window.innerWidth<760}
+function render(){
+  var h=(location.hash||'#/').replace('#','');
+  var app=document.getElementById('app'),html;
+  if(h.indexOf('/search')===0) html=resultsHTML(CLS,mob());
+  else if(h.indexOf('/product')===0) html=productHTML(CLS,mob());
+  else if(h.indexOf('/checkout')===0) html=checkoutHTML(CLS);
+  else html=homeHTML(CLS);
+  app.innerHTML=html; window.scrollTo(0,0);
+  app.querySelectorAll('[data-calc]').forEach(function(b){try{recalc(b)}catch(e){}});
+}
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.style.display='block';setTimeout(function(){t.style.display='none'},4000)}
+document.addEventListener('click',function(e){
+  var el=e.target.closest('a,button,.mk-logo'); if(!el||!el.closest('#app')) return;
+  if(el.closest('.mk-ship')||el.hasAttribute('data-step')) return;
+  var tx=(el.textContent||'').trim();
+  if(el.tagName==='SUMMARY') return;
+  var go=null;
+  if(el.classList.contains('mk-logo')) go='#/';
+  else if(/place order|pay deposit/i.test(tx)){e.preventDefault();toast('Preview only. No order was placed.');return;}
+  else if(/add to order/i.test(tx)) go='#/checkout';
+  else if(/view product/i.test(tx)||el.closest('.mk-name')) go='#/product';
+  else if(/message supplier|messages|orders|sign in|sell on/i.test(tx)){e.preventDefault();toast('Preview only.');return;}
+  else if(tx==='Search'||el.closest('.mk-popular')||el.closest('.mk-cats')||el.closest('.mk-crumb')||/oil filtration/i.test(tx)) go='#/search';
+  if(go){e.preventDefault(); if(location.hash===go) render(); else location.hash=go;}
+  else if(el.tagName==='A'&&el.getAttribute('href')==='#') e.preventDefault();
+});
+document.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.closest&&e.target.closest('.mk-search')){location.hash='#/search';}});
+window.addEventListener('hashchange',render);
+var lastMob=mob();window.addEventListener('resize',function(){if(mob()!==lastMob){lastMob=mob();render()}});
+render();
+</script>
+</body>
+</html>
