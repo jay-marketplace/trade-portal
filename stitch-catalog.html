@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"error-container":"#ffdad6","surface-container-highest":"#dce2f7","on-secondary-fixed-variant":"#8f1100","error":"#ba1a1a","on-surface-variant":"#44474f","tertiary-fixed-dim":"#acc7ff","on-tertiary":"#ffffff","primary":"#00183b","on-primary-fixed-variant":"#2c4674","secondary-container":"#d9381e","outline":"#747780","background":"#f9f9ff","on-secondary-container":"#fffbff","on-surface":"#141b2b","primary-container":"#0f2d59","on-tertiary-container":"#6895e7","inverse-primary":"#adc7fc","tertiary":"#00183c","on-primary-fixed":"#001b3f","surface-container-lowest":"#ffffff","surface-tint":"#455e8d","secondary-fixed-dim":"#ffb4a6","surface-container-low":"#f1f3ff","on-secondary":"#ffffff","on-error":"#ffffff","inverse-surface":"#293040","on-primary-container":"#7c95c8","primary-fixed":"#d7e2ff","tertiary-fixed":"#d7e2ff","surface-container-high":"#e1e8fd","surface-dim":"#d3daef","on-background":"#141b2b","on-tertiary-fixed-variant":"#004492","inverse-on-surface":"#edf0ff","secondary-fixed":"#ffdad3","secondary":"#b51d04","on-secondary-fixed":"#3f0300","outline-variant":"#c4c6d0","surface-variant":"#dce2f7","tertiary-container":"#002c63","on-tertiary-fixed":"#001a40","on-error-container":"#93000a","surface":"#f9f9ff","surface-container":"#e9edff","on-primary":"#ffffff","surface-bright":"#f9f9ff","primary-fixed-dim":"#adc7fc"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"margin-desktop":"1.5rem","space-sm":"0.25rem","space-xs":"0.125rem","gutter":"0.75rem","gutter-desktop":"1rem","space-lg":"0.75rem","space-md":"0.5rem","margin":"0.75rem","space-xl":"1rem"},"fontFamily":{"headline-md":["IBM Plex Sans"],"spec-numeral":["JetBrains Mono"],"headline-xl":["IBM Plex Sans"],"headline-sm":["IBM Plex Sans"],"body-md":["IBM Plex Sans"],"label-code":["JetBrains Mono"],"body-sm":["IBM Plex Sans"],"headline-lg":["IBM Plex Sans"],"label-micro":["JetBrains Mono"],"body-xs":["IBM Plex Sans"]},"fontSize":{"headline-md":["16px",{"lineHeight":"20px","fontWeight":"600"}],"spec-numeral":["13px",{"lineHeight":"16px","fontWeight":"600"}],"headline-xl":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-sm":["14px",{"lineHeight":"18px","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"18px","fontWeight":"400"}],"label-code":["12px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"500"}],"body-sm":["13px",{"lineHeight":"16px","fontWeight":"400"}],"headline-lg":["18px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"label-micro":["11px",{"lineHeight":"13px","letterSpacing":"0.04em","fontWeight":"400"}],"body-xs":["12px",{"lineHeight":"16px","fontWeight":"400"}]}}}}</script></head><body class="bg-background font-body-sm text-on-surface"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b border-outline-variant"><div class="h-32 w-full"><div class="h-7 bg-primary px-margin-desktop border-b border-outline/30 flex items-center justify-between text-on-primary font-label-micro text-label-micro tracking-wider"><div class="flex items-center gap-margin"><span class="flex items-center gap-space-xs font-spec-numeral text-on-primary"><span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim">local_shipping</span>Delivered to Door / Port (Sea FCL &amp; Air)</span><span class="text-outline-variant">|</span><span class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim">verified</span>Licensed US customs broker · FMC-licensed OTI</span></div><div class="flex items-center gap-margin font-spec-numeral"><span class="flex items-center gap-space-xs text-on-primary-container bg-primary-container px-space-md py-space-xs border border-outline-variant/30 rounded-DEFAULT"><span class="inline-block w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span>AMD (IST): LIVE 14:32</span><span class="flex items-center gap-space-xs text-on-primary-container bg-primary-container px-space-md py-space-xs border border-outline-variant/30 rounded-DEFAULT"><span class="inline-block w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span>NJ (EST): LIVE 05:02</span><span class="text-outline-variant">|</span><div class="flex items-center gap-space-xs text-on-primary"><span class="font-label-code text-label-code">CURRENCY:</span><select class="bg-primary text-on-primary font-spec-numeral text-spec-numeral border border-outline-variant/40 rounded-DEFAULT px-space-xs focus:outline-none cursor-pointer"><option>USD ($)</option><option>INR (₹)</option><option>EUR (€)</option></select></div></div></div><div class="h-16 px-margin-desktop bg-surface-container-lowest flex items-center justify-between gap-gutter-desktop border-b border-outline-variant"><div class="flex items-center gap-space-lg shrink-0"><div class="w-9 h-9 bg-primary-container flex items-center justify-center rounded-DEFAULT border border-primary"><span class="font-headline-md text-headline-md text-on-primary">PCP</span></div><div class="leading-none"><span class="font-headline-md text-headline-md text-primary tracking-tight block">PRIME CARGO PEOPLE</span><span class="font-label-micro text-label-micro text-outline font-semibold tracking-wider block">GLOBAL INDUSTRIAL B2B MARKETPLACE</span></div></div><div class="flex-1 max-w-3xl flex items-center h-9 border border-outline-variant rounded-DEFAULT overflow-hidden bg-surface"><div class="h-full bg-surface-container-low border-r border-outline-variant px-space-md flex items-center shrink-0"><select class="bg-transparent font-label-code text-label-code text-on-surface focus:outline-none cursor-pointer"><option>All Categories</option><option>Industrial Equipment</option><option>Steel &amp; Metals</option><option>Chemicals</option></select></div><div class="flex-1 flex items-center px-space-md h-full"><span class="material-symbols-outlined text-[18px] text-outline mr-space-sm">search</span><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface focus:outline-none placeholder:text-outline font-body-sm" placeholder="Search by Part #, ASTM/DIN spec, CAS #, HTS Code, or Commodity..." type="text"/></div><button class="h-full px-space-xl bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-headline-sm transition-colors flex items-center justify-center shrink-0">SEARCH</button></div><div class="flex items-center gap-space-md shrink-0"><button class="h-9 px-space-lg bg-secondary-container hover:bg-secondary text-on-secondary-container font-headline-sm text-headline-sm rounded-DEFAULT transition-colors flex items-center gap-space-xs shrink-0"><span class="material-symbols-outlined text-[18px]">assignment_add</span>Post RFQ / Quick Order</button><div class="flex items-center border-l border-outline-variant pl-space-md gap-space-sm"><a class="h-9 px-space-md flex items-center gap-space-xs font-label-code text-label-code text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-DEFAULT border border-outline-variant" data-path="shipment-tracking" href="#"><span class="material-symbols-outlined text-[16px]">radar</span>Track Shipment</a><a class="h-9 px-space-md flex items-center gap-space-xs font-label-code text-label-code text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-DEFAULT border border-outline-variant" data-path="orders-and-rfqs" href="#"><span class="material-symbols-outlined text-[16px]">inventory_2</span>Orders &amp; RFQs</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div><div class="h-9 px-margin-desktop bg-surface-container flex items-center justify-between"><nav class="flex items-center gap-gutter-desktop h-full" data-active-classes="text-primary font-semibold border-b-2 border-primary"><a aria-current="page" class="h-full flex items-center px-space-xs transition-colors text-primary font-semibold border-b-2 border-primary" data-path="catalog-home" href="#">All Catalog</a><a class="h-full flex items-center px-space-xs text-on-surface-variant hover:text-on-surface font-headline-sm text-headline-sm transition-colors" data-path="industrial-equipment" href="#">Industrial Equipment</a><a class="h-full flex items-center px-space-xs text-on-surface-variant hover:text-on-surface font-headline-sm text-headline-sm transition-colors" data-path="steel-and-metals" href="#">Steel &amp; Metals</a><a class="h-full flex items-center px-space-xs text-on-surface-variant hover:text-on-surface font-headline-sm text-headline-sm transition-colors" data-path="fertilizers-and-chemicals" href="#">Fertilizers &amp; Chemicals</a><a class="h-full flex items-center px-space-xs text-on-surface-variant hover:text-on-surface font-headline-sm text-headline-sm transition-colors" data-path="agri-commodities" href="#">Agri Commodities</a><a class="h-full flex items-center px-space-xs text-on-surface-variant hover:text-on-surface font-headline-sm text-headline-sm transition-colors" data-path="commercial-kitchenware" href="#">Commercial Kitchenware</a></nav><div class="flex items-center gap-gutter font-label-micro text-label-micro text-outline font-spec-numeral"><span class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[14px] text-outline">anchor</span>FCL CONTAINER DESK</span><span class="text-outline-variant">|</span><span class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[14px] text-outline">flight_takeoff</span>AIR CARGO CHARTERS</span></div></div></div></header><main class="w-full pt-32 bg-background min-h-[calc(100vh-280px)]"><div class="flex flex-col w-full">
+<!-- Sub-Header Breadcrumb & Geo-Context Ribbon -->
+<div class="w-full bg-surface-container-low px-margin-desktop py-space-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm text-label-code font-label-code">
+<!-- Breadcrumb -->
+<nav class="flex items-center gap-space-xs text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span>/</span>
+<a class="hover:text-primary transition-colors" href="#">Industrial Equipment</a>
+<span>/</span>
+<span class="text-on-surface font-semibold">Oil Filtration Systems</span>
+</nav>
+<!-- Buyer Delivery Context Ribbon -->
+<div class="flex flex-wrap items-center gap-space-md">
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-space-xs rounded-DEFAULT shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">location_on</span>
+<span class="text-on-surface-variant">Delivering to:</span>
+<span class="text-on-surface font-spec-numeral font-semibold">Jersey City, NJ 07302</span>
+<button class="text-primary hover:underline ml-space-xs font-semibold">Change</button>
+</div>
+<div class="flex items-center bg-surface-container-highest p-space-xs rounded-DEFAULT">
+<button class="px-space-md py-space-xs rounded-DEFAULT text-label-micro font-label-code text-on-surface-variant hover:text-on-surface transition-colors" id="toggle-factory">
+            Factory Price (FOB India)
+          </button>
+<button class="px-space-md py-space-xs rounded-DEFAULT bg-primary text-on-primary text-label-micro font-label-code font-semibold shadow-sm transition-colors" id="toggle-delivered">
+            Delivered Price (DAP/DDP USA)
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Results Bar & Active Filters -->
+<div class="w-full bg-surface-container-lowest px-margin-desktop py-space-md shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-sm">
+<div class="flex items-baseline gap-space-md">
+<h1 class="font-headline-lg text-headline-lg text-primary uppercase tracking-tight">
+          Lube Oil Filtration Systems
+        </h1>
+<span class="font-spec-numeral text-spec-numeral text-outline font-normal">(18 results)</span>
+</div>
+<!-- Sorting Controls -->
+<div class="flex items-center gap-space-md text-body-xs font-body-xs">
+<span class="font-label-code text-label-code text-outline uppercase tracking-wider">Sort by:</span>
+<select class="bg-surface font-body-xs text-body-xs text-on-surface px-space-md py-space-xs rounded-DEFAULT focus:outline-none cursor-pointer">
+<option selected="">Best Match (Spec Fit &amp; Verification)</option>
+<option>Delivered Price: Low to High</option>
+<option>Factory Price (FOB): Low to High</option>
+<option>Lead Time: Quickest First</option>
+<option>Rating / Reorder Volume</option>
+</select>
+<div class="hidden sm:flex items-center gap-space-xs bg-surface-container-low px-space-sm py-space-xs rounded-DEFAULT">
+<button class="p-space-xs text-primary" title="Compact List View">
+<span class="material-symbols-outlined text-[18px]">view_headline</span>
+</button>
+<button class="p-space-xs text-outline hover:text-on-surface" title="Matrix View">
+<span class="material-symbols-outlined text-[18px]">table_rows</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Active Filter Chips -->
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<span class="text-label-micro font-label-code text-outline uppercase tracking-wide">Applied Filters:</span>
+<span class="inline-flex items-center gap-space-xs bg-surface-container-high px-space-md py-space-xs rounded-DEFAULT text-label-micro font-label-code text-on-surface">
+        Flow Rate: 1,000 - 10,000 LPH
+        <button class="hover:text-secondary flex items-center"><span class="material-symbols-outlined text-[13px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-space-xs bg-surface-container-high px-space-md py-space-xs rounded-DEFAULT text-label-micro font-label-code text-on-surface">
+        Origin: Gujarat / India
+        <button class="hover:text-secondary flex items-center"><span class="material-symbols-outlined text-[13px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-space-xs bg-surface-container-high px-space-md py-space-xs rounded-DEFAULT text-label-micro font-label-code text-on-surface">
+        US Customs Cleared
+        <button class="hover:text-secondary flex items-center"><span class="material-symbols-outlined text-[13px]">close</span></button>
+</span>
+<button class="text-label-micro font-label-code text-secondary hover:underline font-semibold ml-space-xs">
+        Clear All
+      </button>
+</div>
+</div>
+<!-- Operational DDP Advantage Banner -->
+<div class="w-full bg-primary px-margin-desktop py-space-xs text-on-primary">
+<div class="flex items-center justify-between text-label-micro font-label-code">
+<div class="flex items-center gap-space-md">
+<span class="flex items-center gap-space-xs text-secondary-fixed font-semibold uppercase">
+<span class="material-symbols-outlined text-[15px]">verified_user</span>
+          Prime Cargo People DDP Guarantee:
+        </span>
+<span class="text-on-primary-container hidden md:inline">
+          Other industrial directories leave cargo stuck at overseas factory doors. We bundle inland drayage, ocean vessel scheduling, ISF 10+2 US customs, FDA/EPA filings, and terminal trucking to your zip code.
+        </span>
+</div>
+<a class="text-tertiary-fixed-dim hover:text-on-primary underline font-spec-numeral shrink-0" href="#">BOM Logistics Calculator →</a>
+</div>
+</div>
+<!-- Main Multi-Column Interface Layout -->
+<div class="w-full px-margin-desktop py-space-md flex gap-gutter-desktop items-start">
+<!-- LEFT FACETED ATTRIBUTE SIDEBAR (260px Fixed Width) -->
+<aside class="w-[260px] shrink-0 bg-surface-container-lowest rounded-DEFAULT shadow-sm divide-y-0 text-on-surface select-none">
+<!-- Filter Sidebar Header -->
+<div class="p-space-md bg-surface-container-low flex items-center justify-between rounded-DEFAULT">
+<span class="font-headline-sm text-headline-sm text-primary flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[17px]">tune</span>
+          Engineering Filters
+        </span>
+<button class="text-label-micro font-label-code text-outline hover:text-primary uppercase">Reset</button>
+</div>
+<!-- Search Within Filter -->
+<div class="p-space-md bg-surface-container-lowest">
+<div class="flex items-center h-7 px-space-sm bg-surface-container-low rounded-DEFAULT">
+<span class="material-symbols-outlined text-[15px] text-outline mr-space-xs">filter_list</span>
+<input class="w-full bg-transparent font-label-micro text-label-micro focus:outline-none" placeholder="Filter specs..." type="text"/>
+</div>
+</div>
+<!-- Accordion Section: System Type -->
+<div class="p-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">System Type</span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_less</span>
+</div>
+<div class="space-y-space-xs pt-space-xs text-body-xs font-body-xs">
+<label class="flex items-center justify-between hover:bg-surface-container-low p-space-xs rounded-DEFAULT cursor-pointer">
+<span class="flex items-center gap-space-sm">
+<input checked="" class="w-3.5 h-3.5 rounded-DEFAULT text-primary accent-primary" type="checkbox"/>
+<span>Vacuum Dehydration</span>
+</span>
+<span class="font-spec-numeral text-label-micro text-outline font-semibold">12</span>
+</label>
+<label class="flex items-center justify-between hover:bg-surface-container-low p-space-xs rounded-DEFAULT cursor-pointer">
+<span class="flex items-center gap-space-sm">
+<input class="w-3.5 h-3.5 rounded-DEFAULT text-primary accent-primary" type="checkbox"/>
+<span>Centrifugal Separation</span>
+</span>
+<span class="font-spec-numeral text-label-micro text-outline font-semibold">4</span>
+</label>
+<label class="flex items-center justify-between hover:bg-surface-container-low p-space-xs rounded-DEFAULT cursor-pointer">
+<span class="flex items-center gap-space-sm">
+<input class="w-3.5 h-3.5 rounded-DEFAULT text-primary accent-primary" type="checkbox"/>
+<span>Coalescence &amp; Polishing</span>
+</span>
+<span class="font-spec-numeral text-label-micro text-outline font-semibold">6</span>
+</label>
+</div>
+</div>
+<!-- Accordion Section: Flow Rate (LPH) -->
+<div class="p-space-md bg-surface-container-low">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">Flow Capacity (LPH)</span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_less</span>
+</div>
+<div class="space-y-space-xs pt-space-xs text-body-xs font-body-xs">
+<label class="flex items-center justify-between p-space-xs rounded-DEFAULT cursor-pointer hover:bg-surface-container-highest">
+<span class="flex items-center gap-space-sm">
+<input class="w-3.5 h-3.5 rounded-DEFAULT accent-primary" type="checkbox"/>
+<span>600 – 1,200 LPH</span>
+</span>
+<span class="font-spec-numeral text-label-micro text-outline font-semibold">4</span>
+</label>
+<label class="flex items-center justify-between p-space-xs rounded-DEFAULT cursor-pointer hover:bg-surface-container-highest">
+<span class="flex items-center gap-space-sm">
+<input checked="" class="w-3.5 h-3.5 rounded-DEFAULT accent-primary" type="checkbox"/>
+<span>2,000 – 4,000 LPH</span>
+</span>
+<span class="font-spec-numeral text-label-micro text-outline font-semibold">7</span>
+</label>
+<label class="flex items-center justify-between p-space-xs rounded-DEFAULT cursor-pointer hover:bg-surface-container-highest">
+<span class="flex items-center gap-space-sm">
+<input checked="" class="w-3.5 h-3.5 rounded-DEFAULT accent-primary" type="checkbox"/>
+<span>6,000 LPH Skid</span>
+</span>
+<span class="font-spec-numeral text-label-micro text-outline font-semibold">5</span>
+</label>
+<label class="flex items-center justify-between p-space-xs rounded-DEFAULT cursor-pointer hover:bg-surface-container-highest">
+<span class="flex items-center gap-space-sm">
+<input class="w-3.5 h-3.5 rounded-DEFAULT accent-primary" type="checkbox"/>
+<span>10,000+ LPH Plant</span>
+</span>
+<span class="font-spec-numeral text-label-micro text-outline font-semibold">2</span>
+</label>
+</div>
+</div>
+<!-- Accordion Section: Filtration Stages -->
+<div class="p-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">Filtration Stages</span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_less</span>
+</div>
+<div class="space-y-space-xs pt-space-xs text-body-xs font-body-xs">
+<label class="flex items-center justify-between p-space-xs rounded-DEFAULT cursor-pointer hover:bg-surface-container-low">
+<span class="flex items-center gap-space-sm">
+<input class="w-3.5 h-3.5 rounded-DEFAULT accent-primary" type="checkbox"/>
+<span>3-Stage (Coarse/Fine/Sub)</span>
+</span>
+<span class="font-spec-numeral text-label-micro text-outline font-semibold">14</span>
+</label>
+<label class="flex items-center justify-between p-space-xs rounded-DEFAULT cursor-pointer hover:bg-surface-container-low">
+<span class="flex items-center gap-space-sm">
+<input class="w-3.5 h-3.5 rounded-DEFAULT accent-primary" type="checkbox"/>
+<span>2-Stage Vacuum</span>
+</span>
+<span class="font-spec-numeral text-label-micro text-outline font-semibold">4</span>
+</label>
+</div>
+</div>
+<!-- Accordion Section: Micron Rating -->
+<div class="p-space-md bg-surface-container-low">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">Micron Retention</span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_less</span>
+</div>
+<div class="space-y-space-xs pt-space-xs text-body-xs font-body-xs">
+<label class="flex items-center justify-between p-space-xs rounded-DEFAULT cursor-pointer hover:bg-surface-container-highest">
+<span class="flex items-center gap-space-sm">
+<input class="w-3.5 h-3.5 rounded-DEFAULT accent-primary" type="checkbox"/>
+<span>≤ 1 Micron Absolute</span>
+</span>
+<span class="font-spec-numeral text-label-micro text-outline font-semibold">11</span>
+</label>
+<label class="flex items-center justify-between p-space-xs rounded-DEFAULT cursor-pointer hover:bg-surface-container-highest">
+<span class="flex items-center gap-space-sm">
+<input class="w-3.5 h-3.5 rounded-DEFAULT accent-primary" type="checkbox"/>
+<span>3 Micron Beta 200</span>
+</span>
+<span class="font-spec-numeral text-label-micro text-outline font-semibold">5</span>
+</label>
+<label class="flex items-center justify-between p-space-xs rounded-DEFAULT cursor-pointer hover:bg-surface-container-highest">
+<span class="flex items-center gap-space-sm">
+<input class="w-3.5 h-3.5 rounded-DEFAULT accent-primary" type="checkbox"/>
+<span>5 Micron Particulate</span>
+</span>
+<span class="font-spec-numeral text-label-micro text-outline font-semibold">2</span>
+</label>
+</div>
+</div>
+<!-- Accordion Section: Operating Voltage (US Readiness) -->
+<div class="p-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">Electrical Spec</span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_less</span>
+</div>
+<div class="space-y-space-xs pt-space-xs text-body-xs font-body-xs">
+<label class="flex items-center justify-between p-space-xs rounded-DEFAULT cursor-pointer hover:bg-surface-container-low">
+<span class="flex items-center gap-space-sm">
+<input checked="" class="w-3.5 h-3.5 rounded-DEFAULT accent-primary" type="checkbox"/>
+<span class="font-semibold text-primary">480V 3-Ph 60Hz (US)</span>
+</span>
+<span class="font-spec-numeral text-label-micro text-outline font-semibold">15</span>
+</label>
+<label class="flex items-center justify-between p-space-xs rounded-DEFAULT cursor-pointer hover:bg-surface-container-low">
+<span class="flex items-center gap-space-sm">
+<input class="w-3.5 h-3.5 rounded-DEFAULT accent-primary" type="checkbox"/>
+<span>415V 3-Ph 50Hz (IEC)</span>
+</span>
+<span class="font-spec-numeral text-label-micro text-outline font-semibold">3</span>
+</label>
+</div>
+</div>
+<!-- Accordion Section: Heating Capacity -->
+<div class="p-space-md bg-surface-container-low">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">Heating Power</span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_less</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs pt-space-xs font-label-micro text-label-micro text-center font-spec-numeral">
+<button class="py-space-xs bg-surface-container-lowest hover:bg-primary hover:text-on-primary rounded-DEFAULT">18 kW</button>
+<button class="py-space-xs bg-primary text-on-primary font-semibold rounded-DEFAULT">36 kW</button>
+<button class="py-space-xs bg-surface-container-lowest hover:bg-primary hover:text-on-primary rounded-DEFAULT">45 kW</button>
+</div>
+</div>
+<!-- Accordion Section: Lead Time -->
+<div class="p-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">Mfr Dispatch Window</span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_less</span>
+</div>
+<div class="space-y-space-xs pt-space-xs text-body-xs font-body-xs">
+<label class="flex items-center justify-between p-space-xs rounded-DEFAULT cursor-pointer hover:bg-surface-container-low">
+<span class="flex items-center gap-space-sm">
+<input class="w-3.5 h-3.5 rounded-DEFAULT accent-primary" type="checkbox"/>
+<span>In-Stock / Ready (≤7d)</span>
+</span>
+<span class="font-spec-numeral text-label-micro text-outline font-semibold">3</span>
+</label>
+<label class="flex items-center justify-between p-space-xs rounded-DEFAULT cursor-pointer hover:bg-surface-container-low">
+<span class="flex items-center gap-space-sm">
+<input checked="" class="w-3.5 h-3.5 rounded-DEFAULT accent-primary" type="checkbox"/>
+<span>&lt; 30 Days Assembly</span>
+</span>
+<span class="font-spec-numeral text-label-micro text-outline font-semibold">12</span>
+</label>
+</div>
+</div>
+<!-- Accordion Section: Supplier Verification Badges -->
+<div class="p-space-md bg-surface-container-low">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">PCP Verification Tier</span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_less</span>
+</div>
+<div class="space-y-space-xs pt-space-xs text-body-xs font-body-xs">
+<label class="flex items-center justify-between p-space-xs rounded-DEFAULT cursor-pointer hover:bg-surface-container-highest">
+<span class="flex items-center gap-space-sm">
+<input checked="" class="w-3.5 h-3.5 rounded-DEFAULT accent-primary" type="checkbox"/>
+<span class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+                US Track Record
+              </span>
+</span>
+<span class="font-spec-numeral text-label-micro text-outline font-semibold">16</span>
+</label>
+<label class="flex items-center justify-between p-space-xs rounded-DEFAULT cursor-pointer hover:bg-surface-container-highest">
+<span class="flex items-center gap-space-sm">
+<input checked="" class="w-3.5 h-3.5 rounded-DEFAULT accent-primary" type="checkbox"/>
+<span>ISO 9001:2015</span>
+</span>
+<span class="font-spec-numeral text-label-micro text-outline font-semibold">18</span>
+</label>
+<label class="flex items-center justify-between p-space-xs rounded-DEFAULT cursor-pointer hover:bg-surface-container-highest">
+<span class="flex items-center gap-space-sm">
+<input class="w-3.5 h-3.5 rounded-DEFAULT accent-primary" type="checkbox"/>
+<span>PCP On-Site Audited</span>
+</span>
+<span class="font-spec-numeral text-label-micro text-outline font-semibold">10</span>
+</label>
+</div>
+</div>
+</aside>
+<!-- RIGHT RESULTS COLUMN: STRAIGHT LIST ROWS -->
+<main class="flex-1 min-w-0 flex flex-col gap-space-sm">
+<!-- Comparison Tray Trigger Bar -->
+<div class="w-full bg-surface-container-lowest px-space-md py-space-xs rounded-DEFAULT shadow-sm flex items-center justify-between text-body-xs font-body-xs">
+<div class="flex items-center gap-space-md">
+<span class="font-headline-sm text-headline-sm text-primary flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">compare_arrows</span>
+            Quick Compare Queue
+          </span>
+<span class="font-label-code text-label-code text-on-surface-variant">0 of 4 mechanical systems pinned</span>
+</div>
+<button class="px-space-md py-space-xs text-outline font-label-code text-label-code bg-surface-container-low rounded-DEFAULT cursor-not-allowed">
+          Launch Side-by-Side Spec Sheet
+        </button>
+</div>
+<!-- PRODUCT ROWS CONTAINER -->
+<div class="w-full bg-surface-container-lowest rounded-DEFAULT shadow-sm overflow-hidden flex flex-col">
+<!-- ROW 1 (HERO PRODUCT: Lube Oil 6,000 LPH Vacuum Dehydration) -->
+<article class="group relative flex flex-col xl:flex-row items-stretch p-space-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors duration-150 gap-space-md">
+<!-- Column 1: Image & Mechanical Schematic Badge -->
+<div class="w-full sm:w-44 xl:w-44 shrink-0 flex flex-col justify-between">
+<div class="relative w-full h-32 bg-surface-container overflow-hidden rounded-DEFAULT">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Skid-mounted heavy industrial lube oil vacuum dehydration unit with high-grade carbon steel framework, cylindrical degasification vessel, stainless steel piping valves, digital PLC control console, installed on polished factory concrete floor under clean industrial warehouse LED lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxRlSBlWOvNtB-UYfprJ3OZIlFUZDnKHHRRZc2GJqt-O0aCDlE0KSQ-HhG6Y5hN-77Vs7oa4nG-CgMZ127l8zSCdlcBiJWV_h_DKJRjIyjs9laChOtw0k47A4X_Atz_tqvAxBM4FNuJsGkUgyKrDH19qKf9H9cg51n3iD7K1P6fyK4_xm3xxClhiya5V6-LvzZeQjrQcOl9rrybtKPVu6Uqo_at3BB1io3qY9P8jk"/>
+<span class="absolute top-1 left-1 bg-primary text-on-primary font-label-micro text-label-micro px-space-xs py-space-xs rounded-DEFAULT font-semibold">
+                PRE-INSPECTED
+              </span>
+</div>
+<div class="mt-space-xs flex items-center justify-between text-label-micro font-label-code text-outline">
+<span class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[13px] text-secondary">verified</span> ASTM D971
+              </span>
+<span class="font-spec-numeral">CE / UL Panel</span>
+</div>
+</div>
+<!-- Column 2: Core Engineering Specs & Manufacturer Integrity -->
+<div class="flex-1 min-w-0 flex flex-col justify-between py-space-xs">
+<div>
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="font-label-code text-label-micro bg-primary text-on-primary px-space-xs rounded-DEFAULT">HERO UNIT</span>
+<span class="font-label-code text-label-code text-primary font-semibold">MODEL: LVO-6000-VD</span>
+<span class="text-outline text-label-micro">|</span>
+<span class="font-label-code text-label-micro text-secondary font-semibold">HS CODE: 8421.29.00</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary font-semibold hover:text-secondary cursor-pointer leading-tight">
+                Lube Oil Filtration System, 6,000 LPH, Skid-Mounted, Vacuum Dehydration
+              </h2>
+<!-- Key specs inline grid -->
+<p class="mt-space-xs font-body-xs text-body-xs text-on-surface-variant leading-relaxed">
+<strong class="text-on-surface">3-Stage (25/5/1 micron absolute)</strong> · 36 kW Incoloy Multi-Bank Heater · 480V / 3-Phase / 60 Hz (US Spec) · Vacuum -0.098 MPa · Moisture extraction &lt; 30 ppm · Solid removal NAS 1638 Grade 5 · Crate: 2.4 × 1.2 × 1.8 m, 1,450 kg · <span class="text-primary font-semibold">21-Day Lead Time</span>
+</p>
+</div>
+<!-- Supplier Trust Line -->
+<div class="pt-space-sm flex flex-wrap items-center gap-space-md text-body-xs font-body-xs text-outline">
+<span class="text-on-surface font-semibold flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-tertiary">factory</span>
+                Luboil Filtration Systems
+              </span>
+<span>Ahmedabad, Gujarat</span>
+<span class="flex items-center gap-space-xs text-primary font-spec-numeral font-semibold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Verified Mfr (2009)
+              </span>
+<span class="text-on-surface-variant font-spec-numeral">Replies &lt; 4h</span>
+<span class="font-spec-numeral text-on-surface font-semibold">98% On-Time</span>
+<span class="bg-surface-container-high text-primary px-space-xs rounded-DEFAULT font-label-micro font-semibold">31% US Reorder</span>
+</div>
+</div>
+<!-- Column 3: Split Pricing Engine (Factory vs Delivered DAP/DDP) -->
+<div class="w-full xl:w-72 shrink-0 bg-surface-container-low p-space-md rounded-DEFAULT flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-label-micro font-label-code pb-space-xs">
+<span class="text-outline uppercase">FOB Mundra Port:</span>
+<span class="font-spec-numeral text-on-surface font-semibold">$14,800 <span class="font-normal text-outline">/ set</span></span>
+</div>
+<div class="text-label-micro font-label-code text-on-surface-variant space-y-space-xs pb-space-xs">
+<div class="flex justify-between">
+<span>Volume Tier (2-4 sets):</span>
+<span class="font-spec-numeral text-primary font-semibold">$14,200</span>
+</div>
+<div class="flex justify-between">
+<span>Industrial Tier (5+ sets):</span>
+<span class="font-spec-numeral text-primary font-semibold">$13,600</span>
+</div>
+</div>
+<!-- Delivered US Breakdown -->
+<div class="pt-space-xs bg-surface-container-lowest p-space-xs rounded-DEFAULT">
+<span class="font-label-code text-label-micro text-secondary block font-semibold uppercase">
+                  Delivered to Jersey City, NJ:
+                </span>
+<div class="flex items-center justify-between mt-space-xs">
+<span class="font-body-xs text-body-xs text-on-surface flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px]">sailing</span> By Sea (FCL/LCL):
+                  </span>
+<span class="font-spec-numeral text-headline-sm text-headline-sm text-primary font-bold">
+                    $17,600
+                  </span>
+</div>
+<div class="flex items-center justify-between text-label-micro font-label-code text-outline">
+<span>Transit: ~34 Days ocean</span>
+<span>4 sets = 1×20ft Container</span>
+</div>
+<div class="flex items-center justify-between mt-space-xs pt-space-xs">
+<span class="font-label-micro font-label-code text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[13px]">flight</span> Priority Air:
+                  </span>
+<span class="font-spec-numeral text-label-code font-semibold text-on-surface">
+                    $23,045 (~7d)
+                  </span>
+</div>
+</div>
+</div>
+<div class="pt-space-xs">
+<span class="block font-label-micro text-label-micro text-outline leading-tight">
+                Includes ocean freight, 2.5% HTS duty, ISF filing, and NJ port drayage. Escrow: 30% advance, 70% B/L release.
+              </span>
+</div>
+</div>
+<!-- Column 4: Actions & Procurement CTAs -->
+<div class="w-full xl:w-44 shrink-0 flex flex-col justify-between py-space-xs items-stretch xl:items-end">
+<div class="w-full space-y-space-xs">
+<button class="w-full h-8 px-space-md bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-headline-sm rounded-DEFAULT transition-colors flex items-center justify-center gap-space-xs shadow-sm">
+<span>Configure Specs</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+<button class="w-full h-8 px-space-md bg-surface-container-lowest hover:bg-surface-container-low text-on-surface font-headline-sm text-headline-sm rounded-DEFAULT transition-colors flex items-center justify-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">request_quote</span>
+<span>Delivered Quote</span>
+</button>
+</div>
+<label class="flex items-center gap-space-xs mt-space-sm cursor-pointer select-none text-label-code font-label-code text-outline hover:text-on-surface">
+<input class="w-3.5 h-3.5 accent-primary rounded-DEFAULT" type="checkbox"/>
+<span>Compare (1 of 4)</span>
+</label>
+</div>
+</article>
+<!-- ROW 2: Transformer Oil Filtration Plant 6,000 LPH -->
+<article class="group relative flex flex-col xl:flex-row items-stretch p-space-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors duration-150 gap-space-md">
+<div class="w-full sm:w-44 xl:w-44 shrink-0 flex flex-col justify-between">
+<div class="relative w-full h-32 bg-surface-container overflow-hidden rounded-DEFAULT">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Heavy dual-stage industrial transformer oil filtration and degassing unit with massive vacuum chambers, dual mechanical roots pumps, digital dielectric tester display, mounted on structural channel base in heavy machinery workshop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-iAKs25c_QgqHAhLS0Gxq4jUdMUi0zoByPeVCjAjXwLndEyriG-mEr3erhlqbFAM6rY7wgeTvFCk2RfkYLiG7dcWQSetDI7ZrDHWhdjPfmbGM8VTQAarfBA685v0GBOwW03XAaG45hNMF-BPGofp0tQjGVPffoZxdrZYh1I2UbA2yOtfPRnHvn6RsNroECZog8chtx5ktgagJ6PZgdn1v0HTrmjqFe-NJJJChZgU"/>
+<span class="absolute top-1 left-1 bg-surface-container-high text-primary font-label-micro text-label-micro px-space-xs py-space-xs rounded-DEFAULT font-semibold">
+                HIGH VACUUM
+              </span>
+</div>
+<div class="mt-space-xs flex items-center justify-between text-label-micro font-label-code text-outline">
+<span>IEEE C57.106</span>
+<span class="font-spec-numeral">&gt; 70 kV Test</span>
+</div>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between py-space-xs">
+<div>
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="font-label-code text-label-code text-primary font-semibold">MODEL: TOP-6000-HV2</span>
+<span class="text-outline text-label-micro">|</span>
+<span class="font-label-code text-label-micro text-secondary font-semibold">HS CODE: 8421.29.90</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary font-semibold hover:text-secondary cursor-pointer leading-tight">
+                Transformer Oil Filtration Plant 6,000 LPH, High Vacuum Two-Stage
+              </h2>
+<p class="mt-space-xs font-body-xs text-body-xs text-on-surface-variant leading-relaxed">
+<strong class="text-on-surface">2-Stage Vacuum Degassing &amp; Dehydration</strong> · 0.5 Micron Micro-Glass Filter · 60 kW Multi-Stage Low Watt-Density Heating · Breakdown Voltage &gt; 70 kV dielectric strength · Moisture ≤ 3 ppm · Gas content &lt; 0.1% · Crate: 2.8 × 1.4 × 2.0 m, 2,100 kg · <span class="text-primary font-semibold">28-Day Lead Time</span>
+</p>
+</div>
+<div class="pt-space-sm flex flex-wrap items-center gap-space-md text-body-xs font-body-xs text-outline">
+<span class="text-on-surface font-semibold flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-tertiary">precision_manufacturing</span>
+                Apex Power Equipments
+              </span>
+<span>Vadodara, Gujarat</span>
+<span class="flex items-center gap-space-xs text-primary font-spec-numeral font-semibold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Verified (Since 2011)
+              </span>
+<span class="bg-surface-container-high text-primary px-space-xs rounded-DEFAULT font-label-micro font-semibold">Exported 140+ Units to North America</span>
+</div>
+</div>
+<div class="w-full xl:w-72 shrink-0 bg-surface-container-low p-space-md rounded-DEFAULT flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-label-micro font-label-code pb-space-xs">
+<span class="text-outline uppercase">FOB Kandla / Mundra:</span>
+<span class="font-spec-numeral text-on-surface font-semibold">$21,400 <span class="font-normal text-outline">/ set</span></span>
+</div>
+<div class="pt-space-xs bg-surface-container-lowest p-space-xs rounded-DEFAULT">
+<span class="font-label-code text-label-micro text-secondary block font-semibold uppercase">
+                  Delivered to Jersey City, NJ:
+                </span>
+<div class="flex items-center justify-between mt-space-xs">
+<span class="font-body-xs text-body-xs text-on-surface flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px]">sailing</span> By Sea:
+                  </span>
+<span class="font-spec-numeral text-headline-sm text-headline-sm text-primary font-bold">
+                    $24,850
+                  </span>
+</div>
+<div class="flex items-center justify-between text-label-micro font-label-code text-outline">
+<span>~36 Days delivery</span>
+<span>Heavy Crate Wood Heat Treated</span>
+</div>
+<div class="flex items-center justify-between mt-space-xs pt-space-xs">
+<span class="font-label-micro font-label-code text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[13px]">flight</span> Air Charter:
+                  </span>
+<span class="font-spec-numeral text-label-code font-semibold text-on-surface">
+                    $31,200 (8-10d)
+                  </span>
+</div>
+</div>
+</div>
+<div class="pt-space-xs">
+<span class="block font-label-micro text-label-micro text-outline leading-tight">
+                Includes full export crating, ISPM-15 phytosanitary cert, US Customs single entry bond &amp; terminal drayage.
+              </span>
+</div>
+</div>
+<div class="w-full xl:w-44 shrink-0 flex flex-col justify-between py-space-xs items-stretch xl:items-end">
+<div class="w-full space-y-space-xs">
+<button class="w-full h-8 px-space-md bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-headline-sm rounded-DEFAULT transition-colors flex items-center justify-center gap-space-xs shadow-sm">
+<span>View Specs</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+<button class="w-full h-8 px-space-md bg-surface-container-lowest hover:bg-surface-container-low text-on-surface font-headline-sm text-headline-sm rounded-DEFAULT transition-colors flex items-center justify-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">request_quote</span>
+<span>Get Quote</span>
+</button>
+</div>
+<label class="flex items-center gap-space-xs mt-space-sm cursor-pointer select-none text-label-code font-label-code text-outline hover:text-on-surface">
+<input class="w-3.5 h-3.5 accent-primary rounded-DEFAULT" type="checkbox"/>
+<span>Compare (2 of 4)</span>
+</label>
+</div>
+</article>
+<!-- ROW 3: Hydraulic Oil Filtration & Flushing Unit 1,200 LPH -->
+<article class="group relative flex flex-col xl:flex-row items-stretch p-space-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors duration-150 gap-space-md">
+<div class="w-full sm:w-44 xl:w-44 shrink-0 flex flex-col justify-between">
+<div class="relative w-full h-32 bg-surface-container overflow-hidden rounded-DEFAULT">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Compact portable industrial hydraulic oil filtration cart on heavy duty polyurethane caster wheels with dual cylindrical stainless filter housings, pressure gauge indicators, and high efficiency electric motor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKWt_iKjsaVLl7wlX3wHNesYAnsAmXMH_DNXgVHoho12ENnWV8ZmpM7-RbzK47J6RHDI_KYxxAE7vBosaOY3oDShVQeNBvax8ceT79qSwjavaz8SaJspktfgK2HGB8oACGSF33a_deYi8cVmMPkXXHcKiaHQ6MVJ_yJ7yr3htXgB9KQ3TzOtbxRb3wD0YZEeCuZd_xwG0vXud2lHeO2mEMa1ozLX5IVoGNDW9Y3KM"/>
+<span class="absolute top-1 left-1 bg-surface-container-highest text-primary font-label-micro text-label-micro px-space-xs py-space-xs rounded-DEFAULT font-semibold">
+                IN STOCK (US FAST SHIP)
+              </span>
+</div>
+<div class="mt-space-xs flex items-center justify-between text-label-micro font-label-code text-outline">
+<span>Beta 200 Spec</span>
+<span class="font-spec-numeral">Weight: 280 kg</span>
+</div>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between py-space-xs">
+<div>
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="font-label-code text-label-code text-primary font-semibold">MODEL: HOF-1200-MOB</span>
+<span class="text-outline text-label-micro">|</span>
+<span class="font-label-code text-label-micro text-secondary font-semibold">HS CODE: 8421.29.00</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary font-semibold hover:text-secondary cursor-pointer leading-tight">
+                Hydraulic Oil Filtration &amp; Flushing Unit 1,200 LPH Mobile Trolley
+              </h2>
+<p class="mt-space-xs font-body-xs text-body-xs text-on-surface-variant leading-relaxed">
+<strong class="text-on-surface">Portable Mobile Trolley</strong> · 2-Stage Filtration (10 micron primary / 3 micron Beta 200 secondary) · 3 HP TEFC Electric Motor · 480V / 3-Phase / 60 Hz · Gear pump flow rate 20 LPM · Differential pressure pop-up indicators · Compact footprint: 0.9 × 0.7 × 1.2 m · <span class="text-primary font-semibold">In Stock (7-day lead time)</span>
+</p>
+</div>
+<div class="pt-space-sm flex flex-wrap items-center gap-space-md text-body-xs font-body-xs text-outline">
+<span class="text-on-surface font-semibold flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-tertiary">factory</span>
+                FluidTech Systems
+              </span>
+<span>Ahmedabad, India</span>
+<span class="flex items-center gap-space-xs text-primary font-spec-numeral font-semibold">
+<span class="material-symbols-outlined text-[14px]">verified</span> Verified Exporter · ISO 9001:2015
+              </span>
+<span class="font-spec-numeral text-on-surface">12 US Plant Deployments</span>
+</div>
+</div>
+<div class="w-full xl:w-72 shrink-0 bg-surface-container-low p-space-md rounded-DEFAULT flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-label-micro font-label-code pb-space-xs">
+<span class="text-outline uppercase">FOB Ahmedabad:</span>
+<span class="font-spec-numeral text-on-surface font-semibold">$4,100 <span class="font-normal text-outline">/ set</span></span>
+</div>
+<div class="pt-space-xs bg-surface-container-lowest p-space-xs rounded-DEFAULT">
+<span class="font-label-code text-label-micro text-secondary block font-semibold uppercase">
+                  Delivered to Jersey City, NJ:
+                </span>
+<div class="flex items-center justify-between mt-space-xs">
+<span class="font-body-xs text-body-xs text-on-surface flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px]">sailing</span> By Sea (LCL):
+                  </span>
+<span class="font-spec-numeral text-headline-sm text-headline-sm text-primary font-bold">
+                    $4,890
+                  </span>
+</div>
+<div class="flex items-center justify-between text-label-micro font-label-code text-outline">
+<span>~30 Days delivered</span>
+<span>Palletized &amp; Banded</span>
+</div>
+<div class="flex items-center justify-between mt-space-xs pt-space-xs">
+<span class="font-label-micro font-label-code text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[13px]">flight</span> Air Expedited:
+                  </span>
+<span class="font-spec-numeral text-label-code font-semibold text-on-surface">
+                    $6,150 (~6d)
+                  </span>
+</div>
+</div>
+</div>
+<div class="pt-space-xs">
+<span class="block font-label-micro text-label-micro text-outline leading-tight">
+                Door-delivered with liftgate truck delivery directly to industrial loading bay.
+              </span>
+</div>
+</div>
+<div class="w-full xl:w-44 shrink-0 flex flex-col justify-between py-space-xs items-stretch xl:items-end">
+<div class="w-full space-y-space-xs">
+<button class="w-full h-8 px-space-md bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-headline-sm rounded-DEFAULT transition-colors flex items-center justify-center gap-space-xs shadow-sm">
+<span>View Specs</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+<button class="w-full h-8 px-space-md bg-surface-container-lowest hover:bg-surface-container-low text-on-surface font-headline-sm text-headline-sm rounded-DEFAULT transition-colors flex items-center justify-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">request_quote</span>
+<span>Get Quote</span>
+</button>
+</div>
+<label class="flex items-center gap-space-xs mt-space-sm cursor-pointer select-none text-label-code font-label-code text-outline hover:text-on-surface">
+<input class="w-3.5 h-3.5 accent-primary rounded-DEFAULT" type="checkbox"/>
+<span>Compare</span>
+</label>
+</div>
+</article>
+<!-- ROW 4: Cross-Category Industrial Steel (ERW Steel Pipe 2" SCH 40) -->
+<article class="group relative flex flex-col xl:flex-row items-stretch p-space-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors duration-150 gap-space-md">
+<div class="w-full sm:w-44 xl:w-44 shrink-0 flex flex-col justify-between">
+<div class="relative w-full h-32 bg-surface-container overflow-hidden rounded-DEFAULT">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Hexagonal bundles of black carbon steel ERW pipes stacked in an open port stockyard, clearly beveled ends, mill stencils, steel banding straps, industrial cargo crane in background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhC4mHXtsA4pu1RiqFoLjYLS8ushUNPGRqjGZ4fypDHzm_6OP1swSapHzYeSA0BIhEIpAi_3-IdbjVQTaAngM54Je5dT7nibC0ocOSDK3rqheIwVshNMS_z7YxZv77t8y_p0RUnUIl2HqTiUh5yly24Cdo7ip2y5qKAX5xfQdIYr_CNYTTD3p4158m0SvPKdVTePp1pojlWU8g7KDFgODEdZbM8xD8GIWP64ratso"/>
+<span class="absolute top-1 left-1 bg-surface-container-high text-primary font-label-micro text-label-micro px-space-xs py-space-xs rounded-DEFAULT font-semibold">
+                RAW MATERIAL / PIPING
+              </span>
+</div>
+<div class="mt-space-xs flex items-center justify-between text-label-micro font-label-code text-outline">
+<span>ASTM A53 Gr B</span>
+<span class="font-spec-numeral">MTC EN 10204 3.1</span>
+</div>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between py-space-xs">
+<div>
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="font-label-code text-label-code text-primary font-semibold">MILL SPEC: A53-SCH40-2IN</span>
+<span class="text-outline text-label-micro">|</span>
+<span class="font-label-code text-label-micro text-secondary font-semibold">HTS: 7306.30.50</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary font-semibold hover:text-secondary cursor-pointer leading-tight">
+                ERW Steel Pipe 2" SCH 40 ASTM A53 Grade B, Plain Beveled End
+              </h2>
+<p class="mt-space-xs font-body-xs text-body-xs text-on-surface-variant leading-relaxed">
+<strong class="text-on-surface">Outer Diameter 60.3 mm (2.375")</strong> · Wall Thickness 3.91 mm (0.154") · Standard Length 21 ft (6.4 m) · Hydrostatically tested &amp; Eddy Current inspected · Bundles of 37 pieces with dual steel tag identification · Mill Test Certificate 3.1 included · <span class="text-primary font-semibold">Immediate Port Stock</span>
+</p>
+</div>
+<div class="pt-space-sm flex flex-wrap items-center gap-space-md text-body-xs font-body-xs text-outline">
+<span class="text-on-surface font-semibold flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-tertiary">domain</span>
+                Kutch Tubes, Anjar
+              </span>
+<span>Gandhidham, Gujarat</span>
+<span class="text-primary font-spec-numeral font-semibold">Mill Audited</span>
+<span class="bg-surface-container-high text-primary px-space-xs rounded-DEFAULT font-label-micro font-semibold">Section 232 Tariff Compliant</span>
+</div>
+</div>
+<div class="w-full xl:w-72 shrink-0 bg-surface-container-low p-space-md rounded-DEFAULT flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-label-micro font-label-code pb-space-xs">
+<span class="text-outline uppercase">FOB Kandla:</span>
+<span class="font-spec-numeral text-on-surface font-semibold">$824 <span class="font-normal text-outline">/ MT</span></span>
+</div>
+<div class="pt-space-xs bg-surface-container-lowest p-space-xs rounded-DEFAULT">
+<span class="font-label-code text-label-micro text-secondary block font-semibold uppercase">
+                  Delivered Houston / Newark (Port):
+                </span>
+<div class="flex items-center justify-between mt-space-xs">
+<span class="font-body-xs text-body-xs text-on-surface flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px]">directions_boat</span> By Sea FCL:
+                  </span>
+<span class="font-spec-numeral text-headline-sm text-headline-sm text-primary font-bold">
+                    $1,148 <span class="font-label-micro font-normal text-outline">/ MT</span>
+</span>
+</div>
+<div class="flex items-center justify-between text-label-micro font-label-code text-outline">
+<span>MOQ: 25 MT (1×20ft Container)</span>
+<span>Breakbulk Available</span>
+</div>
+</div>
+</div>
+<div class="pt-space-xs">
+<span class="block font-label-micro text-label-micro text-outline leading-tight">
+                Tariff-paid DDP quote including US Sec 232 steel duties and ocean breakbulk/container slots.
+              </span>
+</div>
+</div>
+<div class="w-full xl:w-44 shrink-0 flex flex-col justify-between py-space-xs items-stretch xl:items-end">
+<div class="w-full space-y-space-xs">
+<button class="w-full h-8 px-space-md bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-headline-sm rounded-DEFAULT transition-colors flex items-center justify-center gap-space-xs shadow-sm">
+<span>Configure Tonnage</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+<button class="w-full h-8 px-space-md bg-surface-container-lowest hover:bg-surface-container-low text-on-surface font-headline-sm text-headline-sm rounded-DEFAULT transition-colors flex items-center justify-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">request_quote</span>
+<span>Port Tariff Sheet</span>
+</button>
+</div>
+<label class="flex items-center gap-space-xs mt-space-sm cursor-pointer select-none text-label-code font-label-code text-outline hover:text-on-surface">
+<input class="w-3.5 h-3.5 accent-primary rounded-DEFAULT" type="checkbox"/>
+<span>Compare</span>
+</label>
+</div>
+</article>
+<!-- ROW 5: Technical Urea 46% N Nitrogen Fertilizer -->
+<article class="group relative flex flex-col xl:flex-row items-stretch p-space-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors duration-150 gap-space-md">
+<div class="w-full sm:w-44 xl:w-44 shrink-0 flex flex-col justify-between">
+<div class="relative w-full h-32 bg-surface-container overflow-hidden rounded-DEFAULT">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Palletized rows of 50kg white woven polypropylene bags of technical urea chemical granules, stored in secure clean port chemical bulk terminal warehouse with forklift loading dock." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyvnv83E01klFT0czlqpQksIAkzb0Y1ubI6oBEgbxd8aKe_pWBSjOYrwgfRd_d4uzQiOM0-zxtoe7w80DwDrTqoy3yESC451uykz2poNF_fzQIq6uBEUeYF1SmJHHiv4Oqd1734pgMxJ4IwfZI5ML6DybpX7UDyb1JK76HopYdJz64du8R0PTJcEcW0g8oWEclMXQs7ZdbRJZlf4jOVkUDjx8xvRj2Reh0K5jqPHY"/>
+<span class="absolute top-1 left-1 bg-surface-container-high text-primary font-label-micro text-label-micro px-space-xs py-space-xs rounded-DEFAULT font-semibold">
+                AGRI &amp; INDUSTRIAL CHEMICALS
+              </span>
+</div>
+<div class="mt-space-xs flex items-center justify-between text-label-micro font-label-code text-outline">
+<span>CAS 57-13-6</span>
+<span class="font-spec-numeral">Purity 99.2%</span>
+</div>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between py-space-xs">
+<div>
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="font-label-code text-label-code text-primary font-semibold">GRADE: IND-UREA-46N</span>
+<span class="text-outline text-label-micro">|</span>
+<span class="font-label-code text-label-micro text-secondary font-semibold">HTS: 3102.10.00</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary font-semibold hover:text-secondary cursor-pointer leading-tight">
+                Technical Urea 46% N Nitrogen Fertilizer, Granular, 50 kg Woven Poly Bags
+              </h2>
+<p class="mt-space-xs font-body-xs text-body-xs text-on-surface-variant leading-relaxed">
+<strong class="text-on-surface">Total Nitrogen ≥ 46.0% min</strong> · Biuret &lt; 1.0% · Moisture &lt; 0.5% · 2.0 – 4.75 mm Granules 90% min · 50 kg HDPE outer woven bags with PE inner moisture barrier · SGS / Intertek Pre-Shipment Inspection available · <span class="text-primary font-semibold">Direct Vessel Berth Access</span>
+</p>
+</div>
+<div class="pt-space-sm flex flex-wrap items-center gap-space-md text-body-xs font-body-xs text-outline">
+<span class="text-on-surface font-semibold flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-tertiary">warehouse</span>
+                Kandla Agri &amp; Chemical Exports
+              </span>
+<span>Kandla Port, Gujarat</span>
+<span class="text-primary font-spec-numeral font-semibold">Star Export House</span>
+<span class="bg-surface-container-high text-primary px-space-xs rounded-DEFAULT font-label-micro font-semibold">EPA / USDA Registered Corridors</span>
+</div>
+</div>
+<div class="w-full xl:w-72 shrink-0 bg-surface-container-low p-space-md rounded-DEFAULT flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-label-micro font-label-code pb-space-xs">
+<span class="text-outline uppercase">FOB Kandla:</span>
+<span class="font-spec-numeral text-on-surface font-semibold">$398 <span class="font-normal text-outline">/ MT</span></span>
+</div>
+<div class="pt-space-xs bg-surface-container-lowest p-space-xs rounded-DEFAULT">
+<span class="font-label-code text-label-micro text-secondary block font-semibold uppercase">
+                  Delivered US East Coast Port:
+                </span>
+<div class="flex items-center justify-between mt-space-xs">
+<span class="font-body-xs text-body-xs text-on-surface flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px]">directions_boat</span> Sea FCL / Bulk:
+                  </span>
+<span class="font-spec-numeral text-headline-sm text-headline-sm text-primary font-bold">
+                    $475 <span class="font-label-micro font-normal text-outline">/ MT</span>
+</span>
+</div>
+<div class="flex items-center justify-between text-label-micro font-label-code text-outline">
+<span>MOQ: 25 MT (1 FCL)</span>
+<span>Bulk Vessel Lots: Inquire</span>
+</div>
+</div>
+</div>
+<div class="pt-space-xs">
+<span class="block font-label-micro text-label-micro text-outline leading-tight">
+                Includes full customs documentation, fumigation certificate, and ocean freight to Charleston/Savannah/Newark.
+              </span>
+</div>
+</div>
+<div class="w-full xl:w-44 shrink-0 flex flex-col justify-between py-space-xs items-stretch xl:items-end">
+<div class="w-full space-y-space-xs">
+<button class="w-full h-8 px-space-md bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-headline-sm rounded-DEFAULT transition-colors flex items-center justify-center gap-space-xs shadow-sm">
+<span>Request FCL Quote</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+<button class="w-full h-8 px-space-md bg-surface-container-lowest hover:bg-surface-container-low text-on-surface font-headline-sm text-headline-sm rounded-DEFAULT transition-colors flex items-center justify-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">lab_profile</span>
+<span>Certificate of Analysis</span>
+</button>
+</div>
+<label class="flex items-center gap-space-xs mt-space-sm cursor-pointer select-none text-label-code font-label-code text-outline hover:text-on-surface">
+<input class="w-3.5 h-3.5 accent-primary rounded-DEFAULT" type="checkbox"/>
+<span>Compare</span>
+</label>
+</div>
+</article>
+<!-- ROW 6: Commercial Heavy-Gauge Aluminium Cookware Set -->
+<article class="group relative flex flex-col xl:flex-row items-stretch p-space-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors duration-150 gap-space-md">
+<div class="w-full sm:w-44 xl:w-44 shrink-0 flex flex-col justify-between">
+<div class="relative w-full h-32 bg-surface-container overflow-hidden rounded-DEFAULT">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Heavy gauge industrial restaurant aluminium stock pots and deep round kadais neatly stacked in showroom with thick riveted handles and brushed satin finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQc30rOi-I-12giJCM9SbjXUn70jMycYt8o86AoAd5Ypw9dpBLpqfUmOgsmigy_eyJpuimcY11tL0SiTQFnRrgkQuHxo-PG0PQe4iL7KP-e-qncvaK1ZVqMhgk8NtfLsVFFw9dk8qPyUM0ASKfB971kyCvB9sp5uAbAI2AV_QIu4qLCaeSuWbu9Dzz7-USmGflzrGbHnh4SF7sFXLiqmZRlWq5bR5TtlynuBpmrYc"/>
+<span class="absolute top-1 left-1 bg-surface-container-high text-primary font-label-micro text-label-micro px-space-xs py-space-xs rounded-DEFAULT font-semibold">
+                COMMERCIAL KITCHENWARE
+              </span>
+</div>
+<div class="mt-space-xs flex items-center justify-between text-label-micro font-label-code text-outline">
+<span>NSF Food Grade</span>
+<span class="font-spec-numeral">4.0 mm Thickness</span>
+</div>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between py-space-xs">
+<div>
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="font-label-code text-label-code text-primary font-semibold">SERIES: KS-COM-ALUM</span>
+<span class="text-outline text-label-micro">|</span>
+<span class="font-label-code text-label-micro text-secondary font-semibold">HTS: 7615.10.91</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary font-semibold hover:text-secondary cursor-pointer leading-tight">
+                Kailash Sagar Commercial Heavy-Gauge Aluminium Cookware Set (Stock Pots &amp; Kadai)
+              </h2>
+<p class="mt-space-xs font-body-xs text-body-xs text-on-surface-variant leading-relaxed">
+<strong class="text-on-surface">Commercial Grade 4mm Pure 99.5% Aluminium</strong> · Capacity range 20L to 80L · Heavy solid riveted stainless-steel stay-cool handles · Extra flat machined bottom for rapid induction/gas conductivity · Master export carton of 6 sets · <span class="text-primary font-semibold">Lead Time 14 days</span>
+</p>
+</div>
+<div class="pt-space-sm flex flex-wrap items-center gap-space-md text-body-xs font-body-xs text-outline">
+<span class="text-on-surface font-semibold flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-tertiary">cookie</span>
+                Kailash Sagar Metal Works
+              </span>
+<span>Rajkot, Gujarat</span>
+<span class="text-primary font-spec-numeral font-semibold">Verified Manufacturer</span>
+<span class="bg-surface-container-high text-primary px-space-xs rounded-DEFAULT font-label-micro font-semibold">US Restaurant Distributor Approved</span>
+</div>
+</div>
+<div class="w-full xl:w-72 shrink-0 bg-surface-container-low p-space-md rounded-DEFAULT flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-label-micro font-label-code pb-space-xs">
+<span class="text-outline uppercase">Factory Price:</span>
+<span class="font-spec-numeral text-on-surface font-semibold">$148 <span class="font-normal text-outline">/ carton</span></span>
+</div>
+<div class="pt-space-xs bg-surface-container-lowest p-space-xs rounded-DEFAULT">
+<span class="font-label-code text-label-micro text-secondary block font-semibold uppercase">
+                  Delivered to NJ Door:
+                </span>
+<div class="flex items-center justify-between mt-space-xs">
+<span class="font-body-xs text-body-xs text-on-surface flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span> Sea LCL / Door:
+                  </span>
+<span class="font-spec-numeral text-headline-sm text-headline-sm text-primary font-bold">
+                    $192 <span class="font-label-micro font-normal text-outline">/ carton</span>
+</span>
+</div>
+<div class="flex items-center justify-between text-label-micro font-label-code text-outline">
+<span>MOQ: 10 cartons (60 sets)</span>
+<span>FDA Food Contact Cert</span>
+</div>
+</div>
+</div>
+<div class="pt-space-xs">
+<span class="block font-label-micro text-label-micro text-outline leading-tight">
+                Door delivered to restaurant depots / warehouses. Includes ocean transit, custom broker bond &amp; liftgate truck.
+              </span>
+</div>
+</div>
+<div class="w-full xl:w-44 shrink-0 flex flex-col justify-between py-space-xs items-stretch xl:items-end">
+<div class="w-full space-y-space-xs">
+<button class="w-full h-8 px-space-md bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-headline-sm rounded-DEFAULT transition-colors flex items-center justify-center gap-space-xs shadow-sm">
+<span>Order Cartons</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+<button class="w-full h-8 px-space-md bg-surface-container-lowest hover:bg-surface-container-low text-on-surface font-headline-sm text-headline-sm rounded-DEFAULT transition-colors flex items-center justify-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">inventory</span>
+<span>Request Sample</span>
+</button>
+</div>
+<label class="flex items-center gap-space-xs mt-space-sm cursor-pointer select-none text-label-code font-label-code text-outline hover:text-on-surface">
+<input class="w-3.5 h-3.5 accent-primary rounded-DEFAULT" type="checkbox"/>
+<span>Compare</span>
+</label>
+</div>
+</article>
+</div>
+<!-- PAGINATION & BOTTOM COMPLIANCE STRIP -->
+<div class="w-full bg-surface-container-lowest p-space-md rounded-DEFAULT shadow-sm flex flex-col sm:flex-row items-center justify-between gap-space-md mt-space-xs">
+<!-- Result count counter -->
+<div class="flex items-center gap-space-md text-body-xs font-body-xs text-on-surface-variant">
+<span>Showing <strong class="text-on-surface font-spec-numeral">1 – 6</strong> of <strong class="text-on-surface font-spec-numeral">18</strong> matching industrial lines</span>
+<span class="text-outline">|</span>
+<div class="flex items-center gap-space-xs">
+<span class="text-label-code font-label-code">Rows per view:</span>
+<select class="bg-surface font-label-code text-label-code text-on-surface px-space-xs py-space-xs rounded-DEFAULT focus:outline-none cursor-pointer">
+<option>6</option>
+<option selected="">20</option>
+<option>50</option>
+<option>100</option>
+</select>
+</div>
+</div>
+<!-- Strict Pagination controls -->
+<div class="flex items-center gap-space-xs font-spec-numeral text-label-code">
+<button class="h-7 px-space-md bg-surface-container-low text-outline rounded-DEFAULT cursor-not-allowed flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px]">arrow_back</span>
+            Prev
+          </button>
+<button class="h-7 w-7 bg-primary text-on-primary font-bold rounded-DEFAULT flex items-center justify-center shadow-sm">
+            1
+          </button>
+<button class="h-7 w-7 bg-surface-container-low hover:bg-surface-container-highest text-on-surface rounded-DEFAULT flex items-center justify-center">
+            2
+          </button>
+<button class="h-7 w-7 bg-surface-container-low hover:bg-surface-container-highest text-on-surface rounded-DEFAULT flex items-center justify-center">
+            3
+          </button>
+<button class="h-7 px-space-md bg-surface-container-low hover:bg-surface-container-highest text-on-surface rounded-DEFAULT flex items-center gap-space-xs">
+            Next
+            <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- High Density RFQ Sticky Drawer Trigger Bar -->
+<div class="w-full bg-surface-container-high px-space-md py-space-sm rounded-DEFAULT flex flex-col md:flex-row items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-DEFAULT bg-secondary flex items-center justify-center text-on-secondary shrink-0">
+<span class="material-symbols-outlined text-[18px]">build_circle</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-primary">Need a custom ASME / CE Certified Oil Filtration Skid?</p>
+<p class="font-body-xs text-body-xs text-on-surface-variant">Upload engineering P&amp;ID, flow specifications, or BOM. Direct factory engineering teams in Gujarat provide 24-hour turnaround.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="h-8 px-space-lg bg-secondary hover:bg-secondary-container text-on-secondary font-headline-sm text-headline-sm rounded-DEFAULT transition-colors flex items-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[16px]">upload_file</span>
+            Upload Technical Drawing / RFQ
+          </button>
+</div>
+</div>
+</main>
+</div>
+</div>
+<script>
+  // Dynamic switch between Factory FOB and Delivered DAP/DDP view modes
+  const btnFactory = document.getElementById('toggle-factory');
+  const btnDelivered = document.getElementById('toggle-delivered');
+
+  if (btnFactory && btnDelivered) {
+    btnFactory.addEventListener('click', () => {
+      btnFactory.className = 'px-space-md py-space-xs rounded-DEFAULT bg-primary text-on-primary text-label-micro font-label-code font-semibold shadow-sm transition-colors';
+      btnDelivered.className = 'px-space-md py-space-xs rounded-DEFAULT text-label-micro font-label-code text-on-surface-variant hover:text-on-surface transition-colors';
+    });
+
+    btnDelivered.addEventListener('click', () => {
+      btnDelivered.className = 'px-space-md py-space-xs rounded-DEFAULT bg-primary text-on-primary text-label-micro font-label-code font-semibold shadow-sm transition-colors';
+      btnFactory.className = 'px-space-md py-space-xs rounded-DEFAULT text-label-micro font-label-code text-on-surface-variant hover:text-on-surface transition-colors';
+    });
+  }
+</script></main><footer class="w-full bg-primary text-on-primary border-t-2 border-primary-container"><div class="w-full px-margin-desktop py-space-xl"><div class="grid grid-cols-1 md:grid-cols-4 gap-gutter-desktop pb-space-lg border-b border-outline/30"><div class="space-y-space-sm"><div class="flex items-center gap-space-sm"><div class="w-6 h-6 bg-primary-container flex items-center justify-center rounded-DEFAULT border border-tertiary-fixed-dim"><span class="font-label-code text-label-code text-on-primary font-bold">PCP</span></div><span class="font-headline-sm text-headline-sm text-on-primary tracking-tight">PRIME CARGO PEOPLE</span></div><p class="font-body-xs text-body-xs text-on-primary-container leading-relaxed">Trans-continental B2B industrial procurement and port-to-door forwarding. Engineering-grade sourcing direct from primary manufacturers to US industrial facilities.</p><div class="pt-space-xs font-label-micro text-label-micro text-tertiary-fixed-dim"><p>FMC-licensed ocean transportation intermediary</p><p>Licensed US customs broker</p></div></div><div class="space-y-space-xs"><span class="font-label-code text-label-code text-secondary-fixed block uppercase tracking-wider">New Jersey HQ (USA)</span><p class="font-body-xs text-body-xs text-on-primary leading-tight font-headline-sm">Prime Cargo People Inc.</p><p class="font-body-xs text-body-xs text-on-primary-container">Jersey City waterfront</p><p class="font-body-xs text-body-xs text-on-primary-container">Jersey City, NJ, United States</p><p class="font-spec-numeral text-spec-numeral text-tertiary-fixed-dim pt-space-xs">het@primecargopeople.com</p><p class="font-label-micro text-label-micro text-on-primary-container">Port Access: NY/NJ Marine Terminals</p></div><div class="space-y-space-xs"><span class="font-label-code text-label-code text-secondary-fixed block uppercase tracking-wider">Origin Desk: Ahmedabad (INDIA)</span><p class="font-body-xs text-body-xs text-on-primary leading-tight font-headline-sm">Prime Cargo People, India office</p><p class="font-body-xs text-body-xs text-on-primary-container"></p><p class="font-body-xs text-body-xs text-on-primary-container">Ahmedabad, Gujarat, India</p><p class="font-spec-numeral text-spec-numeral text-tertiary-fixed-dim pt-space-xs">Origin inspection &amp; export desk</p><p class="font-label-micro text-label-micro text-on-primary-container">Port Corridors: Mundra Port &amp; Kandla Port</p></div><div class="space-y-space-xs"><span class="font-label-code text-label-code text-secondary-fixed block uppercase tracking-wider">Accreditations &amp; Fast Desk</span><ul class="font-body-xs text-body-xs text-on-primary-container space-y-space-xs"><li>• FMC-licensed ocean forwarder</li><li>• Licensed US customs broker</li><li>• Origin inspection desk, Ahmedabad</li><li>• Sample listings for preview</li></ul><div class="pt-space-sm"><a class="inline-block px-space-md py-space-xs bg-primary-container text-on-primary hover:bg-surface-tint font-label-code text-label-code border border-outline-variant/40 rounded-DEFAULT" data-path="orders-and-rfqs" href="#">SUBMIT DIRECT BOM / RFQ</a></div></div></div><div class="pt-space-md flex flex-col md:flex-row items-center justify-between text-on-primary-container font-label-micro text-label-micro"><p>© 2026 Prime Cargo People Inc. &amp; PCP Industrial Logistics. All rights reserved. Strict mechanical specifications &amp; commercial trade terms governed under Incoterms 2020.</p><div class="flex items-center gap-space-lg font-spec-numeral"><a class="hover:text-on-primary" data-path="customs-compliance" href="#">Customs Compliance</a><a class="hover:text-on-primary" data-path="trade-terms" href="#">Incoterms &amp; Freight Tariffs</a><a class="hover:text-on-primary" data-path="bill-of-lading-terms" href="#">Ocean B/L Conditions</a></div></div></div></footer><script>
+document.addEventListener('click',function(e){var el=e.target.closest('a,button');if(!el)return;var t=(el.textContent||'').replace(/\s+/g,' ').trim();var href=el.getAttribute('href');
+ if(href&&href!=='#'&&!href.startsWith('#'))return;
+ if(/PLACE ORDER/i.test(t)){e.preventDefault();var d=document.createElement('div');d.textContent='Demo preview — no order placed. Contact het@primecargopeople.com to order.';d.style.cssText='position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#0F2D59;color:#fff;padding:12px 18px;font:500 14px IBM Plex Sans,sans-serif;border-radius:2px;z-index:9999';document.body.appendChild(d);setTimeout(function(){d.remove()},4000);return}
+ if(/ADD TO ORDER|Checkout/i.test(t)){e.preventDefault();location.href='/stitch-checkout';return}
+ if(/PRIME CARGO|^PCP/.test(t)||/^HOME$/i.test(t)){e.preventDefault();location.href='/stitch';return}
+ if(/Configure Specs|Delivered Quote|View Specs|Get Quote|Sample Kit|Get Landed|Lube Oil|OIL FILTRATION/i.test(t)){e.preventDefault();location.href='/stitch-product';return}
+ if(/Catalog|Industrial Equipment|Steel|Fertil|Agri|Kitchen|Chemicals|Polymers|Ceramic|Search|Find Part|View All|Explore|Browse|Trending|Direct Mill|Pipes|Sourcing|Machinery/i.test(t)){e.preventDefault();location.href='/stitch-catalog';return}
+},true);
+</script></body></html>
